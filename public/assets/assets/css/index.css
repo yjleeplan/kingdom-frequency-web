@@ -18,6 +18,72 @@ body,
   margin: 0 50px;
 }
 
+/* font color #C41C7F */
+.colorC41C7F {
+  color: #C41C7F;
+}
+
+/* Welcome Layout */
+#welcome-layout {
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex: auto;
+  flex-direction: column;
+  background-image: url(/src/assets/images/welcome-background.jpg);
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: cover;
+  /* background-color: currentColor; */
+  bottom: 0;
+  right: 0;
+  left: 0;
+  top: 0;
+  position: fixed;
+}
+
+#welcome-layout #content {
+  width: 80%;
+  height: 100%;
+  min-height: 94vh;
+  margin: auto;
+  flex: auto;
+}
+
+#welcome-layout .project-year {
+  position: fixed;
+  top: 6%;
+  font-weight: bold;
+}
+
+#welcome-layout .project-sub-title {
+  position: fixed;
+  top: 14%;
+  font-size: 20px;
+}
+
+#welcome-layout .project-title1 {
+  position: fixed;
+  top: 17%;
+  font-size: 45px;
+  font-weight: bold;
+}
+
+#welcome-layout .project-title2 {
+  position: fixed;
+  top: 23%;
+  font-size: 45px;
+  font-weight: bold;
+}
+
+#welcome-layout .touch-button-wrap {
+  width: 80%;
+  bottom: 15%;
+  position: fixed;
+  text-align: center;
+}
+/* Welcome Layout */
+
 /* Main Layout */
 .ant-spin-nested-loading {
   height: 100%;
