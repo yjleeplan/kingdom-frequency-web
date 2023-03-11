@@ -51,36 +51,32 @@ body,
 }
 
 #welcome-layout .project-year {
-  position: fixed;
-  top: 6%;
+  margin: 40px 0;
   font-weight: bold;
 }
 
 #welcome-layout .project-sub-title {
-  position: fixed;
-  top: 14%;
   font-size: 20px;
 }
 
-#welcome-layout .project-title1 {
-  position: fixed;
-  top: 17%;
+#welcome-layout .project-title {
   font-size: 45px;
   font-weight: bold;
+  line-height: 1em;
 }
 
-#welcome-layout .project-title2 {
-  position: fixed;
-  top: 23%;
-  font-size: 45px;
-  font-weight: bold;
-}
-
-#welcome-layout .touch-button-wrap {
+@keyframes blink-effect { 50% { opacity: 0; } } 
+#welcome-layout .touch-comment-wrap {
   width: 80%;
   bottom: 15%;
   position: fixed;
   text-align: center;
+  color: #FFF;
+  animation: blink-effect 1.8s ease-in-out infinite;
+}
+
+#welcome-layout .touch-comment-wrap .touch-image {
+  margin-bottom: 4px;
 }
 /* Welcome Layout */
 

@@ -1,5 +1,6 @@
-import { Col, Row, Button, Typography } from "antd";
+import { Col, Row, Button, Typography, Image } from "antd";
 import React, { useState } from "react";
+import iconFingerTap from "../../../assets/images/icon_finger_tap.svg";
 
 const { Text } = Typography;
 
@@ -21,27 +22,30 @@ const Welcome = ({ history, setIsLoading }) => {
           금광교회 결단 프로젝트
         </Col>
       </Row>
-      <Row className="project-title1">
+      <Row className="project-title">
         <Col span={24}>
           <Text className='colorC41C7F'>K</Text>INGDOM
-        </Col>
-      </Row>
-      <Row className="project-title2">
-        <Col span={24}>
+          <br/>
           <Text className='colorC41C7F'>F</Text>REQUEN<Text className='colorC41C7F'>C</Text>Y
         </Col>
       </Row>
-      <Row className="touch-button-wrap">
+      <Row className="touch-comment-wrap">
         <Col span={24}>
-          <Button
-            ghost
-            shape="round"
-            // type="dashed"
-            className="touch-button"
-            onClick={handleButtonClick}
-          >
-            TOUCH
-          </Button>
+          <Row className="touch-image">
+            <Col span={24}>
+              <Image
+                width={"20%"}
+                height={"100%"}
+                src={iconFingerTap}
+                preview={false}
+              />
+            </Col>
+          </Row>
+          <Row>
+            <Col span={24}>
+              화면을 터치해주세요
+            </Col>
+          </Row>
         </Col>
       </Row>
     </>
