@@ -1,13 +1,9 @@
-import { Col, Image, Row } from "antd";
+import { Col, Row, Typography, Card } from "antd";
 import React, { useState } from "react";
-import iconAttendance from "../../../assets/images/icon_attendance.png";
-import iconPicture from "../../../assets/images/icon_picture.png";
-import iconUserAdd from "../../../assets/images/icon_user_add.png";
-import iconVideo from "../../../assets/images/icon_video.png";
-import title from "../../../assets/images/title.png";
-import Comments from "../../common/Comments";
 import SearchAttendanceModal from "../../common/modal/SearchAttendanceModal/SearchAttendanceModal";
 import UserAddModal from "../../common/modal/UserAddModal/UserAddModal";
+
+const { Text } = Typography;
 
 const Main = ({ history, setIsLoading }) => {
   /** State */
@@ -34,79 +30,81 @@ const Main = ({ history, setIsLoading }) => {
     setSearchAttendanceModalVisible(false);
   };
 
-  // 영상 링크
-  const handleVideoClick = () => {
-    window.open(
-      "https://youtube.com/playlist?list=PLFdkyNDzHdpOUJR-2MuWbh_qtjz6MIVWA"
-    );
-  };
-
-  // 사진 링크
-  const handlePictureClick = () => {
-    window.open("https://naver.me/GjGF3A3d");
-  };
-
   return (
     <>
-      <Row className="user-attendance-modal-title">
+      <Row className="main-title">
         <Col span={24}>
-          <Image width={196} height={160} src={title} preview={false} />
+          <Text className='colorC41C7F'>K</Text>INGDOM
+          <br/>
+          <Text className='colorC41C7F'>F</Text>REQUEN<Text className='colorC41C7F'>C</Text>Y
         </Col>
       </Row>
-      <Row className="user-attendance-modal-icon">
-        <Col span={6} onClick={handleUserAddModalOpen} className="icon-wrap">
-          <Image
-            width={"80%"}
-            height={"100%"}
-            src={iconUserAdd}
-            preview={false}
-          />
+      <Row className="main-login-box">
+        <Col span={24}>
+          <Row>
+            <Col span={24}>
+              현재 <Text className='colorC41C7F'>1,200</Text>명 참여중!
+            </Col>
+          </Row>
+          <Row>
+            <Col span={14}>
+              
+            </Col>
+            <Col span={10}>
+              
+            </Col>
+          </Row>
+          <Row>
+            <Col span={24}>
+              
+            </Col>
+          </Row>
         </Col>
-        <Col
-          span={6}
-          onClick={handleSearchAttendanceModalOpen}
-          className="icon-wrap"
-        >
-          <Image
-            width={"80%"}
-            height={"100%"}
-            src={iconAttendance}
-            preview={false}
-          />
-        </Col>
-        <Col span={6} onClick={handleVideoClick} className="icon-wrap">
-          <Image
-            width={"80%"}
-            height={"100%"}
-            src={iconVideo}
-            preview={false}
-          />
-        </Col>
-        <Col span={6} onClick={handlePictureClick} className="icon-wrap">
-          <Image
-            width={"80%"}
-            height={"100%"}
-            src={iconPicture}
-            preview={false}
-          />
-        </Col>
-        <div id="userAddModal">
-          <UserAddModal
-            visible={userAddModalVisible}
-            onCancel={handleUserAddModalClose}
-            setIsLoading={setIsLoading}
-          />
-        </div>
-        <div id="searchAttendanceModal">
-          <SearchAttendanceModal
-            visible={searchAttendanceModalVisible}
-            onCancel={handleSearchAttendanceModalClose}
-            setIsLoading={setIsLoading}
-          />
-        </div>
       </Row>
-      {/* <VideoPlayer /> */}
-      <Comments setIsLoading={setIsLoading} />
+      <Row className="main-info">
+        <Col span={24}>
+          <Row className="main-info-title">
+            <Col span={24}>
+              Kingdom Frequency란?
+            </Col>
+          </Row>
+          <Row className="main-info-content">
+            <Col span={24}>
+              하나님 나라를 위한 작은 행동들이 계속해서 진동한다는 의미입니다.<br/>
+              우리의 삶은 하나님 나라가 계속해서 선택되고 드러날 수 있도록<br/>
+              계속해서 도전하는 것입니다.
+            </Col>
+          </Row>
+        </Col>
+      </Row>
+      <Row className="main-category">
+        <Col span={24}>
+          <Row>
+            <Col span={12} className="main-category-mz">
+              <Card>
+                <p>다음 세대</p>
+              </Card>
+            </Col>
+            <Col span={12} className="main-category-spirit">
+              <Card>
+                <p>영성</p>
+              </Card>
+            </Col>
+          </Row>
+          <Row>
+            <Col span={12} className="main-category-3040">
+              <Card>
+                <p>3040세대</p>
+              </Card>
+            </Col>
+            <Col span={12} className="main-category-climate">
+              <Card>
+                <p>기후</p>
+              </Card>
+            </Col>
+          </Row>
+        </Col>
+      </Row>
     </>
   );
 };
