@@ -9,3 +9,8 @@
     /* src: url('./Eulyoo1945-Regular.otf') format('opentype'); */
     src: url('./Eulyoo1945-SemiBold.ttf') format('truetype');
 }
+
+@font-face {
+    font-family: 'CodeNext-Trial-ExtraBold';
+    src: url('./CodeNext-Trial-ExtraBold.ttf') format('truetype');
+}
