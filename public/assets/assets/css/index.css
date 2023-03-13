@@ -561,6 +561,70 @@ body,
 }
 /* Admin */
 
+/* pc page */
+.on-pc-icon {
+  text-align: center;
+  font-size: 100px;
+  color: #faad14;
+}
+.on-pc-status-code {
+  display: block;
+  margin: 14px 0;
+  font-size: 22px;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: -0.4px;
+  text-align: center;
+  color: #000;
+}
+.on-pc-status-message {
+  display: block;
+  margin: 0 0 20px;
+  font-size: 16px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.43;
+  letter-spacing: -0.4px;
+  text-align: center;
+  word-break: keep-all;
+  color: #666;
+}
+/* pc page */
+
+/* 404 page */
+.not-found-icon {
+  text-align: center;
+  font-size: 100px;
+  color: #faad14;
+}
+.not-found-code {
+  display: block;
+  margin: 14px 0;
+  font-size: 22px;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: -0.4px;
+  text-align: center;
+  color: #000;
+}
+.not-found-message {
+  display: block;
+  margin: 0 0 20px;
+  font-size: 16px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.43;
+  letter-spacing: -0.4px;
+  text-align: center;
+  word-break: keep-all;
+  color: #666;
+}
+/* 404 page */
+
 /* PC */
 @media (min-width: 1024px) {
   #content {
