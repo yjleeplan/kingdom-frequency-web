@@ -86,7 +86,7 @@ const CategoryYoungAdult = ({ history, setIsLoading }) => {
           <p className="category-stamp-content">스티커를 모두 모으시면 뱃지가 지급됩니다.</p>
           <Row className="category-stamp-bottom">
             <Col span={24}>
-              <Row className="category-stamp-count">
+              <Row className="category-stamp-count bgc-3">
                 <Col span={15}>현재 나의 스티커 갯수</Col>
                 <Col span={2} className="category-stamp-count-bar"></Col>
                 <Col span={7}>1개</Col>

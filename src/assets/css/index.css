@@ -407,7 +407,7 @@ p {
   text-align: center;
 }
 
-#category-layout .category-stamp .category-stamp-title .color-3 {
+#category-layout .category-stamp .category-stamp-title .color-1, .color-2, .color-3, .color-4 {
   font-family: "GmarketSansTTFBold";
 }
 
@@ -441,10 +441,6 @@ p {
 #category-layout .category-stamp .category-stamp-bottom .category-stamp-count .category-stamp-count-bar {
   border-right: 1px solid;
   margin: 6px 0;
-}
-
-#category-layout.youngAdult .category-stamp-count {
-  background-color: #EA4E3D;
 }
 /* Category Layout */
 
