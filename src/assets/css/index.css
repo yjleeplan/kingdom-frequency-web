@@ -364,6 +364,14 @@ p {
   border-bottom: 1px solid #d9d9d9;
 }
 
+#category-layout .category-list .category-list-data .category-list-data-row.even {
+  background-color: #F6F6F6;
+}
+
+#category-layout .category-list .category-list-data .category-list-data-row.last {
+  border-bottom: 0;
+}
+
 #category-layout .category-list .category-list-data .category-list-data-col-1 {
   padding: 6px;
 }

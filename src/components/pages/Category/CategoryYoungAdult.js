@@ -53,8 +53,11 @@ const CategoryYoungAdult = ({ history, setIsLoading }) => {
             <Row className="category-list-data bl-3">
               <Col span={24}>
                 {_.map(tmpData, (item, index) => {
+                  const last = (index + 1) < tmpData.length ? "" : "last";
+                  const even = (index + 1) % 2 !== 0 ? "" : "even";
+
                   return (
-                    <Row key={index} className={index + 1 < tmpData.length ? "category-list-data-row" : ""}>
+                    <Row key={index} className={`category-list-data-row ${even} ${last}`}>
                       <Col span={1}  className="category-list-data-col-1">·</Col>
                       <Col span={21} className="category-list-data-col-2">{item['missionDesc']}</Col>
                       <Col span={2}  className="category-list-data-col-3"><Radio></Radio></Col>
