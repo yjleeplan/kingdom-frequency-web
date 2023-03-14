@@ -29,3 +29,18 @@
     font-family: 'GmarketSansTTFMedium';
     src: url('./GmarketSansTTFMedium.ttf') format('truetype');
 }
+
+@font-face {
+    font-family: 'NanumSquare_acR';
+    src: url('./NanumSquare_acR.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'NanumSquareEB';
+    src: url('./NanumSquareEB.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'NanumSquareB';
+    src: url('./NanumSquareB.ttf') format('truetype');
+}

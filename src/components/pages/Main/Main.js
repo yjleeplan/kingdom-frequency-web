@@ -1,5 +1,6 @@
 import { Col, Row, Typography, Card, Image, Button } from "antd";
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import SearchAttendanceModal from "../../common/modal/SearchAttendanceModal/SearchAttendanceModal";
 import UserAddModal from "../../common/modal/UserAddModal/UserAddModal";
 import iconFightingHand from "../../../assets/images/icon_fighting_hand.png";
@@ -35,9 +36,9 @@ const Main = ({ history, setIsLoading }) => {
     <>
       <Row className="main-title">
         <Col span={24}>
-          <Text className='colorC41C7F'>K</Text>INGDOM
+          <Text className='color-0'>K</Text>INGDOM
           <br/>
-          <Text className='colorC41C7F'>F</Text>REQUEN<Text className='colorC41C7F'>C</Text>Y
+          <Text className='color-0'>F</Text>REQUEN<Text className='color-0'>C</Text>Y
         </Col>
       </Row>
       <Row className="main-user-box">
@@ -46,7 +47,7 @@ const Main = ({ history, setIsLoading }) => {
             <Col span={14}>
               <Row>
                 <Col span={24} className="main-user-box-text-01">
-                  현재 <Text className='colorC41C7F'>1,200</Text>명 참여중!
+                  현재 <Text className='color-0'>1,200</Text>명 참여중!
                 </Col>
               </Row>
               <Row>
@@ -94,30 +95,38 @@ const Main = ({ history, setIsLoading }) => {
         <Col span={24}>
           <Row>
             <Col span={12} className="main-category-mz">
-              <Card bordered={false}>
-                <p className="main-category-title">다음 세대</p>
-                <p className="main-category-subtitle">MZ Generation</p>
-              </Card>
+              <Link to="/category/mzGeneration" style={{color: "inherit"}}>
+                <Card bordered={false}>
+                  <p className="main-category-title">다음 세대</p>
+                  <p className="main-category-subtitle">MZ Generation</p>
+                </Card>
+              </Link>
             </Col>
             <Col span={12} className="main-category-spirit">
-              <Card bordered={false}>
-                <p className="main-category-title">영성</p>
-                <p className="main-category-subtitle">Spirit</p>
-              </Card>
+              <Link to="/category/spirit" style={{color: "inherit"}}>
+                <Card bordered={false}>
+                  <p className="main-category-title">영성</p>
+                  <p className="main-category-subtitle">Spirit</p>
+                </Card>
+              </Link>
             </Col>
           </Row>
           <Row>
             <Col span={12} className="main-category-3040">
-              <Card bordered={false}>
-                <p className="main-category-title">3040세대</p>
-                <p className="main-category-subtitle">Young Adult</p>
-              </Card>
+              <Link to="/category/youngAdult" style={{color: "inherit"}}>
+                <Card bordered={false}>
+                  <p className="main-category-title">3040 세대</p>
+                  <p className="main-category-subtitle">Young Adult</p>
+                </Card>
+              </Link>
             </Col>
             <Col span={12} className="main-category-climate">
-              <Card bordered={false}>
-                <p className="main-category-title">기후</p>
-                <p className="main-category-subtitle">Climate</p>
-              </Card>
+              <Link to="/category/climate" style={{color: "inherit"}}>
+                <Card bordered={false}>
+                  <p className="main-category-title">기후</p>
+                  <p className="main-category-subtitle">Climate</p>
+                </Card>
+              </Link>
             </Col>
           </Row>
         </Col>
