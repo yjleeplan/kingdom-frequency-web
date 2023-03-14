@@ -22,7 +22,6 @@ const Routes = () => {
     <Router>
       <ScrollToTop />
       <Switch>
-        {isMobile() ? (
           <>
             <Route
               exact
@@ -42,21 +41,7 @@ const Routes = () => {
                 </WelcomeLayout>
               )}
             />
-            <Route
-              exact
-              path="*"
-              render={(props) => (
-                <Page404 {...props} />
-              )}
-            />
           </>
-        ) : (
-          <Route
-            render={(props) => (
-              <PagePC {...props} />
-            )}
-          />
-        )}
       </Switch>
     </Router>
   );

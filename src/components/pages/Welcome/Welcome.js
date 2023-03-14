@@ -1,15 +1,10 @@
-import { Col, Row, Button, Typography, Image } from "antd";
-import React, { useState } from "react";
+import { Col, Row, Typography, Image } from "antd";
+import React from "react";
 import iconFingerTap from "../../../assets/images/icon_finger_tap.svg";
 
 const { Text } = Typography;
 
 const Welcome = ({ history, setIsLoading }) => {
-  // Touch 버튼 클릭
-  const handleButtonClick = () => {
-    console.log('touch button click ...');
-  };
-
   return (
     <>
       <Row className="project-year">

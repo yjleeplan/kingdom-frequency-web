@@ -14,3 +14,18 @@
     font-family: 'CodeNext-Trial-ExtraBold';
     src: url('./CodeNext-Trial-ExtraBold.ttf') format('truetype');
 }
+
+@font-face {
+    font-family: 'GmarketSansTTFBold';
+    src: url('./GmarketSansTTFBold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'GmarketSansTTFLight';
+    src: url('./GmarketSansTTFLight.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'GmarketSansTTFMedium';
+    src: url('./GmarketSansTTFMedium.ttf') format('truetype');
+}
