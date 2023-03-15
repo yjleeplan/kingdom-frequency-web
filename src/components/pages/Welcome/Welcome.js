@@ -19,9 +19,9 @@ const Welcome = ({ history, setIsLoading }) => {
       </Row>
       <Row className="project-title">
         <Col span={24}>
-          <Text className='colorC41C7F'>K</Text>INGDOM
+          <Text className='color-0'>K</Text>INGDOM
           <br/>
-          <Text className='colorC41C7F'>F</Text>REQUEN<Text className='colorC41C7F'>C</Text>Y
+          <Text className='color-0'>F</Text>REQUEN<Text className='color-0'>C</Text>Y
         </Col>
       </Row>
       <Row className="touch-comment-wrap">

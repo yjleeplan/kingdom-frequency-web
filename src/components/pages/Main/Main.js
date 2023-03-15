@@ -1,7 +1,7 @@
 import { Col, Row, Typography, Card, Image, Button } from "antd";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import SearchAttendanceModal from "../../common/modal/SearchAttendanceModal/SearchAttendanceModal";
+import UserSelectModal from "../../common/modal/UserSelectModal/UserSelectModal";
 import UserAddModal from "../../common/modal/UserAddModal/UserAddModal";
 import iconFightingHand from "../../../assets/images/icon_fighting_hand.png";
 
@@ -10,7 +10,7 @@ const { Text } = Typography;
 const Main = ({ history, setIsLoading }) => {
   /** State */
   const [userAddModalVisible, setUserAddModalVisible] = useState(false);
-  const [searchAttendanceModalVisible, setSearchAttendanceModalVisible] = useState(false);
+  const [userSelectModalVisible, setUserSelectModalVisible] = useState(false);
 
   // 사용자 등록 모달 오픈
   const handleUserAddModalOpen = () => {
@@ -22,22 +22,21 @@ const Main = ({ history, setIsLoading }) => {
     setUserAddModalVisible(false);
   };
 
-  // 출석체크 모달 오픈
-  const handleSearchAttendanceModalOpen = () => {
-    setSearchAttendanceModalVisible(true);
+  // 사용자 선택 모달 오픈
+  const handleUserSelectModalOpen = () => {
+    setUserSelectModalVisible(true);
   };
 
-  // 출석체크 모달 닫기
-  const handleSearchAttendanceModalClose = () => {
-    setSearchAttendanceModalVisible(false);
+  // 사용자 선택 모달 닫기
+  const handleUserSelectModalClose = () => {
+    setUserSelectModalVisible(false);
   };
 
   return (
     <>
       <Row className="main-title">
         <Col span={24}>
-          <Text className='color-0'>K</Text>INGDOM
-          <br/>
+          <Text className='color-0'>K</Text>INGDOM<br/>
           <Text className='color-0'>F</Text>REQUEN<Text className='color-0'>C</Text>Y
         </Col>
       </Row>
@@ -69,10 +68,38 @@ const Main = ({ history, setIsLoading }) => {
           </Row>
           <Row>
             <Col span={24}>
-              <Button ghost shape="round" className="main-user-btn-01">등록</Button>
-              <Button ghost shape="round" className="main-user-btn-02">선택</Button>
+              <Button
+                ghost
+                shape="round"
+                className="main-user-btn-01"
+                onClick={handleUserAddModalOpen}
+              >
+                동참하기
+              </Button>
+              <Button
+                ghost
+                shape="round"
+                className="main-user-btn-02"
+                onClick={handleUserSelectModalOpen}
+              >
+                내 정보
+              </Button>
             </Col>
           </Row>
+          <div id="userAddModal">
+            <UserAddModal
+              visible={userAddModalVisible}
+              onCancel={handleUserAddModalClose}
+              setIsLoading={setIsLoading}
+            />
+          </div>
+          <div id="searchAttendanceModal">
+            <UserSelectModal
+              visible={userSelectModalVisible}
+              onCancel={handleUserSelectModalClose}
+              setIsLoading={setIsLoading}
+            />
+          </div>
         </Col>
       </Row>
       <Row className="main-info">
