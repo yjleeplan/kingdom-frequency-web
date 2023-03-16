@@ -73,7 +73,7 @@ const UserSelectModal = ({ visible, onCancel, setIsLoading }) => {
   return (
     <Modal
       wrapClassName="search-attendance-modal-wrap"
-      title="내 정보 검색"
+      title="로그인 사용자 검색"
       visible={visible}
       onCancel={handleCancel}
       footer={false}
