@@ -82,7 +82,7 @@ const Main = ({ history, setIsLoading }) => {
                 className="main-user-btn-02"
                 onClick={handleUserSelectModalOpen}
               >
-                내 정보
+                로그인
               </Button>
             </Col>
           </Row>
