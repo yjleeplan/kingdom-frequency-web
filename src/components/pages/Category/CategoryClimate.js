@@ -1,13 +1,12 @@
 import { Col, Row, Typography, Card, Image, Button, Radio, message  } from "antd";
 import _ from "lodash";
 import React, { useEffect, useState } from "react";
-import * as api from "../../../api";
 import logoCategory04 from "../../../assets/images/logo_category_04.png";
-import board0401 from "../../../assets/images/board/board_04_01.png";
+import Board from "../../common/Board";
 
 const { Text } = Typography;
 
-const CategoryClimate = ({ missionList }) => {
+const CategoryClimate = ({ missionCode, missionList, count }) => {
   return (
     <>
       <Row className="category-info">
@@ -68,12 +67,7 @@ const CategoryClimate = ({ missionList }) => {
       </Row>
       <Row className="category-stamp">
         <Col span={24}>
-          <Image
-            width={"100%"}
-            height={"100%"}
-            src={board0401}
-            preview={false}
-          />
+          <Board missionCode={missionCode} count={count} />
           <p className="category-stamp-title">기후 <Text className='color-4'>스티커판</Text></p>
           <p className="category-stamp-content">스티커를 모두 모으시면 뱃지가 지급됩니다.</p>
           <Row className="category-stamp-bottom">
@@ -81,7 +75,7 @@ const CategoryClimate = ({ missionList }) => {
               <Row className="category-stamp-count bgc-4">
                 <Col span={15}>현재 나의 스티커 갯수</Col>
                 <Col span={2} className="category-stamp-count-bar"></Col>
-                <Col span={7}>1개</Col>
+                <Col span={7}>{count}개</Col>
               </Row>
             </Col>
           </Row>

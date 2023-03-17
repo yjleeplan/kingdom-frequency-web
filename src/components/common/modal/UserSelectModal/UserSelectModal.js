@@ -4,7 +4,7 @@ import _ from "lodash";
 import React, { useState } from "react";
 import * as api from "../../../../api";
 
-const UserSelectModal = ({ visible, onCancel, setIsLoading }) => {
+const UserSelectModal = ({ visible, onCancel, setIsLoading, setUserData }) => {
   // Form Init
   const initialValues = {
     keyword: "",
@@ -58,10 +58,9 @@ const UserSelectModal = ({ visible, onCancel, setIsLoading }) => {
   };
 
   // 그리드 선택
-  const handleClick = (id) => () => {
-    console.log(id);
+  const handleClick = (data) => () => {
+    setUserData(data);
     onCancel();
-    //setSelectedRowData(data);
   };
 
   // 닫기
@@ -112,7 +111,7 @@ const UserSelectModal = ({ visible, onCancel, setIsLoading }) => {
                     size="small"
                     type="primary"
                     shape="round"
-                    onClick={handleClick(item['id'])}
+                    onClick={handleClick(item)}
                   >
                     선택
                   </Button>
