@@ -8,10 +8,7 @@ import PagePC from "../components/common/PagePC";
 import Page404 from "../components/common/Page404";
 import Welcome from "../components/pages/Welcome/Welcome";
 import Main from "../components/pages/Main/Main";
-import CategoryMzGeneration from "../components/pages/Category/CategoryMzGeneration";
-import CategorySpirit from "../components/pages/Category/CategorySpirit";
-import CategoryYoungAdult from "../components/pages/Category/CategoryYoungAdult";
-import CategoryClimate from "../components/pages/Category/CategoryClimate";
+import Category from "../components/pages/Category/Category";
 
 const Routes = () => {
   const isMobile = () => {
@@ -41,8 +38,8 @@ const Routes = () => {
               exact
               path="/category/mzGeneration"
               render={(props) => (
-                <CategoryLayout layoutClass="mzGeneration">
-                  <CategoryMzGeneration {...props} />
+                <CategoryLayout type="mzGeneration">
+                  <Category {...props} missionCode="MZ_GENERATION" />
                 </CategoryLayout>
               )}
             />
@@ -50,8 +47,8 @@ const Routes = () => {
               exact
               path="/category/spirit"
               render={(props) => (
-                <CategoryLayout layoutClass="spirit">
-                  <CategorySpirit {...props} />
+                <CategoryLayout type="spirit">
+                  <Category {...props} missionCode="SPIRIT" />
                 </CategoryLayout>
               )}
             />
@@ -59,8 +56,8 @@ const Routes = () => {
               exact
               path="/category/youngAdult"
               render={(props) => (
-                <CategoryLayout layoutClass="youngAdult">
-                  <CategoryYoungAdult {...props} />
+                <CategoryLayout type="youngAdult">
+                  <Category {...props} missionCode="YOUNG_ADULT" />
                 </CategoryLayout>
               )}
             />
@@ -68,8 +65,8 @@ const Routes = () => {
               exact
               path="/category/climate"
               render={(props) => (
-                <CategoryLayout layoutClass="climate">
-                  <CategoryClimate {...props} />
+                <CategoryLayout type="climate">
+                  <Category {...props} missionCode="CLIMATE" />
                 </CategoryLayout>
               )}
             />

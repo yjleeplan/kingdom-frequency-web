@@ -7,7 +7,7 @@
 html,
 body,
 #root {
-  font-family: "Noto Sans CJK KR", Noto Sans KR, sans-serif !important;
+  font-family: "NanumSquare_acR" !important;
   font-weight: 500;
   margin: 0;
   height: 100%;
@@ -104,6 +104,7 @@ p {
 #welcome-layout .project-year {
   margin: 40px 0;
   font-weight: bold;
+  font-family: "NanumSquareEB";
 }
 
 #welcome-layout .project-sub-title {
@@ -125,6 +126,7 @@ p {
   text-align: center;
   color: #FFF;
   animation: blink-effect 1.8s ease-in-out infinite;
+  font-size: 16px;
 }
 
 #welcome-layout .touch-comment-wrap .touch-image {
@@ -165,8 +167,8 @@ p {
 }
 
 #main-layout .main-user-box .main-user-box-text-01 {
-  font-size: 18px;
-  font-weight: bold;
+  font-size: 16px;
+  font-family: "NanumSquareEB";
 }
 
 #main-layout .main-user-box .main-user-box-text-02 {
@@ -278,10 +280,6 @@ p {
 
 
 /* Category Layout */
-#category-layout {
-  font-family: "NanumSquare_acR";
-}
-
 #category-layout.mzGeneration {
   background-color: #004f9f;
 }
@@ -319,7 +317,6 @@ p {
 }
 
 #category-layout .category-info .category-info-content {
-  font-family: "NanumSquare_acR";
   font-size: 12px;
 }
 
@@ -349,12 +346,10 @@ p {
 }
 
 #category-layout .category-list .category-list-content {
-  font-family: "NanumSquare_acR";
   font-size: 12px;
 }
 
 #category-layout .category-list .category-list-data {
-  font-family: "NanumSquare_acR";
   font-size: 11px;
   border: 1px solid #d9d9d9;
   margin: 20px 0;
@@ -416,7 +411,6 @@ p {
   top: 54px;
   width: 100%;
   text-align: center;
-  font-family: "NanumSquare_acR";
   font-size: 12px;
 }
 
@@ -424,7 +418,6 @@ p {
   position: absolute;
   bottom: 80px;
   width: 100%;
-  font-family: "NanumSquare_acR";
 }
 
 #category-layout .category-stamp .category-stamp-bottom .category-stamp-count {
@@ -480,7 +473,6 @@ p {
 }
 
 .ant-modal-wrap.search-attendance-modal-wrap .grid-wrap {
-  font-family: "NanumSquare_acR";
   font-size: 14px;
   border: 1px solid #d9d9d9;
   margin: 20px 0;

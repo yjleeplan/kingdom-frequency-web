@@ -1,25 +1,13 @@
-import { Col, Row, Typography, Card, Image, Button, Radio  } from "antd";
+import { Col, Row, Typography, Card, Image, Button, Radio, message  } from "antd";
 import _ from "lodash";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import * as api from "../../../api";
 import logoCategory04 from "../../../assets/images/logo_category_04.png";
 import board0401 from "../../../assets/images/board/board_04_01.png";
 
 const { Text } = Typography;
 
-const tmpData = [
-  { missionId : "m001", missionDesc : "일회용품 안쓰는 날 (텀블러 사용 데이 - 매월 둘째 주일)" },
-  { missionId : "m002", missionDesc : "교회 절전의 날 (매월 첫째 주)" },
-  { missionId : "m003", missionDesc : "대중교통의 날 (매월 첫째 주 주일, 사랑의 만남 주일)" },
-  { missionId : "m004", missionDesc : "아무렇게나 버려진 쓰레기 10개 줍기" },
-  { missionId : "m005", missionDesc : "교회 분리수거함 잘 정리하기" },
-  { missionId : "m006", missionDesc : "불이 켜진 채 방치된 곳 소등하기" },
-  { missionId : "m007", missionDesc : "엘리베이터 타지 않고 계단 이용하기" },
-  { missionId : "m008", missionDesc : "양치할 때 컵을 이용해서 물 절약하기" },
-  { missionId : "m009", missionDesc : "장바구니를 이용해서 장 보기(일회용 비닐봉투 사용하지 않기)" },
-  { missionId : "m010", missionDesc : "운전할 때 공회전/급과속/급정거 하지 않기(매연 절감)" }
-];
-
-const CategoryClimate = ({ history, setIsLoading }) => {
+const CategoryClimate = ({ missionList }) => {
   return (
     <>
       <Row className="category-info">
@@ -56,14 +44,14 @@ const CategoryClimate = ({ history, setIsLoading }) => {
             </Row>
             <Row className="category-list-data bl-4">
               <Col span={24}>
-                {_.map(tmpData, (item, index) => {
-                  const last = (index + 1) < tmpData.length ? "" : "last";
+                {_.map(missionList, (item, index) => {
+                  const last = (index + 1) < missionList.length ? "" : "last";
                   const even = (index + 1) % 2 !== 0 ? "" : "even";
 
                   return (
                     <Row key={index} className={`category-list-data-row ${even} ${last}`}>
                       <Col span={1}  className="category-list-data-col-1">·</Col>
-                      <Col span={21} className="category-list-data-col-2">{item['missionDesc']}</Col>
+                      <Col span={21} className="category-list-data-col-2">{item['desc']}</Col>
                       <Col span={2}  className="category-list-data-col-3"><Radio></Radio></Col>
                     </Row>
                   );

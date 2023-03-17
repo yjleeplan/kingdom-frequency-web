@@ -6,21 +6,7 @@ import board0101 from "../../../assets/images/board/board_01_01.png";
 
 const { Text } = Typography;
 
-const tmpData = [
-  { missionId : "m001", missionDesc : "일일교사의 날 (5월, 7월, 8월)" },
-  { missionId : "m002", missionDesc : "여름사역 후원과 섬김의 날 (7월, 8월)" },
-  { missionId : "m003", missionDesc : "일주일에 하루 '주일학교 기도의 날' 정해서 기도하기" },
-  { missionId : "m004", missionDesc : "주일학교 아이들을 보면 먼저 웃으며 인사하기" },
-  { missionId : "m005", missionDesc : "수고하는 주일학교 교사들에게 커피 한 잔 대접하기" },
-  { missionId : "m006", missionDesc : "주일학교 아이들에게 엘리베이터 양보하기" },
-  { missionId : "m007", missionDesc : "주일학교 한 부서의 한 반에 간식 쏘기" },
-  { missionId : "m008", missionDesc : "주일학교 예배시간 전/후에 예배실에 찾아가 자리에 앉아서 그 부서를 위해 기도하기" },
-  { missionId : "m009", missionDesc : "주일학교 교역자/교사들의 이름을 부르며 시간을 정해서 기도하기" },
-  { missionId : "m010", missionDesc : "주일학교 부서의 기도교사로 장/중/단기간 헌신하기" },
-  { missionId : "m011", missionDesc : "선병문 장학회, LCS, 문화의집 계좌에 장학헌금 하기" }
-];
-
-const CategoryMzGeneration = ({ history, setIsLoading }) => {
+const CategoryMzGeneration = ({ missionList }) => {
   return (
     <>
       <Row className="category-info">
@@ -56,14 +42,14 @@ const CategoryMzGeneration = ({ history, setIsLoading }) => {
             </Row>
             <Row className="category-list-data bl-1">
               <Col span={24}>
-                {_.map(tmpData, (item, index) => {
-                  const last = (index + 1) < tmpData.length ? "" : "last";
+                {_.map(missionList, (item, index) => {
+                  const last = (index + 1) < missionList.length ? "" : "last";
                   const even = (index + 1) % 2 !== 0 ? "" : "even";
 
                   return (
                     <Row key={index} className={`category-list-data-row ${even} ${last}`}>
                       <Col span={1}  className="category-list-data-col-1">·</Col>
-                      <Col span={21} className="category-list-data-col-2">{item['missionDesc']}</Col>
+                      <Col span={21} className="category-list-data-col-2">{item['desc']}</Col>
                       <Col span={2}  className="category-list-data-col-3"><Radio></Radio></Col>
                     </Row>
                   );

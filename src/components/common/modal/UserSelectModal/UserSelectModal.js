@@ -15,7 +15,6 @@ const UserSelectModal = ({ visible, onCancel, setIsLoading }) => {
 
   /** State */
   const [resultList, setResultList] = useState([]);
-  const [selectedRowData, setSelectedRowData] = useState({});
 
   // 검색
   const handleSearch = () => {
