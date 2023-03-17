@@ -64,3 +64,24 @@ export const listComment = ({ query }) => {
     ...headers(),
   });
 };
+
+export const listMission = ({ query }) => {
+  return request.get("/mission", {
+    params: query,
+    ...headers(),
+  });
+};
+
+export const createMissionHistory = ({ data }) => {
+  return request.post("/mission_history",
+    data,
+    headers(),
+  );
+};
+
+export const selectMissionHistory = ({ query }) => {
+  return request.get("/mission_history", {
+    params: query,
+    ...headers(),
+  });
+};

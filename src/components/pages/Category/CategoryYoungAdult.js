@@ -6,15 +6,7 @@ import board0302 from "../../../assets/images/board/board_03_02.png";
 
 const { Text } = Typography;
 
-const tmpData = [
-  { missionId : "m001", missionDesc : "지하 1층 수유실과 휴게용 놀이공간 확보" },
-  { missionId : "m002", missionDesc : "젊은 가정 & 신혼부부 지원 확대 (장소 확보)" },
-  { missionId : "m003", missionDesc : "유모차/아기띠를 한 아기엄마에게 줄서기/엘리베이터 양보하기" },
-  { missionId : "m004", missionDesc : "아이들 돌봄 교사 지원" },
-  { missionId : "m005", missionDesc : "영유아부 교사와 부모들 격려와 후원하기" }
-];
-
-const CategoryYoungAdult = ({ history, setIsLoading }) => {
+const CategoryYoungAdult = ({ missionList }) => {
   return (
     <>
       <Row className="category-info">
@@ -52,14 +44,14 @@ const CategoryYoungAdult = ({ history, setIsLoading }) => {
             </Row>
             <Row className="category-list-data bl-3">
               <Col span={24}>
-                {_.map(tmpData, (item, index) => {
-                  const last = (index + 1) < tmpData.length ? "" : "last";
+                {_.map(missionList, (item, index) => {
+                  const last = (index + 1) < missionList.length ? "" : "last";
                   const even = (index + 1) % 2 !== 0 ? "" : "even";
 
                   return (
                     <Row key={index} className={`category-list-data-row ${even} ${last}`}>
                       <Col span={1}  className="category-list-data-col-1">·</Col>
-                      <Col span={21} className="category-list-data-col-2">{item['missionDesc']}</Col>
+                      <Col span={21} className="category-list-data-col-2">{item['desc']}</Col>
                       <Col span={2}  className="category-list-data-col-3"><Radio></Radio></Col>
                     </Row>
                   );

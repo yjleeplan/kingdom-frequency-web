@@ -29,7 +29,7 @@ const Welcome = ({ history, setIsLoading }) => {
           <Row className="touch-image">
             <Col span={24}>
               <Image
-                width={"20%"}
+                width={"23%"}
                 height={"100%"}
                 src={iconFingerTap}
                 preview={false}
