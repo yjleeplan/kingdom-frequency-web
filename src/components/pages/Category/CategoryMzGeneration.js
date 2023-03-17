@@ -2,11 +2,11 @@ import { Col, Row, Typography, Card, Image, Button, Radio  } from "antd";
 import _ from "lodash";
 import React, { useState } from "react";
 import logoCategory01 from "../../../assets/images/logo_category_01.png";
-import board0101 from "../../../assets/images/board/board_01_01.png";
+import Board from "../../common/Board";
 
 const { Text } = Typography;
 
-const CategoryMzGeneration = ({ missionList }) => {
+const CategoryMzGeneration = ({ missionCode, missionList, count }) => {
   return (
     <>
       <Row className="category-info">
@@ -66,12 +66,7 @@ const CategoryMzGeneration = ({ missionList }) => {
       </Row>
       <Row className="category-stamp">
         <Col span={24}>
-          <Image
-            width={"100%"}
-            height={"100%"}
-            src={board0101}
-            preview={false}
-          />
+          <Board missionCode={missionCode} count={count} />
           <p className="category-stamp-title">다음 세대 <Text className='color-1'>스티커판</Text></p>
           <p className="category-stamp-content">스티커를 모두 모으시면 뱃지가 지급됩니다.</p>
           <Row className="category-stamp-bottom">
@@ -79,7 +74,7 @@ const CategoryMzGeneration = ({ missionList }) => {
               <Row className="category-stamp-count bgc-1">
                 <Col span={15}>현재 나의 스티커 갯수</Col>
                 <Col span={2} className="category-stamp-count-bar"></Col>
-                <Col span={7}>1개</Col>
+                <Col span={7}>{count}개</Col>
               </Row>
             </Col>
           </Row>

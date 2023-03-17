@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import ScrollToTop from "../components/common/ScrollToTop";
 import WelcomeLayout from "../components/layouts/WelcomeLayout/WelcomeLayout";
@@ -11,6 +11,9 @@ import Main from "../components/pages/Main/Main";
 import Category from "../components/pages/Category/Category";
 
 const Routes = () => {
+  /** State */
+  const [userData, setUserData] = useState({});
+
   const isMobile = () => {
     const pc = 'win16|win32|win64|mac|macintel';
     if (navigator.platform) {
@@ -30,7 +33,7 @@ const Routes = () => {
               path="/main"
               render={(props) => (
                 <MainLayout>
-                  <Main {...props} />
+                  <Main {...props} userData={userData} setUserData={setUserData} />
                 </MainLayout>
               )}
             />
@@ -39,7 +42,7 @@ const Routes = () => {
               path="/category/mzGeneration"
               render={(props) => (
                 <CategoryLayout type="mzGeneration">
-                  <Category {...props} missionCode="MZ_GENERATION" />
+                  <Category {...props} missionCode="MZ_GENERATION" userData={userData} />
                 </CategoryLayout>
               )}
             />
@@ -48,7 +51,7 @@ const Routes = () => {
               path="/category/spirit"
               render={(props) => (
                 <CategoryLayout type="spirit">
-                  <Category {...props} missionCode="SPIRIT" />
+                  <Category {...props} missionCode="SPIRIT" userData={userData} />
                 </CategoryLayout>
               )}
             />
@@ -57,7 +60,7 @@ const Routes = () => {
               path="/category/youngAdult"
               render={(props) => (
                 <CategoryLayout type="youngAdult">
-                  <Category {...props} missionCode="YOUNG_ADULT" />
+                  <Category {...props} missionCode="YOUNG_ADULT" userData={userData} />
                 </CategoryLayout>
               )}
             />
@@ -66,7 +69,7 @@ const Routes = () => {
               path="/category/climate"
               render={(props) => (
                 <CategoryLayout type="climate">
-                  <Category {...props} missionCode="CLIMATE" />
+                  <Category {...props} missionCode="CLIMATE" userData={userData} />
                 </CategoryLayout>
               )}
             />

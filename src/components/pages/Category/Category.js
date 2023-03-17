@@ -7,14 +7,14 @@ import CategorySpirit from "./CategorySpirit";
 import CategoryYoungAdult from "./CategoryYoungAdult";
 import CategoryClimate from "./CategoryClimate";
 
-const Category = ({ history, setIsLoading, missionCode = "" }) => {
+const Category = ({ history, setIsLoading, missionCode = "", userData }) => {
   /** State */
   const [missionList, setMissionList] = useState([]);
 
   /** Effect */
   useEffect(() => {
     handleGetMissionList();
-    //handleGetUserMissionHistory();
+    //!_.isEmpty(userData) && handleGetUserMissionHistory();
     // eslint-disable-next-line
   }, []);
 
@@ -44,11 +44,11 @@ const Category = ({ history, setIsLoading, missionCode = "" }) => {
       setIsLoading(true);
       const { data } = await api.selectMissionHistory({
         query: {
-          user_id: "",
+          user_id: userData.id,
           mission_code: missionCode
         }
       });
-      setMissionList(data);
+      //setMissionList(data);
       
     } catch (error) {
       message.error(
@@ -63,10 +63,10 @@ const Category = ({ history, setIsLoading, missionCode = "" }) => {
 
   return (
     <>
-      { missionCode === "MZ_GENERATION" && <CategoryMzGeneration missionList={missionList} /> }
-      { missionCode === "SPIRIT"        && <CategorySpirit missionList={missionList} /> }
-      { missionCode === "YOUNG_ADULT"   && <CategoryYoungAdult missionList={missionList} /> }
-      { missionCode === "CLIMATE"       && <CategoryClimate missionList={missionList} /> }
+      { missionCode === "MZ_GENERATION" && <CategoryMzGeneration missionCode={missionCode} missionList={missionList} count={5} /> }
+      { missionCode === "SPIRIT"        && <CategorySpirit missionCode={missionCode} missionList={missionList} count={10} /> }
+      { missionCode === "YOUNG_ADULT"   && <CategoryYoungAdult missionCode={missionCode} missionList={missionList} count={4} /> }
+      { missionCode === "CLIMATE"       && <CategoryClimate missionCode={missionCode} missionList={missionList} count={7} /> }
     </>
   );
 };

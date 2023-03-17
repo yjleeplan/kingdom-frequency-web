@@ -7,7 +7,7 @@ import iconFightingHand from "../../../assets/images/icon_fighting_hand.png";
 
 const { Text } = Typography;
 
-const Main = ({ history, setIsLoading }) => {
+const Main = ({ history, setIsLoading, userData, setUserData }) => {
   /** State */
   const [userAddModalVisible, setUserAddModalVisible] = useState(false);
   const [userSelectModalVisible, setUserSelectModalVisible] = useState(false);
@@ -98,6 +98,7 @@ const Main = ({ history, setIsLoading }) => {
               visible={userSelectModalVisible}
               onCancel={handleUserSelectModalClose}
               setIsLoading={setIsLoading}
+              setUserData={setUserData}
             />
           </div>
         </Col>
