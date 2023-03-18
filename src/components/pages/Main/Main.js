@@ -42,6 +42,36 @@ const Main = ({ history, setIsLoading, userData, login, logout }) => {
     }
   ];
 
+  const testData = [
+    {
+      mission_code : "MZ_GENERATION",
+      type : "다음 세대",
+      checked_count : 4,
+      total_count : 10,
+      checked_percent : 40
+    },
+    {
+      mission_code : "SPIRIT",
+      type : "영성",
+      checked_count : 10,
+      total_count : 15,
+      checked_percent : 66
+    },
+    {
+      mission_code : "YOUNG_ADULT",
+      type : "3040 세대",
+      checked_count : 4,
+      total_count : 5,
+      checked_percent : 80
+    },{
+      mission_code : "CLIMATE",
+      type : "기후",
+      checked_count : 1,
+      total_count : 10,
+      checked_percent : 10
+    }
+  ];
+
   /** State */
   const [userAddModalVisible, setUserAddModalVisible] = useState(false);
   const [userSelectModalVisible, setUserSelectModalVisible] = useState(false);
@@ -65,7 +95,8 @@ const Main = ({ history, setIsLoading, userData, login, logout }) => {
         return _.head(_.filter(data, { 'mission_code' : item.mission_code }));
       });
 
-      setMissionCount(newData);
+      //setMissionCount(newData);
+      setMissionCount(testData);
     } catch (error) {
       message.error(
         error.response
