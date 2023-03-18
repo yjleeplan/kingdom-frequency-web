@@ -1,7 +1,9 @@
-import { Col, Row, Typography, Card, Image, Button } from "antd";
-import React, { useState } from "react";
+import { Col, Row, Typography, Card, Image, Button, Progress, message } from "antd";
+import { LogoutOutlined, RightOutlined, RiseOutlined } from '@ant-design/icons';
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import _ from "lodash";
+import * as api from "../../../api";
 import UserSelectModal from "../../common/modal/UserSelectModal/UserSelectModal";
 import UserAddModal from "../../common/modal/UserAddModal/UserAddModal";
 import iconFightingHand from "../../../assets/images/icon_fighting_hand.png";
@@ -9,9 +11,71 @@ import iconFightingHand from "../../../assets/images/icon_fighting_hand.png";
 const { Text } = Typography;
 
 const Main = ({ history, setIsLoading, userData, login, logout }) => {
+  // Mission Count Init
+  const initMissionCount = [
+    {
+      mission_code : "MZ_GENERATION",
+      type : "다음 세대",
+      checked_count : 0,
+      total_count : 10,
+      checked_percent : 0
+    },
+    {
+      mission_code : "SPIRIT",
+      type : "영성",
+      checked_count : 0,
+      total_count : 15,
+      checked_percent : 0
+    },
+    {
+      mission_code : "YOUNG_ADULT",
+      type : "3040 세대",
+      checked_count : 0,
+      total_count : 5,
+      checked_percent : 0
+    },{
+      mission_code : "CLIMATE",
+      type : "기후",
+      checked_count : 0,
+      total_count : 10,
+      checked_percent : 0
+    }
+  ];
+
   /** State */
   const [userAddModalVisible, setUserAddModalVisible] = useState(false);
   const [userSelectModalVisible, setUserSelectModalVisible] = useState(false);
+  const [missionCount, setMissionCount] = useState(initMissionCount);
+
+  useEffect(() => {
+    !_.isEmpty(userData) && handleGetMissionCount();
+    // eslint-disable-next-line
+  }, [userData]);
+
+  // 사용자 실천항목 갯수 조회
+  const handleGetMissionCount = async () => {
+    try {
+      setIsLoading(true);
+      
+      const { data } = await api.selectMissionHistoryCount({
+        query: { user_id: userData.id },
+      });
+
+      const newData = _.map(missionCount, (item) => {
+        return _.head(_.filter(data, { 'mission_code' : item.mission_code }));
+      });
+
+      setMissionCount(newData);
+    } catch (error) {
+      message.error(
+        error.response
+          ? `${error.response.data.code}, ${error.response.data.message}`
+          : "사용자 실천항목 갯수 조회 실패"
+      );
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   // 사용자 등록 모달 오픈
   const handleUserAddModalOpen = () => {
@@ -107,15 +171,75 @@ const Main = ({ history, setIsLoading, userData, login, logout }) => {
           </Col>
           :
           <Col span={24}>
-            {userData.name} {userData.department}
-            <Button
-              ghost
-              shape="round"
-              className="main-user-btn-02"
-              onClick={logout}
-            >
-              로그아웃
-            </Button>
+            <Row>
+              <Col span={18}>
+                <Text className="main-user-box-text-03">{userData.name}</Text>님 환영합니다.
+              </Col>
+              <Col span={6} onClick={logout}>
+                <LogoutOutlined className="main-user-box-logout"/>로그아웃
+              </Col>
+            </Row>
+            <Row className="category-bar-wrap">
+              <Col span={24}>
+                <Row>
+                  <Col span={20}>
+                    <Progress
+                      status="active"
+                      strokeColor={"#004f9f"}
+                      showInfo={false}
+                      percent={missionCount[0].checked_percent}
+                    />
+                  </Col>
+                  <Col span={4} className="category-bar-count">
+                    <Text className="count">{missionCount[0].checked_count}</Text>/{missionCount[0].total_count}
+                  </Col>
+                </Row>
+                <Row>
+                  <Col span={20}>
+                    <Progress
+                      status="active"
+                      strokeColor={"#F39200"}
+                      showInfo={false}
+                      percent={missionCount[1].checked_percent}
+                    />
+                  </Col>
+                  <Col span={4} className="category-bar-count">
+                    <Text className="count">{missionCount[1].checked_count}</Text>/{missionCount[1].total_count}
+                  </Col>
+                </Row>
+                <Row>
+                  <Col span={20}>
+                    <Progress
+                      status="active"
+                      strokeColor={"#EA4E3D"}
+                      showInfo={false}
+                      percent={missionCount[2].checked_percent}
+                    />
+                  </Col>
+                  <Col span={4} className="category-bar-count">
+                    <Text className="count">{missionCount[2].checked_count}</Text>/{missionCount[2].total_count}
+                  </Col>
+                </Row>
+                <Row>
+                  <Col span={20}>
+                    <Progress
+                      status="active"
+                      strokeColor={"#7EB105"}
+                      showInfo={false}
+                      percent={missionCount[3].checked_percent}
+                    />
+                  </Col>
+                  <Col span={4} className="category-bar-count">
+                    <Text className="count">{missionCount[3].checked_count}</Text>/{missionCount[3].total_count}
+                  </Col>
+                </Row>
+              </Col>
+            </Row>
+            <Row className="category-hist-wrap">
+              <Col span={24}>
+                나의 실천항목 보러가기 <RightOutlined />
+              </Col>
+            </Row>
           </Col>
         }
       </Row>

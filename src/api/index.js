@@ -85,3 +85,10 @@ export const selectMissionHistory = ({ query }) => {
     ...headers(),
   });
 };
+
+export const selectMissionHistoryCount = ({ query }) => {
+  return request.get("/mission_history/count", {
+    params: query,
+    ...headers(),
+  });
+};

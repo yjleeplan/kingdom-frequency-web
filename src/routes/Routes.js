@@ -71,6 +71,7 @@ const Routes = () => {
   const logout = () => {
     // 쿠키 삭제
     removeCookie('kingdomFrequency');
+    window.location.reload();
   };
 
   // 접속 기기 체크
