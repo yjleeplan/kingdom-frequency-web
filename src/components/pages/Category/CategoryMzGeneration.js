@@ -6,7 +6,7 @@ import Board from "../../common/Board";
 
 const { Text } = Typography;
 
-const CategoryMzGeneration = ({ missionCode, missionList, count }) => {
+const CategoryMzGeneration = ({ missionCode, missionList, count, isDisabled, checkedSeq }) => {
   return (
     <>
       <Row className="category-info">
@@ -50,7 +50,9 @@ const CategoryMzGeneration = ({ missionCode, missionList, count }) => {
                     <Row key={index} className={`category-list-data-row ${even} ${last}`}>
                       <Col span={1}  className="category-list-data-col-1">·</Col>
                       <Col span={21} className="category-list-data-col-2">{item['desc']}</Col>
-                      <Col span={2}  className="category-list-data-col-3"><Radio></Radio></Col>
+                      <Col span={2}  className="category-list-data-col-3">
+                        <Radio disabled={isDisabled} checked={item['seq'] === checkedSeq}></Radio>
+                      </Col>
                     </Row>
                   );
                 })}
@@ -58,7 +60,14 @@ const CategoryMzGeneration = ({ missionCode, missionList, count }) => {
             </Row>
             <Row className="category-list-bottom">
               <Col span={24}>
-                <Button ghost size="large" className="category-list-button bgc-1">실천 완료하기</Button>
+              <Button
+                  ghost
+                  size="large"
+                  className="category-list-button bgc-1"
+                  disabled={isDisabled}
+                >
+                  실천 완료하기
+                </Button>
               </Col>
             </Row>
           </Card>

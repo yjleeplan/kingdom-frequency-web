@@ -176,6 +176,15 @@ p {
   padding: 4px 0;
 }
 
+#main-layout .main-user-box .main-user-box-text-03 {
+  font-size: 18px;
+  font-family: "NanumSquareEB";
+}
+
+#main-layout .main-user-box .main-user-box-text-04 {
+  font-size: 16px;
+}
+
 #main-layout .main-user-box .main-user-btn-01 {
   background-color: #C41C7F;
   color: #FFF;
@@ -187,9 +196,29 @@ p {
   color: #FFF;
 }
 
+#main-layout .main-user-box .main-user-box-logout {
+  margin-right: 4px;
+}
+
+#main-layout .main-user-box .category-bar-wrap {
+  margin: 10px 0;
+}
+
+#main-layout .main-user-box .category-bar-wrap .category-bar-count {
+  text-align: end;
+  font-size: 13px;
+  color: #747474;
+}
+
+#main-layout .main-user-box .category-bar-wrap .category-bar-count .count {
+  font-size: 13px;
+  font-weight: bold;
+  color: #4C4C4C;
+}
+
 #main-layout .main-info .main-info-title {
   font-size: 16px;
-  font-weight: bold;
+  font-family: "NanumSquareEB";
 }
 
 #main-layout .main-info .main-info-content {
