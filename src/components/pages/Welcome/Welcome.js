@@ -4,7 +4,7 @@ import iconFingerTap from "../../../assets/images/icon_finger_tap.svg";
 
 const { Text } = Typography;
 
-const Welcome = ({ history, setIsLoading }) => {
+const Welcome = ({ history }) => {
   return (
     <>
       <Row className="project-year">

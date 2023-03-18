@@ -4,7 +4,7 @@ import _ from "lodash";
 import React, { useState } from "react";
 import * as api from "../../../../api";
 
-const UserSelectModal = ({ visible, onCancel, setIsLoading, setUserData }) => {
+const UserSelectModal = ({ visible, onCancel, setIsLoading, login }) => {
   // Form Init
   const initialValues = {
     keyword: "",
@@ -58,8 +58,8 @@ const UserSelectModal = ({ visible, onCancel, setIsLoading, setUserData }) => {
   };
 
   // 그리드 선택
-  const handleClick = (data) => () => {
-    setUserData(data);
+  const handleClick = ( id ) => () => {
+    login(id);
     onCancel();
   };
 
@@ -111,7 +111,7 @@ const UserSelectModal = ({ visible, onCancel, setIsLoading, setUserData }) => {
                     size="small"
                     type="primary"
                     shape="round"
-                    onClick={handleClick(item)}
+                    onClick={handleClick(item['id'])}
                   >
                     선택
                   </Button>

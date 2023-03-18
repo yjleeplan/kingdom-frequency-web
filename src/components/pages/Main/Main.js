@@ -1,13 +1,14 @@
 import { Col, Row, Typography, Card, Image, Button } from "antd";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import _ from "lodash";
 import UserSelectModal from "../../common/modal/UserSelectModal/UserSelectModal";
 import UserAddModal from "../../common/modal/UserAddModal/UserAddModal";
 import iconFightingHand from "../../../assets/images/icon_fighting_hand.png";
 
 const { Text } = Typography;
 
-const Main = ({ history, setIsLoading, userData, setUserData }) => {
+const Main = ({ history, setIsLoading, userData, login, logout }) => {
   /** State */
   const [userAddModalVisible, setUserAddModalVisible] = useState(false);
   const [userSelectModalVisible, setUserSelectModalVisible] = useState(false);
@@ -41,67 +42,82 @@ const Main = ({ history, setIsLoading, userData, setUserData }) => {
         </Col>
       </Row>
       <Row className="main-user-box">
-        <Col span={24}>
-          <Row>
-            <Col span={14}>
-              <Row>
-                <Col span={24} className="main-user-box-text-01">
-                  현재 <Text className='color-0'>1,200</Text>명 참여중!
-                </Col>
-              </Row>
-              <Row>
-                <Col span={24} className="main-user-box-text-02">
-                  하나님 나라를 위한<br/>
-                  성도님의 행동들이<br/>
-                  계속해서 진동하길 원합니다.
-                </Col>
-              </Row>
-            </Col>
-            <Col span={10}>
-              <Image
-                width={"100%"}
-                height={"100%"}
-                src={iconFightingHand}
-                preview={false}
+        {_.isEmpty(userData)
+          ?
+          <Col span={24}>
+            <Row>
+              <Col span={14}>
+                <Row>
+                  <Col span={24} className="main-user-box-text-01">
+                    현재 <Text className='color-0'>1,200</Text>명 참여중!
+                  </Col>
+                </Row>
+                <Row>
+                  <Col span={24} className="main-user-box-text-02">
+                    하나님 나라를 위한<br/>
+                    성도님의 행동들이<br/>
+                    계속해서 진동하길 원합니다.
+                  </Col>
+                </Row>
+              </Col>
+              <Col span={10}>
+                <Image
+                  width={"100%"}
+                  height={"100%"}
+                  src={iconFightingHand}
+                  preview={false}
+                />
+              </Col>
+            </Row>
+            <Row>
+              <Col span={24}>
+                <Button
+                  ghost
+                  shape="round"
+                  className="main-user-btn-01"
+                  onClick={handleUserAddModalOpen}
+                >
+                  동참하기
+                </Button>
+                <Button
+                  ghost
+                  shape="round"
+                  className="main-user-btn-02"
+                  onClick={handleUserSelectModalOpen}
+                >
+                  로그인
+                </Button>
+              </Col>
+            </Row>
+            <div id="userAddModal">
+              <UserAddModal
+                visible={userAddModalVisible}
+                onCancel={handleUserAddModalClose}
+                setIsLoading={setIsLoading}
               />
-            </Col>
-          </Row>
-          <Row>
-            <Col span={24}>
-              <Button
-                ghost
-                shape="round"
-                className="main-user-btn-01"
-                onClick={handleUserAddModalOpen}
-              >
-                동참하기
-              </Button>
-              <Button
-                ghost
-                shape="round"
-                className="main-user-btn-02"
-                onClick={handleUserSelectModalOpen}
-              >
-                로그인
-              </Button>
-            </Col>
-          </Row>
-          <div id="userAddModal">
-            <UserAddModal
-              visible={userAddModalVisible}
-              onCancel={handleUserAddModalClose}
-              setIsLoading={setIsLoading}
-            />
-          </div>
-          <div id="searchAttendanceModal">
-            <UserSelectModal
-              visible={userSelectModalVisible}
-              onCancel={handleUserSelectModalClose}
-              setIsLoading={setIsLoading}
-              setUserData={setUserData}
-            />
-          </div>
-        </Col>
+            </div>
+            <div id="searchAttendanceModal">
+              <UserSelectModal
+                visible={userSelectModalVisible}
+                onCancel={handleUserSelectModalClose}
+                setIsLoading={setIsLoading}
+                login={login}
+              />
+            </div>
+          </Col>
+          :
+          <Col span={24}>
+            {userData.name} {userData.department}
+            <Button
+              ghost
+              shape="round"
+              className="main-user-btn-02"
+              onClick={logout}
+            >
+              로그아웃
+            </Button>
+          </Col>
+        }
       </Row>
       <Row className="main-info">
         <Col span={24}>

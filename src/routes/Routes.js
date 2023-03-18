@@ -1,5 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { useCookies } from 'react-cookie';
+import { message } from "antd";
+import * as api from "../api";
 import ScrollToTop from "../components/common/ScrollToTop";
 import WelcomeLayout from "../components/layouts/WelcomeLayout/WelcomeLayout";
 import MainLayout from "../components/layouts/MainLayout/MainLayout";
@@ -12,8 +15,65 @@ import Category from "../components/pages/Category/Category";
 
 const Routes = () => {
   /** State */
+  const [cookies, setCookie, removeCookie] = useCookies(['kingdomFrequency']);
   const [userData, setUserData] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
 
+  /** Effect */
+  useEffect(() => {
+    authCheck();
+    // eslint-disable-next-line
+  }, []);
+
+  // 인증 정보 체크
+  const authCheck = () => {
+    if ( cookies.kingdomFrequency ) {
+      login(cookies.kingdomFrequency.id);
+    }
+  };
+
+  // 로그인
+  const login = async (id) => {
+    try {
+      setIsLoading(true);
+
+      const { data: user } = await api.selectUser({
+        path: { user_id: id },
+      });
+      setUserData(user);
+
+      const expireDate = new Date();
+      expireDate.setMonth(expireDate.getMonth + 12);
+
+      // 쿠키 저장
+      setCookie(
+        'kingdomFrequency',
+        {
+          id: id
+        },
+        {
+          path: '/',
+          expires: expireDate,
+        }
+      );
+    } catch (error) {
+      message.error(
+        error.response
+          ? `${error.response.data.code}, ${error.response.data.message}`
+          : "로그인 실패"
+      );
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  // 로그아웃
+  const logout = () => {
+    // 쿠키 삭제
+    removeCookie('kingdomFrequency');
+  };
+
+  // 접속 기기 체크
   const isMobile = () => {
     const pc = 'win16|win32|win64|mac|macintel';
     if (navigator.platform) {
@@ -32,8 +92,8 @@ const Routes = () => {
               exact
               path="/main"
               render={(props) => (
-                <MainLayout>
-                  <Main {...props} userData={userData} setUserData={setUserData} />
+                <MainLayout isLoading={isLoading}>
+                  <Main {...props} setIsLoading={setIsLoading} userData={userData} login={login} logout={logout} />
                 </MainLayout>
               )}
             />
@@ -41,8 +101,8 @@ const Routes = () => {
               exact
               path="/category/mzGeneration"
               render={(props) => (
-                <CategoryLayout type="mzGeneration">
-                  <Category {...props} missionCode="MZ_GENERATION" userData={userData} />
+                <CategoryLayout isLoading={isLoading} type="mzGeneration">
+                  <Category {...props} setIsLoading={setIsLoading} missionCode="MZ_GENERATION" userData={userData} />
                 </CategoryLayout>
               )}
             />
@@ -50,8 +110,8 @@ const Routes = () => {
               exact
               path="/category/spirit"
               render={(props) => (
-                <CategoryLayout type="spirit">
-                  <Category {...props} missionCode="SPIRIT" userData={userData} />
+                <CategoryLayout isLoading={isLoading} type="spirit">
+                  <Category {...props} setIsLoading={setIsLoading} missionCode="SPIRIT" userData={userData} />
                 </CategoryLayout>
               )}
             />
@@ -59,8 +119,8 @@ const Routes = () => {
               exact
               path="/category/youngAdult"
               render={(props) => (
-                <CategoryLayout type="youngAdult">
-                  <Category {...props} missionCode="YOUNG_ADULT" userData={userData} />
+                <CategoryLayout isLoading={isLoading} type="youngAdult">
+                  <Category {...props} setIsLoading={setIsLoading} missionCode="YOUNG_ADULT" userData={userData} />
                 </CategoryLayout>
               )}
             />
@@ -68,8 +128,8 @@ const Routes = () => {
               exact
               path="/category/climate"
               render={(props) => (
-                <CategoryLayout type="climate">
-                  <Category {...props} missionCode="CLIMATE" userData={userData} />
+                <CategoryLayout isLoading={isLoading} type="climate">
+                  <Category {...props} setIsLoading={setIsLoading} missionCode="CLIMATE" userData={userData} />
                 </CategoryLayout>
               )}
             />
@@ -77,7 +137,7 @@ const Routes = () => {
               exact
               path="/"
               render={(props) => (
-                <WelcomeLayout>
+                <WelcomeLayout isLoading={isLoading}>
                   <Welcome {...props} />
                 </WelcomeLayout>
               )}
