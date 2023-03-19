@@ -1,8 +1,10 @@
 import { SearchOutlined } from "@ant-design/icons";
-import { Form, Input, message, Modal, Button, Col, Row } from "antd";
+import { Form, Input, message, Modal, Button, Col, Row, Typography } from "antd";
 import _ from "lodash";
 import React, { useState } from "react";
 import * as api from "../../../../api";
+
+const { Text } = Typography;
 
 const UserSelectModal = ({ visible, onCancel, setIsLoading, login }) => {
   // Form Init
@@ -58,9 +60,16 @@ const UserSelectModal = ({ visible, onCancel, setIsLoading, login }) => {
   };
 
   // 그리드 선택
-  const handleClick = ( id ) => () => {
-    login(id);
-    onCancel();
+  const handleClick = ( data ) => () => {
+    Modal.confirm({
+      content: <><Text className="user-name">{data.name}</Text>님으로 로그인하시겠습니까?</>,
+      okText: "확인",
+      cancelText: "취소",
+      onOk: () => {
+        login(data.id);
+        onCancel();
+      },
+    });
   };
 
   // 닫기
@@ -111,7 +120,7 @@ const UserSelectModal = ({ visible, onCancel, setIsLoading, login }) => {
                     size="small"
                     type="primary"
                     shape="round"
-                    onClick={handleClick(item['id'])}
+                    onClick={handleClick(item)}
                   >
                     선택
                   </Button>
