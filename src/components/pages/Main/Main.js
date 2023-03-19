@@ -1,5 +1,5 @@
-import { Col, Row, Typography, Card, Image, Button, Progress, message } from "antd";
-import { LogoutOutlined, RightOutlined, RiseOutlined } from '@ant-design/icons';
+import { Col, Row, Typography, Card, Image, Button, Progress, message, Modal } from "antd";
+import { LogoutOutlined, RightOutlined } from '@ant-design/icons';
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import _ from "lodash";
@@ -97,6 +97,18 @@ const Main = ({ history, setIsLoading, userData, login, logout }) => {
     setUserSelectModalVisible(false);
   };
 
+  // 로그아웃
+  const handleLogout = () => {
+    Modal.confirm({
+      content: "로그아웃 하시겠습니까?",
+      okText: "확인",
+      cancelText: "취소",
+      onOk: () => {
+        logout();
+      },
+    });
+  }
+
   return (
     <>
       <Row className="main-title">
@@ -175,7 +187,7 @@ const Main = ({ history, setIsLoading, userData, login, logout }) => {
               <Col span={18}>
                 <Text className="main-user-box-text-03">{userData.name}</Text>님 환영합니다.
               </Col>
-              <Col span={6} onClick={logout}>
+              <Col span={6} onClick={handleLogout}>
                 <LogoutOutlined className="main-user-box-logout"/>로그아웃
               </Col>
             </Row>
