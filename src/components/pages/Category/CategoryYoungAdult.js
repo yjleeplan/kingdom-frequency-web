@@ -6,7 +6,20 @@ import Board from "../../common/Board";
 
 const { Text } = Typography;
 
-const CategoryYoungAdult = ({ missionCode, missionList, count, isDisabled, checkedSeq }) => {
+const CategoryYoungAdult = ({
+  missionCode,
+  missionList,
+  count,
+  isDisabled,
+  checkedMissionId,
+  setCheckedMissionId,
+  onClick
+}) => {
+  // 라디오 버튼 Change
+  const handleRadioChange = ({ target }) => {
+    setCheckedMissionId(target.value);
+  };
+
   return (
     <>
       <Row className="category-info">
@@ -53,7 +66,13 @@ const CategoryYoungAdult = ({ missionCode, missionList, count, isDisabled, check
                       <Col span={1}  className="category-list-data-col-1">·</Col>
                       <Col span={21} className="category-list-data-col-2">{item['desc']}</Col>
                       <Col span={2}  className="category-list-data-col-3">
-                        <Radio disabled={isDisabled} checked={item['seq'] === checkedSeq}></Radio>
+                        <Radio
+                          disabled={isDisabled}
+                          value={item['id']}
+                          checked={item['id'] === checkedMissionId}
+                          onChange={handleRadioChange}
+                        >
+                        </Radio>
                       </Col>
                     </Row>
                   );
@@ -67,6 +86,7 @@ const CategoryYoungAdult = ({ missionCode, missionList, count, isDisabled, check
                   size="large"
                   className="category-list-button bgc-3"
                   disabled={isDisabled}
+                  onClick={onClick}
                 >
                   실천 완료하기
                 </Button>
