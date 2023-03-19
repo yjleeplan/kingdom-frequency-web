@@ -71,6 +71,7 @@ const Routes = () => {
   const logout = () => {
     // 쿠키 삭제
     removeCookie('kingdomFrequency');
+    setUserData({});
     window.location.reload();
   };
 

@@ -222,7 +222,7 @@ p {
 }
 
 #main-layout .main-info .main-info-content {
-  font-size: 10px;
+  font-size: 12px;
 }
 
 #main-layout .main-category {
@@ -362,6 +362,10 @@ p {
   border-radius: 20px;
 }
 
+#category-layout .category-list .ant-card-body {
+  padding: 34px 24px;
+}
+
 #category-layout .category-list .category-list-title {
   font-family: "GmarketSansTTFBold";
   font-size: 22px;
@@ -430,7 +434,7 @@ p {
   font-family: "GmarketSansTTFLight";
   font-size: 22px;
   position: absolute;
-  top: 20px;
+  top: 34px;
   width: 100%;
   text-align: center;
 }
@@ -441,7 +445,7 @@ p {
 
 #category-layout .category-stamp .category-stamp-content {
   position: absolute;
-  top: 54px;
+  top: 68px;
   width: 100%;
   text-align: center;
   font-size: 12px;
