@@ -7,11 +7,13 @@ import ScrollToTop from "../components/common/ScrollToTop";
 import WelcomeLayout from "../components/layouts/WelcomeLayout/WelcomeLayout";
 import MainLayout from "../components/layouts/MainLayout/MainLayout";
 import CategoryLayout from "../components/layouts/CategoryLayout/CategoryLayout";
+import MyPageLayout from "../components/layouts/MyPageLayout/MyPageLayout";
 import PagePC from "../components/common/PagePC";
 import Page404 from "../components/common/Page404";
 import Welcome from "../components/pages/Welcome/Welcome";
 import Main from "../components/pages/Main/Main";
 import Category from "../components/pages/Category/Category";
+import MyPage from "../components/pages/MyPage/MyPage";
 
 const Routes = () => {
   /** State */
@@ -133,6 +135,15 @@ const Routes = () => {
                 <CategoryLayout isLoading={isLoading} type="climate">
                   <Category {...props} setIsLoading={setIsLoading} missionCode="CLIMATE" userData={userData} />
                 </CategoryLayout>
+              )}
+            />
+            <Route
+              exact
+              path="/mypage"
+              render={(props) => (
+                <MyPageLayout isLoading={isLoading}>
+                  <MyPage {...props} setIsLoading={setIsLoading} userData={userData} />
+                </MyPageLayout>
               )}
             />
             <Route

@@ -79,13 +79,13 @@ const UserSelectModal = ({ visible, onCancel, setIsLoading, login }) => {
 
   return (
     <Modal
-      wrapClassName="search-attendance-modal-wrap"
+      wrapClassName="user-select-modal-wrap"
       title="로그인 사용자 검색"
       visible={visible}
       onCancel={handleCancel}
       footer={false}
       maskClosable={false}
-      getContainer={document.getElementById("searchAttendanceModal")}
+      getContainer={document.getElementById("userSelectModal")}
       destroyOnClose
     >
       <Form

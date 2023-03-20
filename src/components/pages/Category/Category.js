@@ -22,7 +22,6 @@ const Category = ({ history, setIsLoading, missionCode = "", userData }) => {
 
   useEffect(() => {
     !_.isEmpty(userData) && handleGetUserMissionHistory();
-    !_.isEmpty(userData) && handleGetMissionCount();
     // eslint-disable-next-line
   }, [userData]);
 
@@ -66,6 +65,8 @@ const Category = ({ history, setIsLoading, missionCode = "", userData }) => {
       else {
         setIsDisabled(false);
       }
+
+      handleGetMissionCount();
     } catch (error) {
       message.error(
         error.response
