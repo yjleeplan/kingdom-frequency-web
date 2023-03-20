@@ -79,8 +79,15 @@ export const createMissionHistory = ({ data }) => {
   );
 };
 
-export const selectMissionHistory = ({ query }) => {
-  return request.get("/mission_history", {
+export const selectMissionHistoryWeek = ({ path, query }) => {
+  return request.get(`/users/${path.user_id}/mission_history/week`, {
+    params: query,
+    ...headers(),
+  });
+};
+
+export const selectMissionHistory = ({ path, query }) => {
+  return request.get(`/users/${path.user_id}/mission_history`, {
     params: query,
     ...headers(),
   });

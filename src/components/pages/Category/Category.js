@@ -51,9 +51,11 @@ const Category = ({ history, setIsLoading, missionCode = "", userData }) => {
     try {
       setIsLoading(true);
 
-      const { data } = await api.selectMissionHistory({
-        query: {
+      const { data } = await api.selectMissionHistoryWeek({
+        path: {
           user_id: userData.id,
+        },
+        query: {
           mission_code: missionCode
         }
       });
