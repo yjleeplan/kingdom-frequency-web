@@ -6,6 +6,7 @@ import _ from "lodash";
 import * as api from "../../../api";
 import UserSelectModal from "../../common/modal/UserSelectModal/UserSelectModal";
 import UserAddModal from "../../common/modal/UserAddModal/UserAddModal";
+import UserHistModal from "../../common/modal/UserHistModal/UserHistModal";
 import iconFightingHand from "../../../assets/images/icon_fighting_hand.png";
 
 const { Text } = Typography;
@@ -45,6 +46,7 @@ const Main = ({ history, setIsLoading, userData, login, logout }) => {
   /** State */
   const [userAddModalVisible, setUserAddModalVisible] = useState(false);
   const [userSelectModalVisible, setUserSelectModalVisible] = useState(false);
+  const [userHistModalVisible, setUserHistModalVisible] = useState(false);
   const [missionCount, setMissionCount] = useState(initMissionCount);
 
   useEffect(() => {
@@ -95,6 +97,16 @@ const Main = ({ history, setIsLoading, userData, login, logout }) => {
   // 사용자 선택 모달 닫기
   const handleUserSelectModalClose = () => {
     setUserSelectModalVisible(false);
+  };
+
+  // 사용자 실천 이력 모달 오픈
+  const handleUserHistModalOpen = () => {
+    setUserHistModalVisible(true);
+  };
+
+  // 사용자 실천 이력 모달 닫기
+  const handleUserHistModalClose = () => {
+    setUserHistModalVisible(false);
   };
 
   // 로그아웃
@@ -172,7 +184,7 @@ const Main = ({ history, setIsLoading, userData, login, logout }) => {
                 setIsLoading={setIsLoading}
               />
             </div>
-            <div id="searchAttendanceModal">
+            <div id="userSelectModal">
               <UserSelectModal
                 visible={userSelectModalVisible}
                 onCancel={handleUserSelectModalClose}
@@ -249,9 +261,18 @@ const Main = ({ history, setIsLoading, userData, login, logout }) => {
             </Row>
             <Row className="category-hist-wrap">
               <Col span={24}>
-                나의 실천항목 보러가기 <RightOutlined />
+                <Link to="/mypage" style={{color: "inherit"}}>
+                  <Text>나의 실천 히스토리 보러가기 </Text><RightOutlined/>
+                </Link>
               </Col>
             </Row>
+            <div id="userHistModal">
+              <UserHistModal
+                visible={userHistModalVisible}
+                onCancel={handleUserHistModalClose}
+                setIsLoading={setIsLoading}
+              />
+            </div>
           </Col>
         }
       </Row>
