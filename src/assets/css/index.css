@@ -135,6 +135,35 @@ p {
 /* Welcome Layout */
 
 
+/* Header */
+#header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  height: 40px;
+  font-family: "NanumSquareEB";
+  background-color: #FFF;
+}
+
+.header-content {
+  height: 100%;
+}
+
+.header-left {
+  margin: auto;
+  text-align: center;
+  line-height: normal;
+}
+
+.header-center {
+  margin: auto;
+  text-align: center;
+  font-size: 16px;
+}
+/* Header */
+
+
 /* Main Layout */
 .ant-spin-nested-loading {
   height: 100%;
@@ -327,7 +356,7 @@ p {
 
 #category-layout .category-info {
   color: #FFF;
-  padding-top: 30px;
+  padding-top: 40px;
 }
 
 #category-layout .category-info p {
@@ -611,7 +640,7 @@ p {
 /* MyPage */
 #mypage-layout .user-info {
   font-size: 20px;
-  padding: 30px 20px;
+  padding: 40px 20px;
   font-family: "NanumSquareEB";
   background: #fafafa;
 }
