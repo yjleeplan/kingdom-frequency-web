@@ -40,6 +40,8 @@ const UserAddModal = ({ visible, onCancel, setIsLoading }) => {
     { label: "기타", value: "기타" },
   ];
 
+  let timer;
+
   /** Hook */
   const [form] = Form.useForm();
 
@@ -69,7 +71,9 @@ const UserAddModal = ({ visible, onCancel, setIsLoading }) => {
       cancelText: "취소",
       onOk: async () => {
         try {
-          setIsLoading(true);
+          timer = setTimeout(() => {
+            setIsLoading(true);
+          }, 800);
           await api.createUser({
             data: params,
           });
@@ -83,6 +87,7 @@ const UserAddModal = ({ visible, onCancel, setIsLoading }) => {
               : "등록 실패"
           );
         } finally {
+          clearTimeout(timer);
           setIsLoading(false);
         }
       },
