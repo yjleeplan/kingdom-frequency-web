@@ -18,6 +18,8 @@ const UserSelectModal = ({ visible, onCancel, setIsLoading, login }) => {
   /** State */
   const [resultList, setResultList] = useState([]);
 
+  let timer;
+
   // 검색
   const handleSearch = () => {
     form.submit();
@@ -26,7 +28,9 @@ const UserSelectModal = ({ visible, onCancel, setIsLoading, login }) => {
   // Form Submit
   const onFinish = async ({ keyword }) => {
     try {
-      setIsLoading(true);
+      timer = setTimeout(() => {
+        setIsLoading(true);
+      }, 800);
 
       const { data: users } = await api.listUser({
         query: {
@@ -44,6 +48,7 @@ const UserSelectModal = ({ visible, onCancel, setIsLoading, login }) => {
         });
         setResultList([]);
       } else {
+        clearTimeout(timer);
         setResultList(users);
       }
     } catch (error) {

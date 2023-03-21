@@ -21,6 +21,8 @@ const Routes = () => {
   const [userData, setUserData] = useState({});
   const [isLoading, setIsLoading] = useState(false);
 
+  let timer;
+
   /** Effect */
   useEffect(() => {
     authCheck();
@@ -37,7 +39,9 @@ const Routes = () => {
   // 로그인
   const login = async (id) => {
     try {
-      setIsLoading(true);
+      timer = setTimeout(() => {
+        setIsLoading(true);
+      }, 800);
 
       const { data: user } = await api.selectUser({
         path: { user_id: id },
@@ -65,6 +69,7 @@ const Routes = () => {
           : "로그인 실패"
       );
     } finally {
+      clearTimeout(timer);
       setIsLoading(false);
     }
   };

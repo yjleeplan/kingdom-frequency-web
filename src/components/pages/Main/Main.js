@@ -49,6 +49,8 @@ const Main = ({ history, setIsLoading, userData, login, logout }) => {
   const [userHistModalVisible, setUserHistModalVisible] = useState(false);
   const [missionCount, setMissionCount] = useState(initMissionCount);
 
+  let timer;
+
   useEffect(() => {
     !_.isEmpty(userData) && handleGetMissionCount();
     // eslint-disable-next-line
@@ -57,7 +59,9 @@ const Main = ({ history, setIsLoading, userData, login, logout }) => {
   // 사용자 실천항목 갯수 조회
   const handleGetMissionCount = async () => {
     try {
-      setIsLoading(true);
+      timer = setTimeout(() => {
+        setIsLoading(true);
+      }, 800);
       
       const { data } = await api.selectMissionHistoryCount({
         query: { user_id: userData.id },
@@ -75,6 +79,7 @@ const Main = ({ history, setIsLoading, userData, login, logout }) => {
           : "사용자 실천항목 갯수 조회 실패"
       );
     } finally {
+      clearTimeout(timer);
       setIsLoading(false);
     }
   };

@@ -14,22 +14,37 @@ const Category = ({ history, setIsLoading, missionCode = "", userData }) => {
   const [checkedMissionId, setCheckedMissionId] = useState("");
   const [count, setCount] = useState(0);
 
+  let getMissionHistoryTimer;
+  let createMissionHistoryTimer;
+
   /** Effect */
   useEffect(() => {
-    handleGetMissionList();
+    handleGetMissionAndMissionHistory();
     // eslint-disable-next-line
   }, []);
 
-  useEffect(() => {
-    !_.isEmpty(userData) && handleGetUserMissionHistory();
-    // eslint-disable-next-line
-  }, [userData]);
+  const handleGetMissionAndMissionHistory = async () => {
+    try {
+      getMissionHistoryTimer = setTimeout(() => {
+        setIsLoading(true);
+      }, 800);
+
+      await handleGetMissionList();
+      if (!_.isEmpty(userData)) {
+        await handleGetUserMissionHistory();
+        await handleGetMissionCount();
+      }
+    } catch (error) {
+      message.error(error.message);
+    } finally {
+      clearTimeout(getMissionHistoryTimer);
+      setIsLoading(false);
+    }
+  };
 
   // 실천항목 목록 조회
   const handleGetMissionList = async () => {
     try {
-      setIsLoading(true);
-
       const { data } = await api.listMission({
         query: { mission_code: missionCode },
       });
@@ -41,16 +56,12 @@ const Category = ({ history, setIsLoading, missionCode = "", userData }) => {
           ? `${error.response.data.code}, ${error.response.data.message}`
           : "실천항목 목록 조회 실패"
       );
-    } finally {
-      setIsLoading(false);
     }
   };
 
   // 사용자 실천 이력 조회
   const handleGetUserMissionHistory = async () => {
     try {
-      setIsLoading(true);
-
       const { data } = await api.selectMissionHistoryWeek({
         path: {
           user_id: userData.id,
@@ -67,24 +78,18 @@ const Category = ({ history, setIsLoading, missionCode = "", userData }) => {
       else {
         setIsDisabled(false);
       }
-
-      handleGetMissionCount();
     } catch (error) {
-      message.error(
+      throw new Error(
         error.response
           ? `${error.response.data.code}, ${error.response.data.message}`
           : "사용자 실천 이력 조회 실패"
       );
-    } finally {
-      setIsLoading(false);
     }
   };
 
   // 사용자 실천항목 갯수 조회
   const handleGetMissionCount = async () => {
     try {
-      setIsLoading(true);
-      
       const { data } = await api.selectMissionHistoryCount({
         query: {
           user_id: userData.id,
@@ -94,13 +99,11 @@ const Category = ({ history, setIsLoading, missionCode = "", userData }) => {
 
       setCount(_.head(data).checked_count);
     } catch (error) {
-      message.error(
+      throw new Error(
         error.response
           ? `${error.response.data.code}, ${error.response.data.message}`
           : "사용자 실천항목 갯수 조회 실패"
       );
-    } finally {
-      setIsLoading(false);
     }
   };
 
@@ -122,7 +125,9 @@ const Category = ({ history, setIsLoading, missionCode = "", userData }) => {
         cancelText: "취소",
         onOk: async () => {
           try {
-            setIsLoading(true);
+            createMissionHistoryTimer = setTimeout(() => {
+              setIsLoading(true);
+            }, 800);
             
             await api.createMissionHistory({
               data: {
@@ -134,7 +139,7 @@ const Category = ({ history, setIsLoading, missionCode = "", userData }) => {
             Modal.success({
               title: "금주의 실천항목을 완료하셨습니다",
               content: "오늘도 수고하셨습니다 :)",
-              onOk: () => window.location.reload()
+              onOk: handleGetMissionAndMissionHistory
             });
           } catch (error) {
             message.error(
@@ -143,6 +148,7 @@ const Category = ({ history, setIsLoading, missionCode = "", userData }) => {
                 : "사용자 실천 완료하기 처리 실패"
             );
           } finally {
+            clearTimeout(createMissionHistoryTimer);
             setIsLoading(false);
           }
         },
