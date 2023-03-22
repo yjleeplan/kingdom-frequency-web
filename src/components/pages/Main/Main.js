@@ -68,7 +68,7 @@ const Main = ({ history, setIsLoading, userData, login, logout }) => {
       });
 
       const newData = _.map(missionCount, (item) => {
-        return _.head(_.filter(data, { 'mission_code' : item.mission_code }));
+        return _.find(data, { 'mission_code' : item.mission_code });
       });
 
       setMissionCount(newData);
