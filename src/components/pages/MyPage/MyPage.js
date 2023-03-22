@@ -46,12 +46,7 @@ const MyPage = ({ setIsLoading, userData }) => {
   const [activeKey, setActiveKey] = useState("ALL");
 
   useEffect(() => {
-    if ( !_.isEmpty(userData) ) {
-      handleGetUserMissionHistory();
-    }
-    else {
-      //window.location.href = "/main";
-    }
+    !_.isEmpty(userData) && handleGetUserMissionHistory();
     // eslint-disable-next-line
   }, [userData]);
 

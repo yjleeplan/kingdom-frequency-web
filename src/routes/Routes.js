@@ -34,6 +34,11 @@ const Routes = () => {
     if ( cookies.kingdomFrequency ) {
       login(cookies.kingdomFrequency.id);
     }
+    else {
+      if ( window.location.pathname === "/mypage" ) {
+        window.location.href = "/main";
+      }
+    }
   };
 
   // 로그인
