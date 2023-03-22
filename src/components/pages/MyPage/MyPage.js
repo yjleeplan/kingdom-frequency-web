@@ -42,7 +42,7 @@ const MyPage = ({ setIsLoading, userData }) => {
   let timer;
 
   /** State */
-  const [resultList, setResultList] = useState(tabItems);
+  const [resultList, setResultList] = useState([]);
   const [activeKey, setActiveKey] = useState("ALL");
 
   useEffect(() => {
@@ -145,7 +145,7 @@ const MyPage = ({ setIsLoading, userData }) => {
     <>
       <Row className="user-info">
         <Col span={24}>
-          이형재님의 히스토리
+          {userData.name}님의 히스토리
         </Col>
       </Row>
       <Tabs
