@@ -290,9 +290,8 @@ const Main = ({ history, setIsLoading, userData, login, logout }) => {
           </Row>
           <Row className="main-info-content">
             <Col span={24}>
-              하나님 나라를 위한 작은 행동들이 계속해서 진동한다는 의미입니다.<br/>
-              우리의 삶은 하나님 나라가 계속해서 선택되고 드러날 수 있도록<br/>
-              계속해서 도전하는 것입니다.
+              하나님 나라를 위한 작은 행동들이 계속해서 진동한다는 의미입니다.
+              우리의 삶은 하나님 나라가 계속해서 선택되고 드러날 수 있도록 계속해서 도전하는 것입니다.
             </Col>
           </Row>
         </Col>
