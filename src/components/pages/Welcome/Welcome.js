@@ -36,7 +36,7 @@ const Welcome = ({ history }) => {
               />
             </Col>
           </Row>
-          <Row>
+          <Row className="touch-comment">
             <Col span={24}>
               화면을 터치해주세요
             </Col>

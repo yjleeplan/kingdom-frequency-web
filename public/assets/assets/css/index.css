@@ -74,6 +74,17 @@ p {
   background-color: #7EB105 !important;
 }
 
+/* modal */
+.ant-modal {
+  top: 20%;
+}
+
+/* iPhone 5/SE */
+@media (max-width: 320px) {
+  .ant-modal {
+    top: 10%;
+  }
+}
 
 /* Welcome Layout */
 #welcome-layout {
@@ -105,6 +116,7 @@ p {
   margin: 40px 0;
   font-weight: bold;
   font-family: "NanumSquareEB";
+  font-size: 16px;
 }
 
 #welcome-layout .project-sub-title {
@@ -132,6 +144,27 @@ p {
 #welcome-layout .touch-comment-wrap .touch-image {
   margin-bottom: 4px;
 }
+
+/* PC */
+@media (min-width: 1024px) {
+  #welcome-layout .project-year {
+    font-size: 50px;
+  }
+  #welcome-layout .project-sub-title {
+    font-size: 50px;
+  }
+  #welcome-layout .project-title {
+    font-size: 110px;
+  }
+  .touch-image .ant-image {
+    width: 100px !important;
+    height: 100px !important;
+  }
+  .touch-image .touch-comment {
+    font-size: 25px;
+  }
+}
+
 /* Welcome Layout */
 
 
@@ -196,12 +229,12 @@ p {
 }
 
 #main-layout .main-user-box .main-user-box-text-01 {
-  font-size: 16px;
+  font-size: 18px;
   font-family: "NanumSquareEB";
 }
 
 #main-layout .main-user-box .main-user-box-text-02 {
-  font-size: 12px;
+  font-size: 14px;
   padding: 4px 0;
 }
 
@@ -218,6 +251,7 @@ p {
   background-color: #C41C7F;
   color: #FFF;
   margin-right: 4px;
+  margin-top: 4px
 }
 
 #main-layout .main-user-box .main-user-btn-02 {
@@ -251,7 +285,8 @@ p {
 }
 
 #main-layout .main-info .main-info-content {
-  font-size: 12px;
+  font-size: 13px;
+  word-break: keep-all;
 }
 
 #main-layout .main-category {
@@ -334,6 +369,44 @@ p {
   margin: auto;
   flex: auto;
 }
+
+/* iPhone 5/SE */
+@media (max-width: 320px) {
+  #main-layout .main-user-box .main-user-box-text-01 {
+    font-size: 15px;
+  }
+  #main-layout .main-info .main-info-content {
+    font-size: 11px;
+  }
+  #main-layout .main-category .main-category-subtitle {
+    font-size: 11px;
+  }
+  #main-layout .main-category .main-category-title {
+    font-size: 18px;
+  }
+  #main-layout .main-category .ant-card-body {
+    min-height: 150px;
+  }
+  #main-layout .main-user-box .main-user-box-text-02 {
+    font-size: 13px;
+  }
+}
+
+/* Galaxy S10 5G */
+@media (min-width: 412px) {
+  #main-layout .main-user-box .main-user-box-text-02 {
+    font-size: 15px;
+  }
+  #main-layout .main-info .main-info-title {
+    font-size: 17px;
+  }
+  #main-layout .main-info .main-info-content {
+    font-size: 14px;
+  }
+  #main-layout .main-category .ant-card-body {
+    min-height: 182px;
+  }
+}
 /* Main Layout */
 
 
@@ -412,7 +485,7 @@ p {
 }
 
 #category-layout .category-list .category-list-data {
-  font-size: 11px;
+  font-size: 13px;
   border: 1px solid #d9d9d9;
   margin: 20px 0;
 }
@@ -430,11 +503,12 @@ p {
 }
 
 #category-layout .category-list .category-list-data .category-list-data-col-1 {
-  padding: 6px;
+  padding: 6px 0 6px 4px;
 }
 
 #category-layout .category-list .category-list-data .category-list-data-col-2 {
-  padding: 6px;
+  padding: 6px 0;
+  word-break: keep-all;
 }
 
 #category-layout .category-list .category-list-data .category-list-data-col-3 {
@@ -500,6 +574,66 @@ p {
 #category-layout .category-stamp .category-stamp-bottom .category-stamp-count .category-stamp-count-bar {
   border-right: 1px solid;
   margin: 6px 0;
+}
+
+/* iPhone 5/SE */
+@media (max-width: 320px) {
+  #category-layout .category-info .category-info-title {
+    font-size: 40px;
+  }
+  
+  #category-layout .category-info .category-info-subtitle {
+    font-size: 16px;
+  }
+  .category-logo .ant-image {
+    width: 250px;
+    height: 250px;
+  }
+  #category-layout .category-list .category-list-data {
+    font-size: 12px;
+  }
+  #category-layout .category-stamp .category-stamp-title {
+    top: 30px;
+  }
+  #category-layout .category-stamp .category-stamp-content {
+    top: 64px;
+  }
+  #category-layout .category-stamp .category-stamp-bottom .category-stamp-count {
+    height: 45px;
+    font-size: 14px;
+    padding: 12px 0 10px 12px;
+  }
+  .spirit .category-stamp .category-stamp-bottom {
+    bottom: 60px !important;
+  }
+  .youngAdult .category-stamp .category-stamp-bottom {
+    bottom: 65px !important;
+  }
+}
+/* Galaxy S10 5G */
+@media (min-width: 412px) {
+  #category-layout .category-info .category-info-content {
+    font-size: 13px;
+  }
+  #category-layout .category-list .category-list-title {
+    font-size: 24px;
+  }
+  #category-layout .category-list .category-list-subtitle {
+    font-size: 13px;
+  }
+  #category-layout .category-list .category-list-content {
+    font-size: 13px;
+  }
+  #category-layout .category-stamp .category-stamp-title {
+    font-size: 24px;
+  }
+  #category-layout .category-stamp .category-stamp-content {
+    font-size: 13px;
+  }
+  #category-layout .category-stamp .category-stamp-bottom .category-stamp-count {
+    font-size: 17px;
+    padding: 12px 0 12px 12px;
+  }
 }
 /* Category Layout */
 
@@ -657,18 +791,23 @@ p {
 }
 #mypage-layout .ant-tabs-nav-list .ant-tabs-tab:nth-child(1) {
   width: 18%;
+  font-size: 14px;
 }
 #mypage-layout .ant-tabs-nav-list .ant-tabs-tab:nth-child(2) {
   width: 23%;
+  font-size: 14px;
 }
 #mypage-layout .ant-tabs-nav-list .ant-tabs-tab:nth-child(3) {
   width: 18%;
+  font-size: 14px;
 }
 #mypage-layout .ant-tabs-nav-list .ant-tabs-tab:nth-child(4) {
   width: 23%;
+  font-size: 14px;
 }
 #mypage-layout .ant-tabs-nav-list .ant-tabs-tab:nth-child(5) {
   width: 18%;
+  font-size: 14px;
 }
 
 #mypage-layout .ant-tabs-content-holder {
@@ -689,17 +828,26 @@ p {
   color: rgba(0, 0, 0, 0.45);
   width: 100%;
   padding: 0;
+  font-size: 16px;
 }
 
 #mypage-layout
 .ant-steps-item-wait > .ant-steps-item-container > .ant-steps-item-content > .ant-steps-item-title {
   width: 100%;
   padding: 0;
+  font-size: 16px;
 }
 
 #mypage-layout
 .ant-steps-item-process > .ant-steps-item-container > .ant-steps-item-content > .ant-steps-item-description {
   color: rgba(0, 0, 0, 0.45);
+  font-size: 14px;
+}
+
+#mypage-layout
+.ant-steps-item-wait > .ant-steps-item-container > .ant-steps-item-content > .ant-steps-item-description {
+  color: rgba(0, 0, 0, 0.45);
+  font-size: 14px;
 }
 
 #mypage-layout .hist-title {
@@ -708,12 +856,50 @@ p {
 
 #mypage-layout .hist-date {
   text-align: end;
-  font-size: 12px;
+  font-size: 13px;
 }
 
 #mypage-layout .hist-no-data {
   text-align: center;
   font-size: 16px;
+}
+
+/* Galaxy S10 5G */
+@media (min-width: 412px) {
+  #mypage-layout .ant-tabs-nav-list .ant-tabs-tab:nth-child(1) {
+    font-size: 15px;
+  }
+  #mypage-layout .ant-tabs-nav-list .ant-tabs-tab:nth-child(2) {
+    font-size: 15px;
+  }
+  #mypage-layout .ant-tabs-nav-list .ant-tabs-tab:nth-child(3) {
+    font-size: 15px;
+  }
+  #mypage-layout .ant-tabs-nav-list .ant-tabs-tab:nth-child(4) {
+    font-size: 15px;
+  }
+  #mypage-layout .ant-tabs-nav-list .ant-tabs-tab:nth-child(5) {
+    font-size: 15px;
+  }
+  #mypage-layout
+  .ant-steps-item-process > .ant-steps-item-container > .ant-steps-item-content > .ant-steps-item-title {
+    font-size: 16px;
+  }
+  
+  #mypage-layout
+  .ant-steps-item-wait > .ant-steps-item-container > .ant-steps-item-content > .ant-steps-item-title {
+    font-size: 16px;
+  }
+  
+  #mypage-layout
+  .ant-steps-item-process > .ant-steps-item-container > .ant-steps-item-content > .ant-steps-item-description {
+    font-size: 15px;
+  }
+  
+  #mypage-layout
+  .ant-steps-item-wait > .ant-steps-item-container > .ant-steps-item-content > .ant-steps-item-description {
+    font-size: 15px;
+  }
 }
 /* MyPage */
 
