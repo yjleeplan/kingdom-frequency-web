@@ -44,6 +44,12 @@ export const selectUser = ({ path }) => {
   });
 };
 
+export const selectUserCount = () => {
+  return request.get("/users/count", {
+    ...headers(),
+  });
+};
+
 export const updatedAttendance = ({ path, data }) => {
   return request.put(`/attendance/${path.attendance_id}`,
     data,
@@ -60,6 +66,41 @@ export const createComment = ({ data }) => {
 
 export const listComment = ({ query }) => {
   return request.get("/comments", {
+    params: query,
+    ...headers(),
+  });
+};
+
+export const listMission = ({ query }) => {
+  return request.get("/mission", {
+    params: query,
+    ...headers(),
+  });
+};
+
+export const createMissionHistory = ({ data }) => {
+  return request.post("/mission_history",
+    data,
+    headers(),
+  );
+};
+
+export const selectMissionHistoryWeek = ({ path, query }) => {
+  return request.get(`/users/${path.user_id}/mission_history/week`, {
+    params: query,
+    ...headers(),
+  });
+};
+
+export const selectMissionHistory = ({ path, query }) => {
+  return request.get(`/users/${path.user_id}/mission_history`, {
+    params: query,
+    ...headers(),
+  });
+};
+
+export const selectMissionHistoryCount = ({ query }) => {
+  return request.get("/mission_history/count", {
     params: query,
     ...headers(),
   });

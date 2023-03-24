@@ -27,6 +27,7 @@ const UserAddModal = ({ visible, onCancel, setIsLoading }) => {
     { label: "사랑3", value: "사랑3" },
     { label: "사랑4", value: "사랑4" },
     { label: "신혼부부", value: "신혼부부" },
+    { label: "젊은가정", value: "젊은가정" },
     { label: "에하드", value: "에하드" },
     { label: "청년부", value: "청년부" },
     { label: "고등부", value: "고등부" },
@@ -38,6 +39,8 @@ const UserAddModal = ({ visible, onCancel, setIsLoading }) => {
     { label: "해외", value: "해외" },
     { label: "기타", value: "기타" },
   ];
+
+  let timer;
 
   /** Hook */
   const [form] = Form.useForm();
@@ -68,7 +71,9 @@ const UserAddModal = ({ visible, onCancel, setIsLoading }) => {
       cancelText: "취소",
       onOk: async () => {
         try {
-          setIsLoading(true);
+          timer = setTimeout(() => {
+            setIsLoading(true);
+          }, 800);
           await api.createUser({
             data: params,
           });
@@ -82,6 +87,7 @@ const UserAddModal = ({ visible, onCancel, setIsLoading }) => {
               : "등록 실패"
           );
         } finally {
+          clearTimeout(timer);
           setIsLoading(false);
         }
       },
@@ -91,7 +97,7 @@ const UserAddModal = ({ visible, onCancel, setIsLoading }) => {
   return (
     <Modal
       wrapClassName="user-add-modal-wrap"
-      title="출석 명단 등록"
+      title="동참하기"
       visible={visible}
       onOk={handleSave}
       onCancel={handleCancel}

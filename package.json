@@ -12,11 +12,14 @@
     "start": "react-scripts start",
     "start-dev": "npm run dev && npm-run-all -p sync-assets watch-assets start",
     "start-prod": "npm run prod && npm-run-all -p sync-assets watch-assets start",
-    "sync-assets": "cp -r ./src/assets/ ./public/assets",
+    "sync-assets": "cp -r ./src/assets/ ./public/",
     "watch-assets": "chokidar \"src/assets\" -c \"npm run sync-assets\""
   },
   "dependencies": {
     "@ant-design/icons": "^4.3.0",
+    "@fortawesome/fontawesome-svg-core": "^6.3.0",
+    "@fortawesome/free-solid-svg-icons": "^6.3.0",
+    "@fortawesome/react-fontawesome": "^0.2.0",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
@@ -33,6 +36,7 @@
     "npm-run-all": "^4.1.5",
     "query-string": "^7.0.1",
     "react": "^17.0.2",
+    "react-cookie": "^4.1.1",
     "react-dom": "^17.0.2",
     "react-infinite-scroll-component": "^6.1.0",
     "react-player": "^2.9.0",
