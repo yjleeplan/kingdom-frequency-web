@@ -47,19 +47,44 @@ const Main = ({ history, setIsLoading, userData, login, logout }) => {
   const [userAddModalVisible, setUserAddModalVisible] = useState(false);
   const [userSelectModalVisible, setUserSelectModalVisible] = useState(false);
   const [userHistModalVisible, setUserHistModalVisible] = useState(false);
+  const [userCount, setUserCount] = useState(0);
   const [missionCount, setMissionCount] = useState(initMissionCount);
 
-  let timer;
+  let userCountTimer;
+  let missionCountTimer;
 
   useEffect(() => {
-    !_.isEmpty(userData) && handleGetMissionCount();
+    if (_.isEmpty(userData)) handleGetUserCount();
+    else handleGetMissionCount();
     // eslint-disable-next-line
   }, [userData]);
+
+  // 사용자수 조회
+  const handleGetUserCount = async () => {
+    try {
+      userCountTimer = setTimeout(() => {
+        setIsLoading(true);
+      }, 800);
+      
+      const { data } = await api.selectUserCount();
+
+      setUserCount(data.total_count);
+    } catch (error) {
+      message.error(
+        error.response
+          ? `${error.response.data.code}, ${error.response.data.message}`
+          : "사용자수 조회 실패"
+      );
+    } finally {
+      clearTimeout(userCountTimer);
+      setIsLoading(false);
+    }
+  };
 
   // 사용자 실천항목 갯수 조회
   const handleGetMissionCount = async () => {
     try {
-      timer = setTimeout(() => {
+      missionCountTimer = setTimeout(() => {
         setIsLoading(true);
       }, 800);
       
@@ -79,7 +104,7 @@ const Main = ({ history, setIsLoading, userData, login, logout }) => {
           : "사용자 실천항목 갯수 조회 실패"
       );
     } finally {
-      clearTimeout(timer);
+      clearTimeout(missionCountTimer);
       setIsLoading(false);
     }
   };
@@ -142,7 +167,7 @@ const Main = ({ history, setIsLoading, userData, login, logout }) => {
               <Col span={14}>
                 <Row>
                   <Col span={24} className="main-user-box-text-01">
-                    현재 <Text className='color-0'>1,200</Text>명 참여중!
+                    현재 <Text className='color-0'>{userCount}</Text>명 참여중!
                   </Col>
                 </Row>
                 <Row>

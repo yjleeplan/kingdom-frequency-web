@@ -44,6 +44,12 @@ export const selectUser = ({ path }) => {
   });
 };
 
+export const selectUserCount = () => {
+  return request.get("/users/count", {
+    ...headers(),
+  });
+};
+
 export const updatedAttendance = ({ path, data }) => {
   return request.put(`/attendance/${path.attendance_id}`,
     data,
