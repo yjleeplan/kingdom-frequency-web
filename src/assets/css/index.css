@@ -145,23 +145,25 @@ p {
   margin-bottom: 4px;
 }
 
+#welcome-layout .pc-comment {
+  width: 80%;
+  bottom: 20%;
+  position: fixed;
+  text-align: center;
+  color: #FFF;
+  font-size: 28px;
+}
+
 /* PC */
 @media (min-width: 1024px) {
   #welcome-layout .project-year {
-    font-size: 50px;
+    font-size: 25px;
   }
   #welcome-layout .project-sub-title {
-    font-size: 50px;
+    font-size: 30px;
   }
   #welcome-layout .project-title {
-    font-size: 110px;
-  }
-  .touch-image .ant-image {
-    width: 100px !important;
-    height: 100px !important;
-  }
-  .touch-comment {
-    font-size: 25px;
+    font-size: 65px;
   }
 }
 
