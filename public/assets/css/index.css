@@ -80,7 +80,7 @@ p {
 }
 
 /* iPhone 5/SE */
-@media (max-width: 320px) {
+@media (max-width: 320px) and (orientation: portrait) {
   .ant-modal {
     top: 10%;
   }
@@ -156,6 +156,43 @@ p {
 
 /* PC */
 @media (min-width: 1024px) {
+  #welcome-layout .project-year {
+    font-size: 25px;
+  }
+  #welcome-layout .project-sub-title {
+    font-size: 30px;
+  }
+  #welcome-layout .project-title {
+    font-size: 65px;
+  }
+  #welcome-layout .touch-image .ant-image-img {
+    height: 70% !important;
+  }
+  #welcome-layout .touch-comment {
+    font-size: 20px;
+  }
+}
+/* 테블릿 세로 (min-height, landscape가 들어간 이유: 갤럭시탭 가상 키보드 버그) */
+@media (min-height: 800px) and (orientation: landscape),
+  (min-width: 750px) and (max-width: 1023px) and (orientation: portrait) {
+  #welcome-layout .project-year {
+    font-size: 20px;
+  }
+  #welcome-layout .project-sub-title {
+    font-size: 25px;
+  }
+  #welcome-layout .project-title {
+    font-size: 55px;
+  }
+  #welcome-layout .touch-image .ant-image-img {
+    height: 70% !important;
+  }
+  #welcome-layout .touch-comment {
+    font-size: 20px;
+  }
+}
+/* 테블릿 가로 */
+@media (min-width: 899px) and (max-width: 1023px) and (orientation: landscape) {
   #welcome-layout .project-year {
     font-size: 25px;
   }
@@ -372,8 +409,36 @@ p {
   flex: auto;
 }
 
+/* PC */
+@media (min-width: 1024px) {
+  #main-layout #content {
+    width: 60%;
+  }
+  #main-layout .main-category .ant-card-body {
+    min-height: 260px;
+  }
+}
+/* 테블릿 세로 (min-height, landscape가 들어간 이유: 갤럭시탭 가상 키보드 버그) */
+@media (min-height: 800px) and (orientation: landscape),
+  (min-width: 750px) and (max-width: 1023px) and (orientation: portrait) {
+  #main-layout #content {
+    width: 70%;
+  }
+  #main-layout .main-category .ant-card-body {
+    min-height: 260px;
+  }
+}
+/* 테블릿 가로 */
+@media (min-width: 899px) and (max-width: 1023px) and (orientation: landscape) {
+  #main-layout #content {
+    width: 60%;
+  }
+  #main-layout .main-category .ant-card-body {
+    min-height: 220px;
+  }
+}
 /* iPhone 5/SE */
-@media (max-width: 320px) {
+@media (max-width: 320px) and (orientation: portrait) {
   #main-layout .main-user-box .main-user-box-text-01 {
     font-size: 15px;
   }
@@ -393,9 +458,8 @@ p {
     font-size: 13px;
   }
 }
-
 /* Galaxy S10 5G */
-@media (min-width: 412px) {
+@media (min-width: 412px) and (max-width: 480px) and (orientation: portrait) {
   #main-layout .main-user-box .main-user-box-text-02 {
     font-size: 15px;
   }
@@ -578,8 +642,39 @@ p {
   margin: 6px 0;
 }
 
+/* PC */
+@media (min-width: 1024px) {
+  #category-layout #content {
+    width: 60%;
+    margin: auto;
+  }
+  #category-layout #content .category-logo .ant-image-img {
+    width: 60%;
+  }
+}
+/* 테블릿 세로 (min-height, landscape가 들어간 이유: 갤럭시탭 가상 키보드 버그) */
+@media (min-height: 800px) and (orientation: landscape),
+  (min-width: 750px) and (max-width: 1023px) and (orientation: portrait) {
+  #category-layout #content {
+    width: 70%;
+    margin: auto;
+  }
+  #category-layout #content .category-logo .ant-image-img {
+    width: 70%;
+  }
+}
+/* 테블릿 가로 */
+@media (min-width: 899px) and (max-width: 1023px) and (orientation: landscape) {
+  #category-layout #content {
+    width: 60%;
+    margin: auto;
+  }
+  #category-layout #content .category-logo .ant-image-img {
+    width: 60%;
+  }
+}
 /* iPhone 5/SE */
-@media (max-width: 320px) {
+@media (max-width: 320px) and (orientation: portrait) {
   #category-layout .category-info .category-info-title {
     font-size: 40px;
   }
@@ -613,7 +708,7 @@ p {
   }
 }
 /* Galaxy S10 5G */
-@media (min-width: 412px) {
+@media (min-width: 412px) and (max-width: 480px) and (orientation: portrait) {
   #category-layout .category-info .category-info-content {
     font-size: 13px;
   }
@@ -866,8 +961,30 @@ p {
   font-size: 16px;
 }
 
+/* PC */
+@media (min-width: 1024px) {
+  #mypage-layout #content {
+    width: 60%;
+    margin: auto;
+  }
+}
+/* 테블릿 세로 (min-height, landscape가 들어간 이유: 갤럭시탭 가상 키보드 버그) */
+@media (min-height: 800px) and (orientation: landscape),
+  (min-width: 750px) and (max-width: 1023px) and (orientation: portrait) {
+  #mypage-layout #content {
+    width: 70%;
+    margin: auto;
+  }
+}
+/* 테블릿 가로 */
+@media (min-width: 899px) and (max-width: 1023px) and (orientation: landscape) {
+  #mypage-layout #content {
+    width: 60%;
+    margin: auto;
+  }
+}
 /* Galaxy S10 5G */
-@media (min-width: 412px) {
+@media (min-width: 412px) and (max-width: 480px) and (orientation: portrait) {
   #mypage-layout .ant-tabs-nav-list .ant-tabs-tab:nth-child(1) {
     font-size: 15px;
   }
