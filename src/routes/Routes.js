@@ -101,6 +101,7 @@ const Routes = () => {
     <Router>
       <ScrollToTop />
       <Switch>
+        {isMobile() ? (
           <>
             <Route
               exact
@@ -166,6 +167,13 @@ const Routes = () => {
               )}
             />
           </>
+        ) : (
+          <Route
+            render={(props) => (
+              <PagePC {...props} />
+            )}
+          />
+        )}
       </Switch>
     </Router>
   );
