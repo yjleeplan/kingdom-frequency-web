@@ -212,6 +212,7 @@ const Main = ({ history, setIsLoading, userData, login, logout }) => {
                 visible={userAddModalVisible}
                 onCancel={handleUserAddModalClose}
                 setIsLoading={setIsLoading}
+                callback={handleGetUserCount}
               />
             </div>
             <div id="userSelectModal">
