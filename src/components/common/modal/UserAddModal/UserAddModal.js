@@ -2,7 +2,7 @@ import { Form, Input, message, Modal, Select } from "antd";
 import React from "react";
 import * as api from "../../../../api";
 
-const UserAddModal = ({ visible, onCancel, setIsLoading }) => {
+const UserAddModal = ({ visible, onCancel, setIsLoading, callback }) => {
   // Form Init
   const initialValues = {
     name: "",
@@ -80,6 +80,7 @@ const UserAddModal = ({ visible, onCancel, setIsLoading }) => {
 
           message.success("정상적으로 등록되었습니다");
           handleCancel();
+          callback();
         } catch (error) {
           message.error(
             error.response
