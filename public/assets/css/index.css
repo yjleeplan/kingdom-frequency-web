@@ -765,6 +765,11 @@ p {
 }
 
 .ant-modal-wrap.user-select-modal-wrap
+  .search-wrap .ant-input {
+  font-size: 16px;
+}
+
+.ant-modal-wrap.user-select-modal-wrap
   .search-wrap
   .ant-input-affix-wrapper
   .anticon.anticon-search {
