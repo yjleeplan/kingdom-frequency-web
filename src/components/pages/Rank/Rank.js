@@ -9,61 +9,61 @@ const Rank = ({ setIsLoading, userData }) => {
   const tempData = [
     {
       rank: "1",
-      name: "UserName1",
+      name: "김민주",
       age: "15",
       point: "1,500"
     },
     {
       rank: "2",
-      name: "UserName2",
+      name: "이정익",
       age: "12",
       point: "1,200"
     },
     {
       rank: "3",
-      name: "UserName3",
+      name: "이태우",
       age: "30",
       point: "900"
     },
     {
       rank: "4",
-      name: "UserName4",
+      name: "임세현",
       age: "23",
       point: "800"
     },
     {
       rank: "5",
-      name: "UserName5",
+      name: "최수정",
       age: "27",
       point: "700"
     },
     {
       rank: "6",
-      name: "UserName6",
+      name: "최정은",
       age: "45",
       point: "500"
     },
     {
       rank: "7",
-      name: "UserName7",
+      name: "김선규",
       age: "61",
       point: "400"
     },
     {
       rank: "8",
-      name: "UserName8",
+      name: "이정인",
       age: "18",
       point: "300"
     },
     {
       rank: "9",
-      name: "UserName9",
+      name: "김민영",
       age: "15",
       point: "200"
     },
     {
       rank: "10",
-      name: "UserName10",
+      name: "김민영",
       age: "49",
       point: "50"
     },
@@ -97,12 +97,12 @@ const Rank = ({ setIsLoading, userData }) => {
             bordered={false}
           >
             {_.map(resultData.list1, (item, index) => {
-              const rank = index === 0 ? "rank1" : "";
+              const rank = index === 0 ? "rank1" : index === 1 ? "rank2" : index === 2 ? "rank3" : "";
 
               return (
                 <Row key={index} className={`rank-list-data-row ${rank}`}>
-                  <Col span={4}  className="rank-list-data-col-1">{item['rank']}</Col>
-                  <Col span={14} className="rank-list-data-col-2">{item['name']} <Text>({item['age']}세)</Text></Col>
+                  <Col span={3}  className="rank-list-data-col-1">{item['rank']}</Col>
+                  <Col span={15} className="rank-list-data-col-2">{item['name']} <Text>({item['age']}세)</Text></Col>
                   <Col span={6}  className="rank-list-data-col-3">{item['point']}</Col>
                 </Row>
               );
@@ -115,12 +115,12 @@ const Rank = ({ setIsLoading, userData }) => {
             bordered={false}
           >
             {_.map(resultData.list2, (item, index) => {
-              const rank = index === 0 ? "rank1" : "";
+              const rank = index === 0 ? "rank1" : index === 1 ? "rank2" : index === 2 ? "rank3" : "";
 
               return (
                 <Row key={index} className={`rank-list-data-row ${rank}`}>
-                  <Col span={4}  className="rank-list-data-col-1">{item['rank']}</Col>
-                  <Col span={14} className="rank-list-data-col-2">{item['name']} <Text>({item['age']}세)</Text></Col>
+                  <Col span={3}  className="rank-list-data-col-1">{item['rank']}</Col>
+                  <Col span={15} className="rank-list-data-col-2">{item['name']} <Text>({item['age']}세)</Text></Col>
                   <Col span={6}  className="rank-list-data-col-3">{item['point']}</Col>
                 </Row>
               );
@@ -133,12 +133,12 @@ const Rank = ({ setIsLoading, userData }) => {
             bordered={false}
           >
             {_.map(resultData.list3, (item, index) => {
-              const rank = index === 0 ? "rank1" : "";
+              const rank = index === 0 ? "rank1" : index === 1 ? "rank2" : index === 2 ? "rank3" : "";
 
               return (
                 <Row key={index} className={`rank-list-data-row ${rank}`}>
-                  <Col span={4}  className="rank-list-data-col-1">{item['rank']}</Col>
-                  <Col span={14} className="rank-list-data-col-2">{item['name']} <Text>({item['age']}세)</Text></Col>
+                  <Col span={3}  className="rank-list-data-col-1">{item['rank']}</Col>
+                  <Col span={15} className="rank-list-data-col-2">{item['name']} <Text>({item['age']}세)</Text></Col>
                   <Col span={6}  className="rank-list-data-col-3">{item['point']}</Col>
                 </Row>
               );
