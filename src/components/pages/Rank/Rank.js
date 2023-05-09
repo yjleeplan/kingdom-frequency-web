@@ -91,7 +91,7 @@ const Rank = ({ setIsLoading, userData }) => {
         </Col>
       </Row>
       <Row className="rank-content">
-        <Col span={8} className="rank-card pl-20 pr-10">
+        <Col span={8} className="rank-card rank-card-1 pl-20 pr-10">
           <Card
             title="농구"
             bordered={false}
@@ -109,7 +109,7 @@ const Rank = ({ setIsLoading, userData }) => {
             })}
           </Card>
         </Col>
-        <Col span={8} className="rank-card pl-10 pr-10">
+        <Col span={8} className="rank-card rank-card-2 pl-10 pr-10">
           <Card
             title="제기차기"
             bordered={false}
@@ -127,7 +127,7 @@ const Rank = ({ setIsLoading, userData }) => {
             })}
           </Card>
         </Col>
-        <Col span={8} className="rank-card pl-10 pr-20">
+        <Col span={8} className="rank-card rank-card-3 pl-10 pr-20">
           <Card
             title="다트"
             bordered={false}
