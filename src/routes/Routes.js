@@ -8,12 +8,14 @@ import WelcomeLayout from "../components/layouts/WelcomeLayout/WelcomeLayout";
 import MainLayout from "../components/layouts/MainLayout/MainLayout";
 import CategoryLayout from "../components/layouts/CategoryLayout/CategoryLayout";
 import MyPageLayout from "../components/layouts/MyPageLayout/MyPageLayout";
+import RankLayout from "../components/layouts/RankLayout/RankLayout";
 import PagePC from "../components/common/PagePC";
 import Page404 from "../components/common/Page404";
 import Welcome from "../components/pages/Welcome/Welcome";
 import Main from "../components/pages/Main/Main";
 import Category from "../components/pages/Category/Category";
 import MyPage from "../components/pages/MyPage/MyPage";
+import Rank from "../components/pages/Rank/Rank";
 
 const Routes = () => {
   /** State */
@@ -97,6 +99,16 @@ const Routes = () => {
     else return true;
   };
 
+  // PC로 접속 시 예외처리
+  const isPcException = () => {
+    if (window.location.pathname === "/rank") {
+      return true;
+    }
+    else {
+      return false;
+    }
+  };
+
   return (
     <Router>
       <ScrollToTop />
@@ -168,11 +180,23 @@ const Routes = () => {
             />
           </>
         ) : (
-          <Route
-            render={(props) => (
-              <PagePC {...props} />
-            )}
-          />
+          isPcException() ? (
+            <Route
+              exact
+              path="/rank"
+              render={(props) => (
+                <RankLayout isLoading={isLoading}>
+                  <Rank {...props} setIsLoading={setIsLoading} userData={userData} />
+                </RankLayout>
+              )}
+            />
+          ) : (
+            <Route
+              render={(props) => (
+                <PagePC {...props} />
+              )}
+            />
+          )
         )}
       </Switch>
     </Router>
