@@ -1062,19 +1062,14 @@ p {
   top: 20px;
   display: inline-block;
   animation: bounce .4s ease infinite alternate;
-  /* font-family: 'Titan One', cursive; */
   font-size: 80px;
   color: #FFF;
-  text-shadow: 0 1px 0 #CCC,
-               0 2px 0 #CCC,
-               0 3px 0 #CCC,
-               0 4px 0 #CCC,
-               0 5px 0 #CCC,
-               0 6px 0 transparent,
-               0 7px 0 transparent,
-               0 8px 0 transparent,
-               0 9px 0 transparent,
-               0 10px 10px rgba(0, 0, 0, .4);
+  text-shadow: 
+        -2px 0 #000, 0 2px #000, 2px 0 #000, 0 -2px #000,
+        1px 1px #000, 2px 2px #000,
+        3px 3px #ED4C00, 4px 4px #ED4C00,
+        5px 5px #ED4C00, 6px 6px #ED4C00,
+        7px 7px #000, 8px 8px #000;
 }
 
 #rank-layout .rank-header span:nth-child(2) { animation-delay: .1s; }
@@ -1093,16 +1088,12 @@ p {
 @keyframes bounce {
   100% {
     top: -20px;
-    text-shadow: 0 1px 0 #CCC,
-                 0 2px 0 #CCC,
-                 0 3px 0 #CCC,
-                 0 4px 0 #CCC,
-                 0 5px 0 #CCC,
-                 0 6px 0 #CCC,
-                 0 7px 0 #CCC,
-                 0 8px 0 #CCC,
-                 0 9px 0 #CCC,
-                 0 50px 25px rgba(0, 0, 0, .2);
+    text-shadow: 
+        -2px 0 #000, 0 2px #000, 2px 0 #000, 0 -2px #000,
+        1px 1px #000, 2px 2px #000,
+        3px 3px #ED4C00, 4px 4px #ED4C00,
+        5px 5px #ED4C00, 6px 6px #ED4C00,
+        7px 7px #000, 8px 8px #000;
   }
 }
 
@@ -1168,6 +1159,7 @@ p {
 
 #rank-layout .ant-card-body .rank-list-data-col-2 .ant-typography {
   font-size: 18px;
+  color: unset;
 }
 
 #rank-layout .ant-card-body .rank-list-data-row .rank-list-data-col-2 {
@@ -1191,6 +1183,82 @@ p {
 #rank-layout .ant-card-body .rank-list-data-row.rank2 .rank-list-data-col-3,
 #rank-layout .ant-card-body .rank-list-data-row.rank3 .rank-list-data-col-3 {
   padding: 8px 24px 0px 0px;
+}
+
+#rank-layout .ant-card-body .rank-list-data-row.rank1 {
+	animation: color-change-5x-1 5s linear infinite alternate both;
+}
+#rank-layout .ant-card-body .rank-list-data-row.rank2 {
+	animation: color-change-5x-2 5s linear infinite alternate both;
+}
+#rank-layout .ant-card-body .rank-list-data-row.rank3 {
+	animation: color-change-5x-3 5s linear infinite alternate both;
+}
+@keyframes color-change-5x-1 {
+  0% {
+    background: #FFF;
+    color: #000;
+  }
+  25% {
+    background: #FFF;
+    color: #000;
+  }
+  50% {
+    background: #ea2222;
+    color: #FFF;
+  }
+  75% {
+    background: #ea2222;
+    color: #FFF;
+  }
+  100% {
+    background: #ea2222;
+    color: #FFF;
+  }
+}
+@keyframes color-change-5x-2 {
+  0% {
+    background: #FFF;
+    color: #000;
+  }
+  25% {
+    background: #FFF;
+    color: #000;
+  }
+  50% {
+    background: #FFAB91;
+    color: #FFF;
+  }
+  75% {
+    background: #FFAB91;
+    color: #FFF;
+  }
+  100% {
+    background: #FFAB91;
+    color: #FFF;
+  }
+}
+@keyframes color-change-5x-3 {
+  0% {
+    background: #FFF;
+    color: #000;
+  }
+  25% {
+    background: #FFF;
+    color: #000;
+  }
+  50% {
+    background: #D7CCCB;
+    color: #FFF;
+  }
+  75% {
+    background: #D7CCCB;
+    color: #FFF;
+  }
+  100% {
+    background: #D7CCCB;
+    color: #FFF;
+  }
 }
 /* Rank */
 
