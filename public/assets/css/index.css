@@ -1048,7 +1048,6 @@ p {
   width: 100%;
   position: fixed;
   background-color: #FFD600;
-  opacity: 0.8;
   background-image: linear-gradient(#FFBB00 1px, transparent 1px), linear-gradient(to right, #FFBB00 1px, #FFD600 1px);
   background-size: 80px 80px;
 }
