@@ -97,7 +97,7 @@ const Rank = ({ setIsLoading, userData }) => {
             bordered={false}
           >
             {_.map(resultData.list1, (item, index) => {
-              const rank = index === 0 ? "rank1" : index === 1 ? "rank2" : index === 2 ? "rank3" : "";
+              const rank = index === 0 ? "rank rank1" : index === 1 ? "rank rank2" : index === 2 ? "rank rank3" : "";
 
               return (
                 <Row key={index} className={`rank-list-data-row ${rank}`}>
@@ -115,7 +115,7 @@ const Rank = ({ setIsLoading, userData }) => {
             bordered={false}
           >
             {_.map(resultData.list2, (item, index) => {
-              const rank = index === 0 ? "rank1" : index === 1 ? "rank2" : index === 2 ? "rank3" : "";
+              const rank = index === 0 ? "rank rank1" : index === 1 ? "rank rank2" : index === 2 ? "rank rank3" : "";
 
               return (
                 <Row key={index} className={`rank-list-data-row ${rank}`}>
@@ -133,7 +133,7 @@ const Rank = ({ setIsLoading, userData }) => {
             bordered={false}
           >
             {_.map(resultData.list3, (item, index) => {
-              const rank = index === 0 ? "rank1" : index === 1 ? "rank2" : index === 2 ? "rank3" : "";
+              const rank = index === 0 ? "rank rank1" : index === 1 ? "rank rank2" : index === 2 ? "rank rank3" : "";
 
               return (
                 <Row key={index} className={`rank-list-data-row ${rank}`}>
