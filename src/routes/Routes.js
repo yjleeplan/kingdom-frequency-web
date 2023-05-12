@@ -8,6 +8,7 @@ import WelcomeLayout from "../components/layouts/WelcomeLayout/WelcomeLayout";
 import MainLayout from "../components/layouts/MainLayout/MainLayout";
 import CategoryLayout from "../components/layouts/CategoryLayout/CategoryLayout";
 import MyPageLayout from "../components/layouts/MyPageLayout/MyPageLayout";
+import RankGameLayout from "../components/layouts/RankGameLayout/RankGameLayout";
 import RankLayout from "../components/layouts/RankLayout/RankLayout";
 import PagePC from "../components/common/PagePC";
 import Page404 from "../components/common/Page404";
@@ -15,6 +16,9 @@ import Welcome from "../components/pages/Welcome/Welcome";
 import Main from "../components/pages/Main/Main";
 import Category from "../components/pages/Category/Category";
 import MyPage from "../components/pages/MyPage/MyPage";
+import RankGame1 from "../components/pages/Rank/RankGame1";
+import RankGame2 from "../components/pages/Rank/RankGame2";
+import RankGame3 from "../components/pages/Rank/RankGame3";
 import Rank from "../components/pages/Rank/Rank";
 
 const Routes = () => {
@@ -171,6 +175,33 @@ const Routes = () => {
             />
             <Route
               exact
+              path="/rank/game1"
+              render={(props) => (
+                <RankGameLayout isLoading={isLoading} type={1}>
+                  <RankGame1 {...props} setIsLoading={setIsLoading} />
+                </RankGameLayout>
+              )}
+            />
+            <Route
+              exact
+              path="/rank/game2"
+              render={(props) => (
+                <RankGameLayout isLoading={isLoading} type={2}>
+                  <RankGame2 {...props} setIsLoading={setIsLoading} />
+                </RankGameLayout>
+              )}
+            />
+            <Route
+              exact
+              path="/rank/game3"
+              render={(props) => (
+                <RankGameLayout isLoading={isLoading} type={3}>
+                  <RankGame3 {...props} setIsLoading={setIsLoading} />
+                </RankGameLayout>
+              )}
+            />
+            <Route
+              exact
               path="/"
               render={(props) => (
                 <WelcomeLayout isLoading={isLoading}>
@@ -181,15 +212,17 @@ const Routes = () => {
           </>
         ) : (
           isPcException() ? (
-            <Route
-              exact
-              path="/rank"
-              render={(props) => (
-                <RankLayout isLoading={isLoading}>
-                  <Rank {...props} setIsLoading={setIsLoading} userData={userData} />
-                </RankLayout>
-              )}
-            />
+            <>
+              <Route
+                exact
+                path="/rank"
+                render={(props) => (
+                  <RankLayout isLoading={isLoading}>
+                    <Rank {...props} setIsLoading={setIsLoading} />
+                  </RankLayout>
+                )}
+              />
+            </>
           ) : (
             <Route
               render={(props) => (

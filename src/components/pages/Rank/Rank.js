@@ -5,7 +5,7 @@ import * as api from "../../../api";
 
 const { Text } = Typography;
 
-const Rank = ({ setIsLoading, userData }) => {
+const Rank = ({ setIsLoading }) => {
   const tempData = [
     {
       rank: "1",
@@ -93,7 +93,7 @@ const Rank = ({ setIsLoading, userData }) => {
       <Row className="rank-content">
         <Col span={8} className="rank-card rank-card-1 pl-20 pr-10">
           <Card
-            title="농구"
+            title="미니게임 3종"
             bordered={false}
           >
             {_.map(resultData.list1, (item, index) => {
@@ -111,7 +111,7 @@ const Rank = ({ setIsLoading, userData }) => {
         </Col>
         <Col span={8} className="rank-card rank-card-2 pl-10 pr-10">
           <Card
-            title="제기차기"
+            title="선교를 향하여 ~ 골링!!"
             bordered={false}
           >
             {_.map(resultData.list2, (item, index) => {
@@ -129,7 +129,7 @@ const Rank = ({ setIsLoading, userData }) => {
         </Col>
         <Col span={8} className="rank-card rank-card-3 pl-10 pr-20">
           <Card
-            title="다트"
+            title="사랑이 POP! 풍선이 POP!"
             bordered={false}
           >
             {_.map(resultData.list3, (item, index) => {
