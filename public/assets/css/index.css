@@ -1066,8 +1066,8 @@ p {
   font-family: "ChangwonDangamAsac-Bold";
   font-size: 60px;
   text-align: center;
-  padding: 36px 0;
-  /* padding: 70px 0; */
+  /* padding: 36px 0; */
+  padding: 60px 0;
 }
 
 #rank-layout .rank-header span {
@@ -1123,6 +1123,7 @@ p {
   font-size: 44px;
   text-align: center;
   border-bottom: 0;
+  padding: 20px 10px;
 }
 
 #rank-layout .rank-card-1 .ant-card-head .ant-card-head-title {
