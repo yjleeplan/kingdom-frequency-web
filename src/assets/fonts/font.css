@@ -44,3 +44,8 @@
     font-family: 'NanumSquareB';
     src: url('./NanumSquareB.ttf') format('truetype');
 }
+
+@font-face {
+    font-family: 'ChangwonDangamAsac-Bold';
+    src: url('./ChangwonDangamAsac-Bold_0712.ttf') format('truetype');
+}

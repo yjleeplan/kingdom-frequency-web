@@ -13,9 +13,33 @@ body,
   height: 100%;
 }
 
+:root {
+  --color-1-1: #FF4D4C;
+  --color-1-2: #CC8D8D;
+  --color-2-1: #0BAEEB;
+  --color-2-2: #70B5D2;
+  --color-3-1: #7935FE;
+  --color-3-2: #987BD0;
+  --color-0: #A9A9A9;
+}
+
 /* html tag */
 p {
   margin-bottom: 0;
+}
+
+/* padding */
+.pl-10 {
+  padding-left: 10px;
+}
+.pl-20 {
+  padding-left: 20px;
+}
+.pr-10 {
+  padding-right: 10px;
+}
+.pr-20 {
+  padding-right: 20px;
 }
 
 /* margin */
@@ -1026,6 +1050,410 @@ p {
   }
 }
 /* MyPage */
+
+
+/* Rank */
+#rank-layout {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  background-color: #FFD600;
+  background-image: linear-gradient(#FFBB00 1px, transparent 1px), linear-gradient(to right, #FFBB00 1px, #FFD600 1px);
+  background-size: 80px 80px;
+}
+
+#rank-layout .rank-header {
+  font-family: "ChangwonDangamAsac-Bold";
+  font-size: 60px;
+  text-align: center;
+  padding: 36px 0;
+  /* padding: 70px 0; */
+}
+
+#rank-layout .rank-header span {
+  position: relative;
+  top: 20px;
+  display: inline-block;
+  animation: bounce .4s ease infinite alternate;
+  font-size: 80px;
+  color: #FFF;
+  text-shadow: 
+        -2px 0 #000, 0 2px #000, 2px 0 #000, 0 -2px #000,
+        1px 1px #000, 2px 2px #000,
+        3px 3px #ED4C00, 4px 4px #ED4C00,
+        5px 5px #ED4C00, 6px 6px #ED4C00,
+        7px 7px #000, 8px 8px #000;
+}
+
+#rank-layout .rank-header span:nth-child(2) { animation-delay: .1s; }
+#rank-layout .rank-header span:nth-child(3) { animation-delay: .2s; }
+#rank-layout .rank-header span:nth-child(4) { animation-delay: .3s; }
+#rank-layout .rank-header span:nth-child(5) { animation-delay: .4s; }
+#rank-layout .rank-header span:nth-child(6) { animation-delay: .5s; }
+#rank-layout .rank-header span:nth-child(7) { animation-delay: .6s; }
+#rank-layout .rank-header span:nth-child(8) { animation-delay: .7s; }
+#rank-layout .rank-header span:nth-child(9) { animation-delay: .8s; }
+#rank-layout .rank-header span:nth-child(10) { animation-delay: .9s; }
+#rank-layout .rank-header span:nth-child(11) { animation-delay: .10s; }
+#rank-layout .rank-header span:nth-child(12) { animation-delay: .11s; }
+#rank-layout .rank-header span:nth-child(13) { animation-delay: .12s; }
+
+@keyframes bounce {
+  100% {
+    top: -20px;
+    text-shadow: 
+        -2px 0 #000, 0 2px #000, 2px 0 #000, 0 -2px #000,
+        1px 1px #000, 2px 2px #000,
+        3px 3px #ED4C00, 4px 4px #ED4C00,
+        5px 5px #ED4C00, 6px 6px #ED4C00,
+        7px 7px #000, 8px 8px #000;
+  }
+}
+
+#rank-layout .ant-card {
+  border-radius: 20px;
+  border-left: 4px solid;
+  border-right: 10px solid;
+  border-top: 4px solid;
+  border-bottom: 10px solid;
+}
+
+#rank-layout .ant-card-head {
+  font-family: "ChangwonDangamAsac-Bold";
+  font-size: 44px;
+  text-align: center;
+  border-bottom: 0;
+}
+
+#rank-layout .rank-card-1 .ant-card-head .ant-card-head-title {
+  color: var(--color-1-1);
+}
+#rank-layout .rank-card-2 .ant-card-head .ant-card-head-title {
+  color: var(--color-2-1);
+}
+#rank-layout .rank-card-3 .ant-card-head .ant-card-head-title {
+  color: var(--color-3-1);
+}
+
+#rank-layout .ant-card-body {
+  font-family: "GmarketSansTTFLight";
+  font-size: 28px;
+}
+
+#rank-layout .ant-card-body .rank-list-data-row {
+  margin-bottom: 6px;
+}
+
+#rank-layout .ant-card-body .rank-list-data-row.rank {
+  border-radius: 20px;
+}
+
+#rank-layout .rank-card-1 .ant-card-body .rank-list-data-row.rank1 {
+  border: 2px solid var(--color-1-1);
+}
+#rank-layout .rank-card-1 .ant-card-body .rank-list-data-row.rank2 {
+  border: 2px solid var(--color-1-2);
+}
+#rank-layout .rank-card-1 .ant-card-body .rank-list-data-row.rank3 {
+  border: 2px solid var(--color-0);
+}
+#rank-layout .rank-card-2 .ant-card-body .rank-list-data-row.rank1 {
+  border: 2px solid var(--color-2-1);
+}
+#rank-layout .rank-card-2 .ant-card-body .rank-list-data-row.rank2 {
+  border: 2px solid var(--color-2-2);
+}
+#rank-layout .rank-card-2 .ant-card-body .rank-list-data-row.rank3 {
+  border: 2px solid var(--color-0);
+}
+#rank-layout .rank-card-3 .ant-card-body .rank-list-data-row.rank1 {
+  border: 2px solid var(--color-3-1);
+}
+#rank-layout .rank-card-3 .ant-card-body .rank-list-data-row.rank2 {
+  border: 2px solid var(--color-3-2);
+}
+#rank-layout .rank-card-3 .ant-card-body .rank-list-data-row.rank3 {
+  border: 2px solid var(--color-0);
+}
+
+#rank-layout .ant-card-body .rank-list-data-row .rank-list-data-col-1 {
+  font-family: "ChangwonDangamAsac-Bold";
+  text-align: center;
+}
+
+#rank-layout .ant-card-body .rank-list-data-row.rank .rank-list-data-col-1 {
+  border-radius: 17px 0 0 17px;
+  color: #FFF;
+  padding: 6px 0;
+}
+
+#rank-layout .rank-card-1 .ant-card-body .rank-list-data-row.rank1 .rank-list-data-col-1 {
+  background: var(--color-1-1);
+}
+#rank-layout .rank-card-1 .ant-card-body .rank-list-data-row.rank2 .rank-list-data-col-1 {
+  background: var(--color-1-2);
+}
+#rank-layout .rank-card-1 .ant-card-body .rank-list-data-row.rank3 .rank-list-data-col-1 {
+  background: var(--color-0);
+}
+#rank-layout .rank-card-2 .ant-card-body .rank-list-data-row.rank1 .rank-list-data-col-1 {
+  background: var(--color-2-1);
+}
+#rank-layout .rank-card-2 .ant-card-body .rank-list-data-row.rank2 .rank-list-data-col-1 {
+  background: var(--color-2-2);
+}
+#rank-layout .rank-card-2 .ant-card-body .rank-list-data-row.rank3 .rank-list-data-col-1 {
+  background: var(--color-0);
+}
+#rank-layout .rank-card-3 .ant-card-body .rank-list-data-row.rank1 .rank-list-data-col-1 {
+  background: var(--color-3-1);
+}
+#rank-layout .rank-card-3 .ant-card-body .rank-list-data-row.rank2 .rank-list-data-col-1 {
+  background: var(--color-3-2);
+}
+#rank-layout .rank-card-3 .ant-card-body .rank-list-data-row.rank3 .rank-list-data-col-1 {
+  background: var(--color-0);
+}
+
+#rank-layout .ant-card-body .rank-list-data-col-2 .ant-typography {
+  font-size: 18px;
+  color: unset;
+}
+
+#rank-layout .ant-card-body .rank-list-data-row .rank-list-data-col-2 {
+  padding: 2px 0px 0px 30px;
+  font-weight: bold;
+}
+
+#rank-layout .ant-card-body .rank-list-data-row.rank1 .rank-list-data-col-2 {
+  font-family: "GmarketSansTTFBold";
+}
+
+#rank-layout .ant-card-body .rank-list-data-row.rank1 .rank-list-data-col-2,
+#rank-layout .ant-card-body .rank-list-data-row.rank2 .rank-list-data-col-2,
+#rank-layout .ant-card-body .rank-list-data-row.rank3 .rank-list-data-col-2 {
+  padding: 8px 0px 0px 30px;
+}
+
+#rank-layout .ant-card-body .rank-list-data-col-3 {
+  font-family: "GmarketSansTTFBold";
+  text-align: right;
+  padding: 0px 24px 0px 0px;
+}
+
+#rank-layout .ant-card-body .rank-list-data-row.rank1 .rank-list-data-col-3,
+#rank-layout .ant-card-body .rank-list-data-row.rank2 .rank-list-data-col-3,
+#rank-layout .ant-card-body .rank-list-data-row.rank3 .rank-list-data-col-3 {
+  padding: 8px 24px 0px 0px;
+}
+
+#rank-layout .rank-card-1 .ant-card-body .rank-list-data-row.rank1 {
+	animation: color-change-5x-1-1 5s linear infinite alternate both;
+}
+#rank-layout .rank-card-1 .ant-card-body .rank-list-data-row.rank2 {
+	animation: color-change-5x-1-2 5s linear infinite alternate both;
+}
+#rank-layout .rank-card-1 .ant-card-body .rank-list-data-row.rank3 {
+	animation: color-change-5x-1-3 5s linear infinite alternate both;
+}
+@keyframes color-change-5x-1-1 {
+  0% { background: #FFF; color: #000; }
+  25% { background: #FFF; color: #000; }
+  50% { background: var(--color-1-1); color: #FFF; }
+  75% { background: var(--color-1-1); color: #FFF; }
+  100% { background: var(--color-1-1); color: #FFF; }
+}
+@keyframes color-change-5x-1-2 {
+  0% { background: #FFF; color: #000; }
+  25% { background: #FFF; color: #000; }
+  50% { background: var(--color-1-2); color: #FFF; }
+  75% { background: var(--color-1-2); color: #FFF; }
+  100% { background: var(--color-1-2); color: #FFF; }
+}
+@keyframes color-change-5x-1-3 {
+  0% { background: #FFF; color: #000; }
+  25% { background: #FFF; color: #000; }
+  50% { background: var(--color-0); color: #FFF; }
+  75% { background: var(--color-0); color: #FFF; }
+  100% { background: var(--color-0); color: #FFF; }
+}
+
+#rank-layout .rank-card-2 .ant-card-body .rank-list-data-row.rank1 {
+	animation: color-change-5x-2-1 5s linear infinite alternate both;
+}
+#rank-layout .rank-card-2 .ant-card-body .rank-list-data-row.rank2 {
+	animation: color-change-5x-2-2 5s linear infinite alternate both;
+}
+#rank-layout .rank-card-2 .ant-card-body .rank-list-data-row.rank3 {
+	animation: color-change-5x-2-3 5s linear infinite alternate both;
+}
+@keyframes color-change-5x-2-1 {
+  0% { background: #FFF; color: #000; }
+  25% { background: #FFF; color: #000; }
+  50% { background: var(--color-2-1); color: #FFF; }
+  75% { background: var(--color-2-1); color: #FFF; }
+  100% { background: var(--color-2-1); color: #FFF; }
+}
+@keyframes color-change-5x-2-2 {
+  0% { background: #FFF; color: #000; }
+  25% { background: #FFF; color: #000; }
+  50% { background: var(--color-2-2); color: #FFF; }
+  75% { background: var(--color-2-2); color: #FFF; }
+  100% { background: var(--color-2-2); color: #FFF; }
+}
+@keyframes color-change-5x-2-3 {
+  0% { background: #FFF; color: #000; }
+  25% { background: #FFF; color: #000; }
+  50% { background: var(--color-0); color: #FFF; }
+  75% { background: var(--color-0); color: #FFF; }
+  100% { background: var(--color-0); color: #FFF; }
+}
+
+#rank-layout .rank-card-3 .ant-card-body .rank-list-data-row.rank1 {
+	animation: color-change-5x-3-1 5s linear infinite alternate both;
+}
+#rank-layout .rank-card-3 .ant-card-body .rank-list-data-row.rank2 {
+	animation: color-change-5x-3-2 5s linear infinite alternate both;
+}
+#rank-layout .rank-card-3 .ant-card-body .rank-list-data-row.rank3 {
+	animation: color-change-5x-3-3 5s linear infinite alternate both;
+}
+@keyframes color-change-5x-3-1 {
+  0% { background: #FFF; color: #000; }
+  25% { background: #FFF; color: #000; }
+  50% { background: var(--color-3-1); color: #FFF; }
+  75% { background: var(--color-3-1); color: #FFF; }
+  100% { background: var(--color-3-1); color: #FFF; }
+}
+@keyframes color-change-5x-3-2 {
+  0% { background: #FFF; color: #000; }
+  25% { background: #FFF; color: #000; }
+  50% { background: var(--color-3-2); color: #FFF; }
+  75% { background: var(--color-3-2); color: #FFF; }
+  100% { background: var(--color-3-2); color: #FFF; }
+}
+@keyframes color-change-5x-3-3 {
+  0% { background: #FFF; color: #000; }
+  25% { background: #FFF; color: #000; }
+  50% { background: var(--color-0); color: #FFF; }
+  75% { background: var(--color-0); color: #FFF; }
+  100% { background: var(--color-0); color: #FFF; }
+}
+/* Rank */
+
+
+/* Rank Game*/
+#rank-game-layout {
+  height: 100%;
+  width: 100%;
+  font-family: "ChangwonDangamAsac-Bold";
+  position: fixed;
+}
+#rank-game-layout::before {
+  content: "";
+  opacity: 0.7;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background-color: #000;
+}
+
+#rank-game-layout.type-1 {
+  background-image: url(/src/assets/images/bg_slamdunk.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+#rank-game-layout.type-2 {
+  background-image: url(/src/assets/images/bg_golf.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+#rank-game-layout.type-3 {
+  background-image: url(/src/assets/images/bg_dart.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+#rank-game-layout .rank-game-head {
+  font-size: 32px;
+  color: #FFF;
+  text-align: center;
+  padding: 40px 0;
+}
+#rank-game-layout.type-3 .rank-game-head {
+  font-size: 28px;
+}
+
+#rank-game-layout.type-1 .rank-game-head {
+  text-shadow: 
+        -2px 0 #000, 0 2px #000, 2px 0 #000, 0 -2px #000,
+        1px 1px #000, 2px 2px #000,
+        3px 3px var(--color-1-1), 4px 4px var(--color-1-1),
+        5px 5px var(--color-1-1), 6px 6px var(--color-1-1),
+        7px 7px #000, 8px 8px #000;
+}
+#rank-game-layout.type-2 .rank-game-head {
+  text-shadow: 
+        -2px 0 #000, 0 2px #000, 2px 0 #000, 0 -2px #000,
+        1px 1px #000, 2px 2px #000,
+        3px 3px var(--color-2-1), 4px 4px var(--color-2-1),
+        5px 5px var(--color-2-1), 6px 6px var(--color-2-1),
+        7px 7px #000, 8px 8px #000;
+}
+#rank-game-layout.type-3 .rank-game-head {
+  text-shadow: 
+        -2px 0 #000, 0 2px #000, 2px 0 #000, 0 -2px #000,
+        1px 1px #000, 2px 2px #000,
+        3px 3px var(--color-3-1), 4px 4px var(--color-3-1),
+        5px 5px var(--color-3-1), 6px 6px var(--color-3-1),
+        7px 7px #000, 8px 8px #000;
+}
+
+#rank-game-layout .rank-game-body {
+  width: 80%;
+  margin: auto;
+}
+
+#rank-game-layout .rank-game-body .form-item-wrap label {
+  font-size: 20px;
+  color: #FFF;
+}
+
+#rank-game-layout .rank-game-body .form-item-wrap input {
+  font-family: "GmarketSansTTFBold";
+  font-size: 18px;
+}
+
+#rank-game-layout .rank-game-foot {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+
+#rank-game-layout .rank-game-foot button {
+  width: 100%;
+  height: 60px;
+  font-size: 24px;
+}
+
+#rank-game-layout.type-1 .rank-game-foot button {
+  background: var(--color-1-1);
+  border: 1px solid var(--color-1-1);
+}
+#rank-game-layout.type-2 .rank-game-foot button {
+  background: var(--color-2-1);
+  border: 1px solid var(--color-2-1);
+}
+#rank-game-layout.type-3 .rank-game-foot button {
+  background: var(--color-3-1);
+  border: 1px solid var(--color-3-1);
+}
+/* Rank Game*/
 
 
 /* pc page */
