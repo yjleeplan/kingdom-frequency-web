@@ -1116,6 +1116,7 @@ p {
   border-right: 10px solid;
   border-top: 4px solid;
   border-bottom: 10px solid;
+  min-height: 760px;
 }
 
 #rank-layout .ant-card-head {

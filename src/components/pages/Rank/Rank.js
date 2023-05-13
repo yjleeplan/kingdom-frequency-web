@@ -1,4 +1,4 @@
-import { Col, Row, Typography, Image, Card } from "antd";
+import { Col, Row, Typography, Image, Card, message } from "antd";
 import _ from "lodash";
 import React, { useState, useEffect } from "react";
 import * as api from "../../../api";
@@ -74,14 +74,27 @@ const Rank = ({ setIsLoading }) => {
 
   /** Effect */
   useEffect(() => {
-    let data = {
-      list1: tempData,
-      list2: tempData,
-      list3: tempData
-    };
-    setResultData(data);
+    handleGetRankList();
+    setInterval(() => handleGetRankList(), 10000);
     // eslint-disable-next-line
   }, []);
+
+  // 랭킹 조회
+  const handleGetRankList = async () => {
+    try {
+      const { data } = await api.listRank();
+
+      setResultData(data);
+    } catch (error) {
+      message.error(
+        error.response
+          ? `${error.response.data.code}, ${error.response.data.message}`
+          : "랭킹 조회 실패"
+      );
+    } finally {
+
+    }
+  };
 
   return (
     <>
@@ -101,7 +114,7 @@ const Rank = ({ setIsLoading }) => {
 
               return (
                 <Row key={index} className={`rank-list-data-row ${rank}`}>
-                  <Col span={3}  className="rank-list-data-col-1">{item['rank']}</Col>
+                  <Col span={3}  className="rank-list-data-col-1">{index + 1}</Col>
                   <Col span={15} className="rank-list-data-col-2">{item['name']} <Text>({item['age']}세)</Text></Col>
                   <Col span={6}  className="rank-list-data-col-3">{item['point']}</Col>
                 </Row>
@@ -119,7 +132,7 @@ const Rank = ({ setIsLoading }) => {
 
               return (
                 <Row key={index} className={`rank-list-data-row ${rank}`}>
-                  <Col span={3}  className="rank-list-data-col-1">{item['rank']}</Col>
+                  <Col span={3}  className="rank-list-data-col-1">{index + 1}</Col>
                   <Col span={15} className="rank-list-data-col-2">{item['name']} <Text>({item['age']}세)</Text></Col>
                   <Col span={6}  className="rank-list-data-col-3">{item['point']}</Col>
                 </Row>
@@ -137,7 +150,7 @@ const Rank = ({ setIsLoading }) => {
 
               return (
                 <Row key={index} className={`rank-list-data-row ${rank}`}>
-                  <Col span={3}  className="rank-list-data-col-1">{item['rank']}</Col>
+                  <Col span={3}  className="rank-list-data-col-1">{index + 1}</Col>
                   <Col span={15} className="rank-list-data-col-2">{item['name']} <Text>({item['age']}세)</Text></Col>
                   <Col span={6}  className="rank-list-data-col-3">{item['point']}</Col>
                 </Row>
