@@ -105,3 +105,16 @@ export const selectMissionHistoryCount = ({ query }) => {
     ...headers(),
   });
 };
+
+export const listRank = () => {
+  return request.get("/rank", {
+    ...headers(),
+  });
+};
+
+export const createRank = ({ data }) => {
+  return request.post("/rank",
+    data,
+    headers(),
+  );
+};

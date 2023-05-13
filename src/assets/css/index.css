@@ -32,14 +32,38 @@ p {
 .pl-10 {
   padding-left: 10px;
 }
+.pl-15 {
+  padding-left: 15px;
+}
 .pl-20 {
   padding-left: 20px;
+}
+.pl-25 {
+  padding-left: 25px;
+}
+.pl-30 {
+  padding-left: 30px;
+}
+.pl-50 {
+  padding-left: 50px;
 }
 .pr-10 {
   padding-right: 10px;
 }
+.pr-15 {
+  padding-right: 15px;
+}
 .pr-20 {
   padding-right: 20px;
+}
+.pr-25 {
+  padding-right: 25px;
+}
+.pr-30 {
+  padding-right: 30px;
+}
+.pr-50 {
+  padding-right: 50px;
 }
 
 /* margin */
@@ -1062,12 +1086,22 @@ p {
   background-size: 80px 80px;
 }
 
+#rank-layout #rank-layout-image  {
+  height: 100%;
+  width: 100%;
+  background-image: url(/src/assets/images/bg_rank.png);
+  background-repeat: no-repeat;
+  background-size: 1920px 1050px;
+  position: absolute;
+  z-index: 3000;
+  top: 35px;
+}
+
 #rank-layout .rank-header {
   font-family: "ChangwonDangamAsac-Bold";
   font-size: 60px;
   text-align: center;
-  padding: 36px 0;
-  /* padding: 70px 0; */
+  padding: 60px 0;
 }
 
 #rank-layout .rank-header span {
@@ -1116,6 +1150,7 @@ p {
   border-right: 10px solid;
   border-top: 4px solid;
   border-bottom: 10px solid;
+  min-height: 760px;
 }
 
 #rank-layout .ant-card-head {
@@ -1123,6 +1158,11 @@ p {
   font-size: 44px;
   text-align: center;
   border-bottom: 0;
+  padding: 20px 10px;
+}
+
+#rank-layout .rank-card-3 .ant-card-head {
+  padding-bottom: 0;
 }
 
 #rank-layout .rank-card-1 .ant-card-head .ant-card-head-title {
@@ -1133,6 +1173,8 @@ p {
 }
 #rank-layout .rank-card-3 .ant-card-head .ant-card-head-title {
   color: var(--color-3-1);
+  padding: 0;
+  font-size: 39px;
 }
 
 #rank-layout .ant-card-body {
