@@ -41,14 +41,12 @@ const RankGame3 = ({ setIsLoading }) => {
       cancelText: "취소",
       onOk: async () => {
         try {
-          /*
           timer = setTimeout(() => {
             setIsLoading(true);
           }, 800);
-          await api.createUser({
+          await api.createRank({
             data: params,
           });
-          */
 
           message.success("정상적으로 등록되었습니다");
           handleClear();
