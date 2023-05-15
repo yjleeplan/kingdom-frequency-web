@@ -52,8 +52,8 @@ const Rank = ({ setIsLoading }) => {
               return (
                 <Row key={index} className={`rank-list-data-row ${rank}`}>
                   <Col span={3}  className="rank-list-data-col-1">{index + 1}</Col>
-                  <Col span={15} className="rank-list-data-col-2">{item['name']} <Text>({item['age']}세)</Text></Col>
-                  <Col span={6}  className="rank-list-data-col-3">{item['point']}</Col>
+                  <Col span={11} className="rank-list-data-col-2">{item['name']} <Text>({item['age']}세)</Text></Col>
+                  <Col span={10}  className="rank-list-data-col-3">{item['point']}</Col>
                 </Row>
               );
             })}
@@ -70,8 +70,8 @@ const Rank = ({ setIsLoading }) => {
               return (
                 <Row key={index} className={`rank-list-data-row ${rank}`}>
                   <Col span={3}  className="rank-list-data-col-1">{index + 1}</Col>
-                  <Col span={15} className="rank-list-data-col-2">{item['name']} <Text>({item['age']}세)</Text></Col>
-                  <Col span={6}  className="rank-list-data-col-3">{item['point']}</Col>
+                  <Col span={11} className="rank-list-data-col-2">{item['name']} <Text>({item['age']}세)</Text></Col>
+                  <Col span={10}  className="rank-list-data-col-3">{item['point']}</Col>
                 </Row>
               );
             })}
@@ -93,8 +93,8 @@ const Rank = ({ setIsLoading }) => {
               return (
                 <Row key={index} className={`rank-list-data-row ${rank}`}>
                   <Col span={3}  className="rank-list-data-col-1">{index + 1}</Col>
-                  <Col span={15} className="rank-list-data-col-2">{item['name']} <Text>({item['age']}세)</Text></Col>
-                  <Col span={6}  className="rank-list-data-col-3">{item['point']}</Col>
+                  <Col span={11} className="rank-list-data-col-2">{item['name']} <Text>({item['age']}세)</Text></Col>
+                  <Col span={10}  className="rank-list-data-col-3">{item['point']}</Col>
                 </Row>
               );
             })}
