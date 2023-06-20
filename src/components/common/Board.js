@@ -59,7 +59,7 @@ const Board = ({ missionCode, count = 0 }) => {
     else if ( missionCode === "MZ_GENERATION" && count === 7 ) { src = board0107; }
     else if ( missionCode === "MZ_GENERATION" && count === 8 ) { src = board0108; }
     else if ( missionCode === "MZ_GENERATION" && count === 9 ) { src = board0109; }
-    else if ( missionCode === "MZ_GENERATION" && count === 10 ) { src = board0110; }
+    else if ( missionCode === "MZ_GENERATION" && count >= 10 ) { src = board0110; }
     else if ( missionCode === "SPIRIT" && count === 0 ) { src = board0200; }
     else if ( missionCode === "SPIRIT" && count === 1 ) { src = board0201; }
     else if ( missionCode === "SPIRIT" && count === 2 ) { src = board0202; }
@@ -75,13 +75,13 @@ const Board = ({ missionCode, count = 0 }) => {
     else if ( missionCode === "SPIRIT" && count === 12 ) { src = board0212; }
     else if ( missionCode === "SPIRIT" && count === 13 ) { src = board0213; }
     else if ( missionCode === "SPIRIT" && count === 14 ) { src = board0214; }
-    else if ( missionCode === "SPIRIT" && count === 15 ) { src = board0215; }
+    else if ( missionCode === "SPIRIT" && count >= 15 ) { src = board0215; }
     else if ( missionCode === "YOUNG_ADULT" && count === 0 ) { src = board0300; }
     else if ( missionCode === "YOUNG_ADULT" && count === 1 ) { src = board0301; }
     else if ( missionCode === "YOUNG_ADULT" && count === 2 ) { src = board0302; }
     else if ( missionCode === "YOUNG_ADULT" && count === 3 ) { src = board0303; }
     else if ( missionCode === "YOUNG_ADULT" && count === 4 ) { src = board0304; }
-    else if ( missionCode === "YOUNG_ADULT" && count === 5 ) { src = board0305; }
+    else if ( missionCode === "YOUNG_ADULT" && count >= 5 ) { src = board0305; }
     else if ( missionCode === "CLIMATE" && count === 0 ) { src = board0400; }
     else if ( missionCode === "CLIMATE" && count === 1 ) { src = board0401; }
     else if ( missionCode === "CLIMATE" && count === 2 ) { src = board0402; }
@@ -92,7 +92,7 @@ const Board = ({ missionCode, count = 0 }) => {
     else if ( missionCode === "CLIMATE" && count === 7 ) { src = board0407; }
     else if ( missionCode === "CLIMATE" && count === 8 ) { src = board0408; }
     else if ( missionCode === "CLIMATE" && count === 9 ) { src = board0409; }
-    else if ( missionCode === "CLIMATE" && count === 10 ) { src = board0410; }
+    else if ( missionCode === "CLIMATE" && count >= 10 ) { src = board0410; }
      
     return src;
   };

@@ -23,7 +23,7 @@ const UserHistModal = ({ visible, onCancel, setIsLoading }) => {
     <Modal
       wrapClassName="user-hist-modal-wrap"
       title="나의 실천항목 히스토리"
-      visible={visible}
+      open={visible}
       onCancel={handleCancel}
       footer={false}
       maskClosable={false}

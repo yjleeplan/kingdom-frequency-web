@@ -86,7 +86,7 @@ const UserSelectModal = ({ visible, onCancel, setIsLoading, login }) => {
     <Modal
       wrapClassName="user-select-modal-wrap"
       title="로그인 사용자 검색"
-      visible={visible}
+      open={visible}
       onCancel={handleCancel}
       footer={false}
       maskClosable={false}
