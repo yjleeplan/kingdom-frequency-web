@@ -99,7 +99,7 @@ const UserAddModal = ({ visible, onCancel, setIsLoading, callback }) => {
     <Modal
       wrapClassName="user-add-modal-wrap"
       title="동참하기"
-      visible={visible}
+      open={visible}
       onOk={handleSave}
       onCancel={handleCancel}
       okText="등록"
