@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { useCookies } from 'react-cookie';
 import { message } from "antd";
@@ -20,12 +21,14 @@ import RankGame1 from "../components/pages/Rank/RankGame1";
 import RankGame2 from "../components/pages/Rank/RankGame2";
 import RankGame3 from "../components/pages/Rank/RankGame3";
 import Rank from "../components/pages/Rank/Rank";
+import { userInfoAction } from '../stores/actions';
 
 const Routes = () => {
   /** State */
   const [cookies, setCookie, removeCookie] = useCookies(['kingdomFrequency']);
-  const [userData, setUserData] = useState({});
   const [isLoading, setIsLoading] = useState(false);
+  const { userInfo } = useSelector(state => state.userInfo);
+  const dispatch = useDispatch();
 
   let timer;
 
@@ -57,7 +60,7 @@ const Routes = () => {
       const { data: user } = await api.selectUser({
         path: { user_id: id },
       });
-      setUserData(user);
+      dispatch(userInfoAction.setUserInfo(user));
 
       const expireDate = new Date();
       expireDate.setMonth(expireDate.getMonth + 12);
@@ -89,7 +92,7 @@ const Routes = () => {
   const logout = () => {
     // 쿠키 삭제
     removeCookie('kingdomFrequency');
-    setUserData({});
+    dispatch(userInfoAction.setUserInfo({}));
     window.location.reload();
   };
 
@@ -124,7 +127,7 @@ const Routes = () => {
               path="/main"
               render={(props) => (
                 <MainLayout isLoading={isLoading}>
-                  <Main {...props} setIsLoading={setIsLoading} userData={userData} login={login} logout={logout} />
+                  <Main {...props} setIsLoading={setIsLoading} userData={userInfo} login={login} logout={logout} />
                 </MainLayout>
               )}
             />
@@ -133,7 +136,7 @@ const Routes = () => {
               path="/category/mzGeneration"
               render={(props) => (
                 <CategoryLayout isLoading={isLoading} type="mzGeneration">
-                  <Category {...props} setIsLoading={setIsLoading} missionCode="MZ_GENERATION" userData={userData} />
+                  <Category {...props} setIsLoading={setIsLoading} missionCode="MZ_GENERATION" userData={userInfo} />
                 </CategoryLayout>
               )}
             />
@@ -142,7 +145,7 @@ const Routes = () => {
               path="/category/spirit"
               render={(props) => (
                 <CategoryLayout isLoading={isLoading} type="spirit">
-                  <Category {...props} setIsLoading={setIsLoading} missionCode="SPIRIT" userData={userData} />
+                  <Category {...props} setIsLoading={setIsLoading} missionCode="SPIRIT" userData={userInfo} />
                 </CategoryLayout>
               )}
             />
@@ -151,7 +154,7 @@ const Routes = () => {
               path="/category/youngAdult"
               render={(props) => (
                 <CategoryLayout isLoading={isLoading} type="youngAdult">
-                  <Category {...props} setIsLoading={setIsLoading} missionCode="YOUNG_ADULT" userData={userData} />
+                  <Category {...props} setIsLoading={setIsLoading} missionCode="YOUNG_ADULT" userData={userInfo} />
                 </CategoryLayout>
               )}
             />
@@ -160,7 +163,7 @@ const Routes = () => {
               path="/category/climate"
               render={(props) => (
                 <CategoryLayout isLoading={isLoading} type="climate">
-                  <Category {...props} setIsLoading={setIsLoading} missionCode="CLIMATE" userData={userData} />
+                  <Category {...props} setIsLoading={setIsLoading} missionCode="CLIMATE" userData={userInfo} />
                 </CategoryLayout>
               )}
             />
@@ -169,7 +172,7 @@ const Routes = () => {
               path="/mypage"
               render={(props) => (
                 <MyPageLayout isLoading={isLoading}>
-                  <MyPage {...props} setIsLoading={setIsLoading} userData={userData} />
+                  <MyPage {...props} setIsLoading={setIsLoading} userData={userInfo} />
                 </MyPageLayout>
               )}
             />
