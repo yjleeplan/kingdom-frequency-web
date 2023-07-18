@@ -11,6 +11,8 @@ import CategoryLayout from "../components/layouts/CategoryLayout/CategoryLayout"
 import MyPageLayout from "../components/layouts/MyPageLayout/MyPageLayout";
 import RankGameLayout from "../components/layouts/RankGameLayout/RankGameLayout";
 import RankLayout from "../components/layouts/RankLayout/RankLayout";
+import ChildhoodLayout from "../components/layouts/ChildhoodLayout/ChildhoodLayout";
+import MapLayout from "../components/layouts/MapLayout/MapLayout";
 import PagePC from "../components/common/PagePC";
 import Page404 from "../components/common/Page404";
 import Welcome from "../components/pages/Welcome/Welcome";
@@ -21,6 +23,9 @@ import RankGame1 from "../components/pages/Rank/RankGame1";
 import RankGame2 from "../components/pages/Rank/RankGame2";
 import RankGame3 from "../components/pages/Rank/RankGame3";
 import Rank from "../components/pages/Rank/Rank";
+import Childhood from "../components/pages/Childhood/Childhood";
+import Childhood2 from "../components/pages/Childhood/Childhood2";
+import Map from "../components/pages/Map/Map";
 import { userInfoAction } from '../stores/actions';
 
 const Routes = () => {
@@ -109,6 +114,15 @@ const Routes = () => {
   // PC로 접속 시 예외처리
   const isPcException = () => {
     if (window.location.pathname === "/rank") {
+      return true;
+    }
+    else if (window.location.pathname === "/childhood") {
+      return true;
+    }
+    else if (window.location.pathname === "/childhood2") {
+      return true;
+    }
+    else if (window.location.pathname === "/map") {
       return true;
     }
     else {
@@ -223,6 +237,33 @@ const Routes = () => {
                   <RankLayout isLoading={isLoading}>
                     <Rank {...props} setIsLoading={setIsLoading} />
                   </RankLayout>
+                )}
+              />
+              <Route
+                exact
+                path="/childhood"
+                render={(props) => (
+                  <ChildhoodLayout isLoading={isLoading}>
+                    <Childhood {...props} setIsLoading={setIsLoading} />
+                  </ChildhoodLayout>
+                )}
+              />
+              <Route
+                exact
+                path="/childhood2"
+                render={(props) => (
+                  <ChildhoodLayout isLoading={isLoading}>
+                    <Childhood2 {...props} setIsLoading={setIsLoading} />
+                  </ChildhoodLayout>
+                )}
+              />
+              <Route
+                exact
+                path="/map"
+                render={(props) => (
+                  <MapLayout isLoading={isLoading}>
+                    <Map {...props} setIsLoading={setIsLoading} />
+                  </MapLayout>
                 )}
               />
             </>

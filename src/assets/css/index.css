@@ -73,6 +73,9 @@ p {
 .mt-20 {
   margin-top: 20px;
 }
+.mb-20 {
+  margin-bottom: 20px;
+}
 
 /* font */
 .color-0 {
@@ -1496,6 +1499,198 @@ p {
   border: 1px solid var(--color-3-1);
 }
 /* Rank Game*/
+
+
+/* Childhodd */
+#childhood-layout {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  background-color: #64B9E2;
+  /* background-image: linear-gradient(#FFBB00 1px, transparent 1px), linear-gradient(to right, #FFBB00 1px, #FFD600 1px); */
+  /* background-size: 80px 80px; */
+  font-family: "ChangwonDangamAsac-Bold";
+}
+
+#childhood-layout .childhood-cloud {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  z-index: -1;
+}
+
+#childhood-layout .childhood-cloud.cloud-1 > .ant-image {
+  top: 80px;
+  left: 300px;
+  animation: slide-left 10s cubic-bezier(0.250, 0.460, 0.450, 0.940) infinite both;
+}
+#childhood-layout .childhood-cloud.cloud-2 > .ant-image {
+  top: 300px;
+  left: 300px;
+  animation: slide-left 10s cubic-bezier(0.250, 0.460, 0.450, 0.940) 8s infinite both;
+}
+#childhood-layout .childhood-cloud.cloud-3 > .ant-image {
+  top: 800px;
+  left: 300px;
+  animation: slide-left 10s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2s infinite both;
+}
+#childhood-layout .childhood-cloud.cloud-4 > .ant-image {
+  top: 150px;
+  left: 300px;
+  animation: slide-left 10s cubic-bezier(0.250, 0.460, 0.450, 0.940) 4s infinite both;
+}
+#childhood-layout .childhood-cloud.cloud-5 > .ant-image {
+  top: 500px;
+  left: 300px;
+  animation: slide-left 10s cubic-bezier(0.250, 0.460, 0.450, 0.940) 1s infinite both;
+}
+#childhood-layout .childhood-cloud.cloud-6 > .ant-image {
+  top: 600px;
+  left: 300px;
+  animation: slide-left 10s cubic-bezier(0.250, 0.460, 0.450, 0.940) 6s infinite both;
+}
+#childhood-layout .childhood-cloud.cloud-7 > .ant-image {
+  top: 1000px;
+  left: 300px;
+  animation: slide-left 10s cubic-bezier(0.250, 0.460, 0.450, 0.940) 7s infinite both;
+}
+#childhood-layout .childhood-cloud.cloud-8 > .ant-image {
+  top: 1200px;
+  left: 300px;
+  animation: slide-left 10s cubic-bezier(0.250, 0.460, 0.450, 0.940) 3s infinite both;
+}
+
+@keyframes slide-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-2900px);
+  }
+}
+
+#childhood-layout .childhood-header {
+  font-family: "ChangwonDangamAsac-Bold";
+  text-align: center;
+  padding: 50px 0;
+}
+
+#childhood-layout .childhood-content {
+  
+}
+
+#childhood-layout .childhood-content .ant-card-head-title {
+  font-size: 39px;
+}
+
+#childhood-layout .childhood-content .ant-card-body .rank-list-data-row {
+  margin-bottom: 6px;
+  font-size: 38px;
+}
+#childhood-layout .childhood-content .ant-card-body .rank-list-data-row .rank-list-data-col-1 {
+  text-align: center;
+}
+#childhood-layout .childhood-content .ant-card-body .rank-list-data-row .rank-list-data-col-2 {
+  padding: 2px 0px 0px 30px;
+  font-family: "GmarketSansTTFLight";
+  font-weight: bold;
+}
+#childhood-layout .childhood-content .ant-card-body .rank-list-data-col-3 {
+  text-align: right;
+  padding: 0px 24px 0px 0px;
+}
+
+
+#childhood-layout .childhood-content .childhood-row {
+  /* margin-bottom: 20px; */
+  font-size: 30px;
+}
+
+#childhood-layout .childhood-content .childhood-row .ant-steps-item {
+  flex: unset;
+}
+
+#childhood-layout .childhood-content .childhood-row .ant-steps-item.ant-steps-item-wait.ant-steps-item-custom {
+  visibility: hidden;
+}
+#childhood-layout .childhood-content .childhood-row .ant-steps-item.ant-steps-item-finish.ant-steps-item-custom {
+  visibility: hidden;
+}
+#childhood-layout .childhood-content .childhood-row
+.ant-steps-item.ant-steps-item-process.ant-steps-item-custom.ant-steps-item-active
+svg {
+  z-index: 1000;
+  position: fixed;
+  /* background-color: #64B9E2; */
+}
+
+#childhood-layout .childhood-content .childhood-row
+.ant-steps-item.ant-steps-item-process.ant-steps-item-custom.ant-steps-item-active
+.ant-steps-icon {
+  top: -20px;
+}
+
+#childhood-layout .childhood-content .childhood-row
+.ant-steps-item.ant-steps-item-process.ant-steps-item-custom.ant-steps-item-active
+.team_score {
+  position: fixed;
+  margin-top: 80px;
+  color: #000;
+  min-width: 100px;
+  text-align: center;
+  font-family: "ChangwonDangamAsac-Bold";
+}
+
+#childhood-layout .childhood-content .childhood-col-1 {
+  text-align: center;
+}
+
+.childhood-content .ant-card {
+  border-radius: 20px;
+  border-left: 4px solid;
+  border-right: 10px solid;
+  border-top: 4px solid;
+  border-bottom: 10px solid;
+  min-height: 700px;
+}
+/* Childhodd */
+
+
+/* Map */
+#map-layout {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+}
+
+#map-layout #content {
+  height: inherit;
+}
+
+#map-layout #content .team-info {
+  width: 100%;
+}
+
+#map-layout #content .team-info .team-info-col {
+  cursor: pointer;
+  text-align: center;
+  padding-top: 20px;
+  /* border: 1px solid; */
+}
+
+#map-layout #content .team-info .team-color-input {
+  width: 30px;
+  height: 30px;
+  border: 0;
+  background: unset;
+}
+
+#map-layout #content .team-info span {
+  font-size: 22px;
+  margin-left: 8px;
+  font-family: "GmarketSansTTFBold";
+}
+/* Map */
 
 
 /* pc page */
