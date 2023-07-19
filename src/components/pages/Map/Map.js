@@ -35,7 +35,17 @@ const Map = ({ setIsLoading }) => {
   const [selectedColor, setSelectedColor] = useState(color[0]);
   const selectedColorRef = useRef(selectedColor);
 
-  const selectedTeam = (value) => {
+  const selectedTeam = (event, value, index) => {
+    const teamInfoCol = document.getElementsByClassName('team-info-col');
+
+    _.map(teamInfoCol, (value, i) => {
+      if (i === index) {
+        teamInfoCol[i].classList.add("selected");
+      } else {
+        teamInfoCol[i].classList.remove("selected");
+      }
+    });
+
     selectedColorRef.current = value;
   }
 
@@ -82,7 +92,11 @@ const Map = ({ setIsLoading }) => {
             {_.map(color, (value, index) => {
               if (index < 12) {
                 return (
-                  <Col span={2} className="team-info-col" onClick={() => selectedTeam(value)}>
+                  <Col
+                    span={2}
+                    className="team-info-col"
+                    onClick={(event) => selectedTeam(event, value, index)}
+                  >
                     <input
                       className="team-color-input"
                       type="color"
@@ -99,7 +113,11 @@ const Map = ({ setIsLoading }) => {
             {_.map(color, (value, index) => {
               if (11 < index) {
                 return (
-                  <Col span={2} className="team-info-col" onClick={() => selectedTeam(value)}>
+                  <Col
+                    span={2}
+                    className="team-info-col"
+                    onClick={(event) => selectedTeam(event, value, index)}
+                  >
                     <input
                       className="team-color-input"
                       type="color"
