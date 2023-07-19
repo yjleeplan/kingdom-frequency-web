@@ -11,7 +11,6 @@ import CategoryLayout from "../components/layouts/CategoryLayout/CategoryLayout"
 import MyPageLayout from "../components/layouts/MyPageLayout/MyPageLayout";
 import RankGameLayout from "../components/layouts/RankGameLayout/RankGameLayout";
 import RankLayout from "../components/layouts/RankLayout/RankLayout";
-import ChildhoodLayout from "../components/layouts/ChildhoodLayout/ChildhoodLayout";
 import MapLayout from "../components/layouts/MapLayout/MapLayout";
 import PagePC from "../components/common/PagePC";
 import Page404 from "../components/common/Page404";
@@ -23,8 +22,6 @@ import RankGame1 from "../components/pages/Rank/RankGame1";
 import RankGame2 from "../components/pages/Rank/RankGame2";
 import RankGame3 from "../components/pages/Rank/RankGame3";
 import Rank from "../components/pages/Rank/Rank";
-import Childhood from "../components/pages/Childhood/Childhood";
-import Childhood2 from "../components/pages/Childhood/Childhood2";
 import Map from "../components/pages/Map/Map";
 import { userInfoAction } from '../stores/actions';
 
@@ -237,24 +234,6 @@ const Routes = () => {
                   <RankLayout isLoading={isLoading}>
                     <Rank {...props} setIsLoading={setIsLoading} />
                   </RankLayout>
-                )}
-              />
-              <Route
-                exact
-                path="/childhood"
-                render={(props) => (
-                  <ChildhoodLayout isLoading={isLoading}>
-                    <Childhood {...props} setIsLoading={setIsLoading} />
-                  </ChildhoodLayout>
-                )}
-              />
-              <Route
-                exact
-                path="/childhood2"
-                render={(props) => (
-                  <ChildhoodLayout isLoading={isLoading}>
-                    <Childhood2 {...props} setIsLoading={setIsLoading} />
-                  </ChildhoodLayout>
                 )}
               />
               <Route
