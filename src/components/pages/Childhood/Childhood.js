@@ -4,49 +4,14 @@ import React, { useState, useEffect } from "react";
 import * as api from "../../../api";
 import title from "../../../assets/images/title_childhood.png";
 
-const dummyData = [
-  {
-    name: '1조',
-    point: '90,000'
-  },
-  {
-    name: '2조',
-    point: '70,000'
-  },
-  {
-    name: '3조',
-    point: '65,000'
-  },
-  {
-    name: '4조',
-    point: '64,000'
-  },
-  {
-    name: '5조',
-    point: '60,000'
-  },
-  {
-    name: '6조',
-    point: '57,000'
-  },
-  {
-    name: '7조',
-    point: '57,000'
-  },
-  {
-    name: '8조',
-    point: '55,000'
-  },
-];
-
 const Childhood2 = ({ setIsLoading }) => {
   /** State */
-  const [resultData, setResultData] = useState(dummyData);
+  const [resultData, setResultData] = useState([]);
 
   /** Effect */
   useEffect(() => {
-    //handleGetRankList();
-    //setInterval(() => handleGetRankList(), 10000);
+    handleGetRankList();
+    setInterval(() => handleGetRankList(), 10000);
     // eslint-disable-next-line
   }, []);
 
@@ -55,7 +20,7 @@ const Childhood2 = ({ setIsLoading }) => {
     try {
       const { data } = await api.listRank();
 
-      //setResultData(data.list1);
+      setResultData(data.list1);
     } catch (error) {
       message.error(
         error.response

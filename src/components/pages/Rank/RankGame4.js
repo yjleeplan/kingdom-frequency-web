@@ -39,10 +39,9 @@ const RankGame4 = ({ setIsLoading }) => {
   // Form Submit
   const onFinish = (values) => {
     const params = {
-      type: "4",
+      type: "1",
       name: values.name,
-      age: "",
-      point: values.point,
+      point: Number(values.point),
     };
 
     Modal.confirm({
@@ -55,7 +54,7 @@ const RankGame4 = ({ setIsLoading }) => {
           timer = setTimeout(() => {
             setIsLoading(true);
           }, 800);
-          await api.createRank({
+          await api.createRankStack({
             data: params,
           });
 

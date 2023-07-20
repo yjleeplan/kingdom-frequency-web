@@ -118,3 +118,10 @@ export const createRank = ({ data }) => {
     headers(),
   );
 };
+
+export const createRankStack = ({ data }) => {
+  return request.post("/rank/stack",
+    data,
+    headers(),
+  );
+};
