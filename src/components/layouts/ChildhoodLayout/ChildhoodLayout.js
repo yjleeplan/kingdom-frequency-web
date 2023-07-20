@@ -13,7 +13,7 @@ const ChildhoodLayout = ({ children, isLoading }) => {
           <Content>
             {React.cloneElement(children)}
           </Content>
-          <div className="childhood-cloud cloud-1">
+          {/* <div className="childhood-cloud cloud-1">
             <Image width={300} height={152} src={cloud01} preview={false} />
           </div>
           <div className="childhood-cloud cloud-2">
@@ -36,7 +36,7 @@ const ChildhoodLayout = ({ children, isLoading }) => {
           </div>
           <div className="childhood-cloud cloud-8">
             <Image width={300} height={152} src={cloud03} preview={false} />
-          </div>
+          </div> */}
         </div>
     </Spin>
   );

@@ -1536,6 +1536,15 @@ p {
   font-family: "ChangwonDangamAsac-Bold";
 }
 
+#childhood-layout #childhood-layout-image  {
+  height: 100%;
+  width: 100%;
+  background-image: url(/src/assets/images/bg_childhood2.png);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  position: absolute;
+}
+
 #childhood-layout .childhood-cloud {
   position: absolute;
   top: 0px;
