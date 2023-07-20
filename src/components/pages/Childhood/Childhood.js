@@ -75,27 +75,48 @@ const Childhood2 = ({ setIsLoading }) => {
         </Col>
       </Row>
       <Row className="childhood-content">
-        <Col span={8} className="rank-card pl-50 pr-25"></Col>
-        <Col span={8} className="rank-card pl-50 pr-25">
+        <Col span={12} className="rank-card pl-50 pr-25">
           <Card
             className="mt-20"
-            title="조별 랭킹"
+            title="Group A"
             bordered={false}
           >
             {_.map(resultData, (item, index) => {
               const rank = index === 0 ? "rank rank1" : index === 1 ? "rank rank2" : index === 2 ? "rank rank3" : "";
 
-              return (
-                <Row key={index} className={`rank-list-data-row ${rank}`}>
-                  <Col span={3}  className="rank-list-data-col-1">{index + 1}</Col>
-                  <Col span={11} className="rank-list-data-col-2">{item['name']}</Col>
-                  <Col span={10}  className="rank-list-data-col-3">{item['point']}</Col>
-                </Row>
-              );
+              if (index < 4) {
+                return (
+                  <Row key={index} className={`rank-list-data-row ${rank}`}>
+                    <Col span={3}  className="rank-list-data-col-1">{index + 1}</Col>
+                    <Col span={7} className="rank-list-data-col-2">{item['name']}</Col>
+                    <Col span={14}  className="rank-list-data-col-3">{item['point']}</Col>
+                  </Row>
+                );
+              }
             })}
           </Card>
         </Col>
-        <Col span={8} className="rank-card pl-50 pr-25"></Col>
+        <Col span={12} className="rank-card pl-25 pr-50">
+          <Card
+            className="mt-20"
+            title="Group B"
+            bordered={false}
+          >
+            {_.map(resultData, (item, index) => {
+              const rank = index === 0 ? "rank rank1" : index === 1 ? "rank rank2" : index === 2 ? "rank rank3" : "";
+
+              if (index > 3) {
+                return (
+                  <Row key={index} className={`rank-list-data-row ${rank}`}>
+                    <Col span={3}  className="rank-list-data-col-1">{index + 1}</Col>
+                    <Col span={7} className="rank-list-data-col-2">{item['name']}</Col>
+                    <Col span={14}  className="rank-list-data-col-3">{item['point']}</Col>
+                  </Row>
+                );
+              }
+            })}
+          </Card>
+        </Col>
       </Row>
     </>
   );

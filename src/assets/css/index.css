@@ -1609,7 +1609,11 @@ p {
 }
 
 #childhood-layout .childhood-content {
-  
+  margin-top: 20px;
+}
+
+#childhood-layout .childhood-content .ant-card {
+  margin: 20px 30px;
 }
 
 #childhood-layout .childhood-content .ant-card-head-title {
@@ -1617,8 +1621,8 @@ p {
 }
 
 #childhood-layout .childhood-content .ant-card-body .rank-list-data-row {
-  margin-bottom: 6px;
-  font-size: 38px;
+  margin-bottom: 20px;
+  font-size: 70px;
 }
 #childhood-layout .childhood-content .ant-card-body .rank-list-data-row .rank-list-data-col-1 {
   text-align: center;
