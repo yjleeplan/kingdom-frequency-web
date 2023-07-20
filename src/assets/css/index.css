@@ -1605,7 +1605,7 @@ p {
 #childhood-layout .childhood-header {
   font-family: "ChangwonDangamAsac-Bold";
   text-align: center;
-  padding: 50px 0;
+  padding: 60px 0;
 }
 
 #childhood-layout .childhood-content {
@@ -1613,6 +1613,12 @@ p {
 }
 
 #childhood-layout .childhood-content .ant-card {
+  border-radius: 20px;
+  border-left: 4px solid #004789;
+  border-right: 10px solid #004789;
+  border-top: 4px solid #004789;
+  border-bottom: 10px solid #004789;
+  min-height: 600px;
   margin: 20px 30px;
 }
 
@@ -1626,6 +1632,7 @@ p {
 }
 #childhood-layout .childhood-content .ant-card-body .rank-list-data-row .rank-list-data-col-1 {
   text-align: center;
+  color: #004789;
 }
 #childhood-layout .childhood-content .ant-card-body .rank-list-data-row .rank-list-data-col-2 {
   padding: 2px 0px 0px 30px;
@@ -1635,6 +1642,7 @@ p {
 #childhood-layout .childhood-content .ant-card-body .rank-list-data-col-3 {
   text-align: right;
   padding: 0px 24px 0px 0px;
+  color: #1677ff;
 }
 
 
@@ -1680,15 +1688,6 @@ svg {
 
 #childhood-layout .childhood-content .childhood-col-1 {
   text-align: center;
-}
-
-.childhood-content .ant-card {
-  border-radius: 20px;
-  border-left: 4px solid;
-  border-right: 10px solid;
-  border-top: 4px solid;
-  border-bottom: 10px solid;
-  min-height: 700px;
 }
 /* Childhodd */
 

@@ -71,14 +71,14 @@ const Childhood2 = ({ setIsLoading }) => {
     <>
       <Row className="childhood-header">
         <Col span={24}>
-          <Image width={350} height={160} src={title} preview={false} />
+          <Image width={450} height={206} src={title} preview={false} />
         </Col>
       </Row>
       <Row className="childhood-content">
         <Col span={12} className="rank-card pl-50 pr-25">
           <Card
             className="mt-20"
-            title="Group A"
+            title="조별 랭킹"
             bordered={false}
           >
             {_.map(resultData, (item, index) => {
@@ -88,8 +88,8 @@ const Childhood2 = ({ setIsLoading }) => {
                 return (
                   <Row key={index} className={`rank-list-data-row ${rank}`}>
                     <Col span={3}  className="rank-list-data-col-1">{index + 1}</Col>
-                    <Col span={7} className="rank-list-data-col-2">{item['name']}</Col>
-                    <Col span={14}  className="rank-list-data-col-3">{item['point']}</Col>
+                    <Col span={10} className="rank-list-data-col-2">{item['name']}</Col>
+                    <Col span={11}  className="rank-list-data-col-3">{item['point']}</Col>
                   </Row>
                 );
               }
@@ -99,7 +99,7 @@ const Childhood2 = ({ setIsLoading }) => {
         <Col span={12} className="rank-card pl-25 pr-50">
           <Card
             className="mt-20"
-            title="Group B"
+            title="조별 랭킹"
             bordered={false}
           >
             {_.map(resultData, (item, index) => {
@@ -109,8 +109,8 @@ const Childhood2 = ({ setIsLoading }) => {
                 return (
                   <Row key={index} className={`rank-list-data-row ${rank}`}>
                     <Col span={3}  className="rank-list-data-col-1">{index + 1}</Col>
-                    <Col span={7} className="rank-list-data-col-2">{item['name']}</Col>
-                    <Col span={14}  className="rank-list-data-col-3">{item['point']}</Col>
+                    <Col span={10} className="rank-list-data-col-2">{item['name']}</Col>
+                    <Col span={11}  className="rank-list-data-col-3">{item['point']}</Col>
                   </Row>
                 );
               }
