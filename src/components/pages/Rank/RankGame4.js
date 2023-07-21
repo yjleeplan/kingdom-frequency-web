@@ -4,14 +4,14 @@ import * as api from "../../../api";
 
 // Select Options
 const options = [
-  { label: "1조", value: "1조" },
-  { label: "2조", value: "2조" },
-  { label: "3조", value: "3조" },
-  { label: "4조", value: "4조" },
-  { label: "5조", value: "5조" },
-  { label: "6조", value: "6조" },
-  { label: "7조", value: "7조" },
-  { label: "8조", value: "8조" },
+  { label: "믿사조", value: "믿사조" },
+  { label: "짱2조", value: "짱2조" },
+  { label: "나사로", value: "나사로" },
+  { label: "믿음의 방패조", value: "믿음의 방패조" },
+  { label: "믿음", value: "믿음" },
+  { label: "행복", value: "행복" },
+  { label: "럭키", value: "럭키" },
+  { label: "믿음8조", value: "믿음8조" },
 ];
 
 const RankGame4 = ({ setIsLoading }) => {
