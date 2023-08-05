@@ -35,7 +35,7 @@ const sample = [
   '8',
 ];
 
-const sample2 = [
+const sampleCurrent = [
   '대한민국',
   '동티모르',
   '라오스',
@@ -107,6 +107,8 @@ const markerIcon = new Icon({
 
 const Map = ({ setIsLoading }) => {
   const [geoJsonData, setGeoJsonData] = useState(countries.features);
+  const [selectedTeamIndex, setSelectedTeamIndex] = useState(0);
+  const [selectedTeamCurrent, setSelectedTeamCurrent] = useState(sampleCurrent);
   const [selectedColor, setSelectedColor] = useState(colors[0]);
   const selectedColorRef = useRef(selectedColor);
   const mapRef = useRef(null);
@@ -128,6 +130,7 @@ const Map = ({ setIsLoading }) => {
     });
 
     selectedColorRef.current = value;
+    setSelectedTeamIndex(index);
   };
 
   const onSelectedCountry = (event) => {
@@ -157,9 +160,14 @@ const Map = ({ setIsLoading }) => {
     // 좌표로 이동
     mapRef.current.flyTo(searchedLayer.getCenter(), 4);
 
+    const newCurrent = [...selectedTeamCurrent];
+    newCurrent[Number(selectedTeamIndex)] = value;
+
+    setSelectedTeamCurrent(newCurrent);
+
     Modal.confirm({
-      title: `${value}`,
-      //content: "복음화 또는 이동하시겠습니까?",
+      title: `${selectedTeamIndex + 1}조`,
+      content: `-> ${value}`,
       okText: "복음화",
       cancelText: "취소",
       onOk: async () => {
@@ -217,7 +225,7 @@ const Map = ({ setIsLoading }) => {
                 <span style={{fontSize: '16px', color: '#454545', paddingLeft: '10px'}}>[{sample[index]}개]</span>
               </Col>
               <Col span={10} className="team-info-col-4">
-                <span style={{fontSize: '16px', color: '#9E9FA5'}}>{sample2[index]}</span>
+                <span style={{fontSize: '16px', color: '#9E9FA5'}}>{selectedTeamCurrent[index]}</span>
               </Col>
             </Row>
           )
@@ -239,7 +247,7 @@ const Map = ({ setIsLoading }) => {
           <GeoJSON
             ref={geoJsonRef}
             style={{
-              fillColor: '#FFF',
+              //fillColor: '#FFF',
               fillOpacity: 1,
               color: '#000',
               weight: 2,
