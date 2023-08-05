@@ -155,41 +155,46 @@ const Map = ({ setIsLoading }) => {
     const searchedLayer = _.chain(layers)
                            .filter(function(o) { return value === o.feature.properties.NAME })
                            .head()
-                           .value();
-    
-    // 좌표로 이동
-    mapRef.current.flyTo(searchedLayer.getCenter(), 4);
+                           .value()
+    ;
 
-    const newCurrent = [...selectedTeamCurrent];
-    newCurrent[Number(selectedTeamIndex)] = value;
+    if (searchedLayer) {
+      // 좌표로 이동
+      mapRef.current.flyTo(searchedLayer.getCenter(), 4);
 
-    setSelectedTeamCurrent(newCurrent);
+      const newCurrent = [...selectedTeamCurrent];
+      newCurrent[Number(selectedTeamIndex)] = value;
 
-    Modal.confirm({
-      title: `${selectedTeamIndex + 1}조`,
-      content: `-> ${value}`,
-      okText: "복음화",
-      cancelText: "취소",
-      onOk: async () => {
-        try {
-          // 색상 적용
-          searchedLayer.setStyle({
-            color: '#000',
-            fillColor: selectedColorRef.current,
-          });
-        } catch (error) {
-          message.error(
-            error.response
-              ? `${error.response.data.code}, ${error.response.data.message}`
-              : "등록 실패"
-          );
-        } finally {
-          // 
-        }
-      },
-    });
+      setSelectedTeamCurrent(newCurrent);
 
-    console.log(searchedLayer.getCenter());
+      Modal.confirm({
+        title: `${selectedTeamIndex + 1}조`,
+        content: `-> ${value}`,
+        okText: "복음화",
+        cancelText: "취소",
+        onOk: async () => {
+          try {
+            // 색상 적용
+            searchedLayer.setStyle({
+              color: '#000',
+              fillColor: selectedColorRef.current,
+            });
+          } catch (error) {
+            message.error(
+              error.response
+                ? `${error.response.data.code}, ${error.response.data.message}`
+                : "등록 실패"
+            );
+          } finally {
+            // 
+          }
+        },
+      });
+
+      console.log(searchedLayer.getCenter());
+    } else {
+      message.error("검색 결과가 없습니다.");
+    }
   };
 
   return (
