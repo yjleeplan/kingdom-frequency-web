@@ -1701,40 +1701,119 @@ svg {
 
 #map-layout #content {
   height: inherit;
+  display: flex;
 }
 
-#map-layout #content .team-info {
-  width: 100%;
+#map-layout #content #map-info {
+  width: 80%;
+  height: inherit;
 }
 
-#map-layout #content .team-info .team-info-col {
+#map-layout #content #map-info #map-control {
+  position: absolute;
+  z-index: 1000;
+  display: grid;
+  padding: 10px;
+}
+
+#map-layout #content #map-info #map-control span {
+  font-size: 20px;
+  top: 53px;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #dadce0;
+  background: #FFF;
   cursor: pointer;
-  text-align: center;
-  padding-top: 20px;
-  border: 1px solid #f0f0f0;
+}
+
+#map-layout #content #team-info {
+  width: 20%;
+  height: inherit;
+  box-shadow: 0 1px 2px rgba(60,64,67,0.3), 0 2px 6px 2px rgba(60,64,67,0.15);
+  opacity: 1;
+  background: #fff;
+  z-index: 1000;
+}
+
+#map-layout #content #team-info .team-info-search-row {
+  height: 130px;
+  background-image: url(/src/assets/images/bg_search.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: 10px;
+}
+
+#map-layout #content #team-info .team-info-search-col {
+  padding: 10px;
+}
+
+#map-layout #content #team-info .ant-input-search {
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2), 0 -1px 0px rgba(0,0,0,0.02);
+  border-radius: 8px;
+  height: 48px;
+  align-items: center;
+  display: flex;
+  background: #FFF;
+}
+
+#map-layout #content #team-info .ant-input-search .ant-input-group {
+  padding: 0px 10px 0px 20px;
+}
+
+#map-layout #content #team-info .ant-input-search .ant-input {
+  border: 0;
+  background: unset;
+  font-size: 18px;
+}
+
+#map-layout #content #team-info .ant-input-search .ant-input:focus {
+  border-color: #fff !important;
+  border: 0 !important;
+  background: unset !important;
+}
+
+#map-layout #content #team-info .ant-input-search .ant-input-group-addon {
+  background: unset;
+}
+
+#map-layout #content #team-info .ant-input-search .ant-input-group-addon button {
+  border: 0;
+  background: unset;
+}
+
+#map-layout #content #team-info .team-info-row {
+  height: 43px;
+}
+
+#map-layout #content #team-info .team-info-row {
+  cursor: pointer;
+  border-bottom: 1px solid #dadce0;
   background-color: #FFF;
+  z-index: 10;
+  padding: 0 10px;
 }
 
-#map-layout #content .team-info .team-info-col.selected {
+#map-layout #content #team-info .team-info-row.selected {
   animation: shadow-inset-tl 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
-#map-layout #content .team-info .team-info-col.selected:hover {
+#map-layout #content #team-info .team-info-row.selected:hover {
   animation: shadow-inset-tl 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
-#map-layout #content .team-info .team-info-col:hover {
-  animation: shadow-drop-2-br 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+#map-layout #content #team-info .team-info-row:hover {
+  animation: shadow-drop-2-bl 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  border: 1px solid #dadce0;
 }
 
-@keyframes shadow-drop-2-br {
+@keyframes shadow-drop-2-bl {
   0% {
     transform: translateZ(0) translateX(0) translateY(0);
     box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
   }
   100% {
-    transform: translateZ(50px) translateX(-8px) translateY(-8px);
-    box-shadow: 12px 12px 20px -12px rgba(0, 0, 0, 0.35);
+    transform: translateZ(50px) translateX(12px) translateY(-12px);
+    box-shadow: -12px 12px 20px -12px rgba(0, 0, 0, 0.35);
   }
 }
 @keyframes shadow-inset-tl {
@@ -1748,17 +1827,23 @@ svg {
   }
 }
 
-#map-layout #content .team-info .team-color-input {
-  width: 30px;
+#map-layout #content #team-info .team-color-input {
+  width: 50px;
   height: 30px;
   border: 0;
   background: unset;
 }
 
-#map-layout #content .team-info span {
-  font-size: 22px;
+#map-layout #content #team-info .team-info-row .ant-col {
+  display: flex;
+  align-items: center;
+}
+
+#map-layout #content #team-info .team-info-row span {
+  font-size: 20px;
   margin-left: 8px;
   font-family: "GmarketSansTTFBold";
+  padding-top: 4px;
 }
 
 #map-layout #content .leaflet-container .leaflet-pane.leaflet-marker-pane img {
