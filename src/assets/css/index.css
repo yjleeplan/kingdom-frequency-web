@@ -1726,6 +1726,12 @@ svg {
   cursor: pointer;
 }
 
+#map-layout #content #map-info #map-control span:hover {
+  background: #4096ff;
+  color: #FFF;
+  border: 1px solid #4096ff;
+}
+
 #map-layout #content #team-info {
   width: 20%;
   height: inherit;
@@ -1749,7 +1755,7 @@ svg {
 
 #map-layout #content #team-info .ant-input-search {
   box-shadow: 0 2px 4px rgba(0,0,0,0.2), 0 -1px 0px rgba(0,0,0,0.02);
-  border-radius: 8px;
+  border-radius: 24px;
   height: 48px;
   align-items: center;
   display: flex;
@@ -1766,12 +1772,6 @@ svg {
   font-size: 18px;
 }
 
-#map-layout #content #team-info .ant-input-search .ant-input:focus {
-  border-color: #fff !important;
-  border: 0 !important;
-  background: unset !important;
-}
-
 #map-layout #content #team-info .ant-input-search .ant-input-group-addon {
   background: unset;
 }
@@ -1779,6 +1779,10 @@ svg {
 #map-layout #content #team-info .ant-input-search .ant-input-group-addon button {
   border: 0;
   background: unset;
+}
+
+#map-layout #content #team-info .ant-input-search .ant-input-group-addon .anticon.anticon-search {
+  font-size: 20px;
 }
 
 #map-layout #content #team-info .team-info-row {
@@ -1848,6 +1852,29 @@ svg {
 
 #map-layout #content .leaflet-container .leaflet-pane.leaflet-marker-pane img {
   /* content: url(/src/assets/images/flag.svg);  */
+}
+
+.confirm-search-result .ant-modal-content .ant-modal-confirm-body .ant-modal-confirm-title {
+  font-size: 26px !important;
+  font-family: "GmarketSansTTFBold";
+}
+
+.confirm-search-result .ant-modal-content .ant-modal-confirm-body .ant-modal-confirm-content {
+  font-size: 30px !important;
+  font-family: "GmarketSansTTFBold";
+  color: #9E9FA5;
+}
+
+.confirm-search-result .ant-modal-content .ant-modal-confirm-btns .ant-btn.ant-btn-default {
+  width: 70px;
+  height: 40px;
+  font-size: 16px;
+}
+
+.confirm-search-result .ant-modal-content .ant-modal-confirm-btns .ant-btn.ant-btn-primary {
+  width: 100px;
+  height: 40px;
+  font-size: 16px;
 }
 /* Map */
 
