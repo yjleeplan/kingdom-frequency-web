@@ -1854,27 +1854,108 @@ svg {
   /* content: url(/src/assets/images/flag.svg);  */
 }
 
+#map-layout #content #teamDeleteModal .ant-modal {
+  width: 400px !important;
+}
+#map-layout #content #teamDeleteModal .ant-modal .ant-modal-close {
+  display: none;
+}
+
+#map-layout #content #teamDeleteModal .ant-modal .ant-modal-header {
+  padding: 24px;
+}
+
+#map-layout #content #teamDeleteModal .ant-modal .ant-modal-title {
+  font-size: 26px !important;
+  font-family: "GmarketSansTTFBold";
+  line-height: unset;
+}
+
+#map-layout #content #teamDeleteModal .ant-modal .ant-modal-body {
+  font-size: 24px;
+  font-family: "GmarketSansTTFBold";
+  /* color: #9E9FA5; */
+  max-height: 460px;
+  overflow: auto;
+}
+
+#map-layout #content #teamDeleteModal .ant-modal .ant-modal-body .team-delete-row {
+  padding-bottom: 4px;
+}
+
+#map-layout #content #teamDeleteModal .ant-modal .ant-modal-body .team-delete-row button {
+  border-color: #000;
+}
+#map-layout #content #teamDeleteModal .ant-modal .ant-modal-body .team-delete-row button:focus {
+  color: #000;
+}
+#map-layout #content #teamDeleteModal .ant-modal .ant-modal-body .team-delete-row button:hover,
+#map-layout #content #teamDeleteModal .ant-modal .ant-modal-body .team-delete-row button:active {
+  border-color: #ff4d4f;
+  background: #ff4d4f;
+  color: #FFF;
+}
+
+#map-layout #content #teamDeleteModal .ant-modal .anticon.anticon-delete {
+  font-size: 24px;
+}
+
+#map-layout #content #teamDeleteModal .ant-modal .ant-modal-footer .ant-btn.ant-btn-default {
+  width: 70px;
+  height: 40px;
+  font-size: 16px;
+}
+#map-layout #content #teamDeleteModal .ant-modal .ant-modal-footer .ant-btn.ant-btn-default:hover {
+  background: #A1A2A4;
+  color: #FFF;
+  border-color: #A1A2A4;
+}
+
 .confirm-search-result .ant-modal-content .ant-modal-confirm-body .ant-modal-confirm-title {
   font-size: 26px !important;
   font-family: "GmarketSansTTFBold";
 }
-
 .confirm-search-result .ant-modal-content .ant-modal-confirm-body .ant-modal-confirm-content {
   font-size: 30px !important;
   font-family: "GmarketSansTTFBold";
-  color: #9E9FA5;
+  /* color: #9E9FA5; */
+  margin: 20px 0px;
 }
-
 .confirm-search-result .ant-modal-content .ant-modal-confirm-btns .ant-btn.ant-btn-default {
   width: 70px;
   height: 40px;
   font-size: 16px;
 }
-
+.confirm-search-result .ant-modal-content .ant-modal-confirm-btns .ant-btn.ant-btn-default:hover {
+  background: #A1A2A4;
+  color: #FFF;
+  border-color: #A1A2A4;
+}
 .confirm-search-result .ant-modal-content .ant-modal-confirm-btns .ant-btn.ant-btn-primary {
   width: 100px;
   height: 40px;
   font-size: 16px;
+}
+
+.confirm-team-delete .ant-modal-content .ant-modal-confirm-body .ant-modal-confirm-content {
+  font-size: 24px !important;
+  font-family: "GmarketSansTTFMideum";
+  margin: 20px 0px;
+}
+.confirm-team-delete .ant-modal-content .ant-modal-confirm-btns .ant-btn.ant-btn-default {
+  width: 70px;
+  height: 40px;
+  font-size: 16px;
+}
+.confirm-team-delete .ant-modal-content .ant-modal-confirm-btns .ant-btn.ant-btn-default:hover {
+  background: #A1A2A4;
+  color: #FFF;
+  border-color: #A1A2A4;
+}
+.confirm-team-delete .ant-modal-content .ant-modal-confirm-btns .ant-btn.ant-btn-default.ant-btn-dangerous:hover {
+  border-color: #ff4d4f;
+  background: #ff4d4f;
+  color: #FFF;
 }
 /* Map */
 

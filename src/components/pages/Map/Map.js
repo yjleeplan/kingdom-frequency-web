@@ -5,7 +5,8 @@ import countries from "./data/countries.json";
 import "leaflet/dist/leaflet.css";
 import { Icon } from "leaflet";
 import { Col, Row, Input, Modal, message } from "antd";
-import { FullscreenOutlined, UndoOutlined, SwapRightOutlined, DeleteOutlined } from '@ant-design/icons';
+import { FullscreenOutlined, SwapRightOutlined, DeleteOutlined, SettingOutlined } from '@ant-design/icons';
+import TeamDeleteModal from "../../common/modal/TeamDeleteModal/TeamDeleteModal";
 
 const { Search } = Input;
 
@@ -45,6 +46,7 @@ const Map = ({ setIsLoading }) => {
   /** State */
   const [teamList, setTeamList] = useState([]);
   const [selectedTeam, setSelectedTeam] = useState(selectedTeamFormat);
+  const [teamDeleteModalVisible, setTeamDeleteModalVisible] = useState(false);
   const mapRef = useRef();
   const geoJsonRef = useRef();
 
@@ -82,6 +84,16 @@ const Map = ({ setIsLoading }) => {
     //   click: selectedCountry,
     //   //mouseover: selectedCountry,
     // });
+  };
+
+  // 팀 나라 삭제 모달 오픈
+  const handleTeamDeleteModalOpen = () => {
+    setTeamDeleteModalVisible(true);
+  };
+
+  // 팀 나라 삭제 모달 닫기
+  const handleTeamDeleteModalClose = () => {
+    setTeamDeleteModalVisible(false);
   };
 
   // 검색
@@ -192,7 +204,7 @@ const Map = ({ setIsLoading }) => {
       <div id="map-info">
         <div id="map-control">
           <FullscreenOutlined onClick={initZoom} />
-          <DeleteOutlined />
+          <SettingOutlined onClick={handleTeamDeleteModalOpen} />
         </div>
         <MapContainer
           ref={mapRef}
@@ -208,6 +220,14 @@ const Map = ({ setIsLoading }) => {
             onEachFeature={onEachFeature}
           />
         </MapContainer >
+      </div>
+      <div id="teamDeleteModal">
+        <TeamDeleteModal
+          visible={teamDeleteModalVisible}
+          onCancel={handleTeamDeleteModalClose}
+          setIsLoading={setIsLoading}
+          selectedTeam={selectedTeam}
+        />
       </div>
     </>
   );
