@@ -7,45 +7,16 @@ import { Icon } from "leaflet";
 import { Col, Row, Input, Modal, message } from "antd";
 import { FullscreenOutlined, SwapRightOutlined, DeleteOutlined, SettingOutlined } from '@ant-design/icons';
 import TeamDeleteModal from "../../common/modal/TeamDeleteModal/TeamDeleteModal";
+import * as api from "../../../api";
+import FlagImage from "../../common/FlagImage";
 
 const { Search } = Input;
-
-const sampleMapData = [
-  { team_no: 1, team_total: 4, team_color: '#F86F03', team_current: '대한민국' },
-  { team_no: 2, team_total: 5, team_color: '#FFC6AC', team_current: '동티모르' },
-  { team_no: 3, team_total: 15, team_color: '#FFDEB4', team_current: '라오스' },
-  { team_no: 4, team_total: 10, team_color: '#FFF89A', team_current: '레바논' },
-  { team_no: 5, team_total: 2, team_color: '#FFD966', team_current: '말레이시아' },
-  { team_no: 6, team_total: 2, team_color: '#CBFFA9', team_current: '중국' },
-  { team_no: 7, team_total: 8, team_color: '#C8E4B2', team_current: '북한' },
-  { team_no: 8, team_total: 8, team_color: '#9ED2BE', team_current: '일본' },
-  { team_no: 9, team_total: 9, team_color: '#7EAA92', team_current: '인도네시아' },
-  { team_no: 10, team_total: 9, team_color: '#B9F3E4', team_current: '인도' },
-  { team_no: 11, team_total: 12, team_color: '#9ADCFF', team_current: '이스라엘' },
-  { team_no: 12, team_total: 11, team_color: '#95BDFF', team_current: '이란' },
-  { team_no: 13, team_total: 11, team_color: '#8EA7E9', team_current: '카자흐스탄' },
-  { team_no: 14, team_total: 7, team_color: '#7286D3', team_current: '카타르' },
-  { team_no: 15, team_total: 4, team_color: '#E5E0FF', team_current: '남아프리카 공화국' },
-  { team_no: 16, team_total: 4, team_color: '#B2A4FF', team_current: '캄보디아' },
-  { team_no: 17, team_total: 10, team_color: '#FFAACF', team_current: '쿠웨이트' },
-  { team_no: 18, team_total: 10, team_color: '#FF8AAE', team_current: '사우디아라비아' },
-  { team_no: 19, team_total: 6, team_color: '#EA8FEA', team_current: '태국' },
-  { team_no: 20, team_total: 8, team_color: '#C4C1A4', team_current: '타이완' },
-  { team_no: 21, team_total: 6, team_color: '#9E9FA5', team_current: '몽골' },
-  { team_no: 22, team_total: 4, team_color: '#0D1282', team_current: '프랑스' },
-];
-
-const selectedTeamFormat = {
-  team_no: 0,
-  team_total: 0,
-  team_color: '',
-  team_current: ''
-};
 
 const Map = ({ setIsLoading }) => {
   /** State */
   const [teamList, setTeamList] = useState([]);
-  const [selectedTeam, setSelectedTeam] = useState(selectedTeamFormat);
+  const [countryList, setCountryList] = useState([]);
+  const [selectedTeam, setSelectedTeam] = useState({});
   const [teamDeleteModalVisible, setTeamDeleteModalVisible] = useState(false);
   const mapRef = useRef();
   const geoJsonRef = useRef();
@@ -96,11 +67,17 @@ const Map = ({ setIsLoading }) => {
     setTeamDeleteModalVisible(false);
   };
 
+  // 팀 나라 삭제
+  const onDelete = () => {
+    selectTeamList();
+    selectCountryList();
+  };
+
   // 검색
   const onSearch = (value) => {
     const layers = geoJsonRef.current.getLayers();
     const searchedLayer = _.chain(layers)
-                           .filter(function(o) { return value === o.feature.properties.NAME })
+                           .filter((o) => { return value === o.feature.properties.NAME })
                            .head()
                            .value()
     ;
@@ -112,13 +89,6 @@ const Map = ({ setIsLoading }) => {
       // 좌표로 이동
       mapRef.current.flyTo(searchedLayer.getCenter(), 4);
 
-      setTeamList(_.map(teamList, (item, index) => {
-        if (item.team_no === selectedTeam.team_no) {
-          item.team_current = value;
-        }
-        return item;
-      }));
-
       // Confirm 창 오픈
       Modal.confirm({
         className: "confirm-search-result",
@@ -126,23 +96,34 @@ const Map = ({ setIsLoading }) => {
         title: `${selectedTeam.team_no}조`,
         content:
           <>
-            <SwapRightOutlined /> {value}
+            <FlagImage
+              size={40}
+              name={value}
+            />
+            {value}
           </>
         ,
         okText: "복음화",
         cancelText: "취소",
         onOk: async () => {
           try {
-            // 색상 적용
-            searchedLayer.setStyle({ fillColor: selectedTeam.team_color });
+            await api.addCountry({
+              data: {
+                team_no: selectedTeam.team_no,
+                country_name: value
+              },
+            });
+
+            selectTeamList();
+            selectCountryList();
+
+            message.success("복음화되었습니다.");
           } catch (error) {
-            message.error(
+            throw new Error(
               error.response
                 ? `${error.response.data.code}, ${error.response.data.message}`
-                : "등록 실패"
+                : "복음화 실패"
             );
-          } finally {
-            // 
           }
         },
       });
@@ -151,10 +132,61 @@ const Map = ({ setIsLoading }) => {
     }
   };
 
+  // 팀 목록 조회
+  const selectTeamList = async (isLoaded = true) => {
+    try {
+      const { data } = await api.listTeam({
+        query: {
+          order_by_column: 'team_no',
+          order_by_value: 'asc'
+        },
+      });
+
+      setTeamList(data);
+      !isLoaded && setSelectedTeam(data[0]);
+    } catch (error) {
+      throw new Error(
+        error.response
+          ? `${error.response.data.code}, ${error.response.data.message}`
+          : "팀 목록 조회 실패"
+      );
+    }
+  };
+
+  // 나라 목록 조회
+  const selectCountryList = async () => {
+    try {
+      const { data } = await api.listCountry({});
+
+      setCountryList(data);
+
+      const layers = geoJsonRef.current.getLayers();
+      let searchedLayer = {};
+
+      _.map(data, (item, index) => {
+        searchedLayer = _.chain(layers)
+                         .filter((o) => { return item.country_name === o.feature.properties.NAME })
+                         .head()
+                         .value()
+        ;
+
+        if (searchedLayer) {
+          searchedLayer.setStyle({ fillColor: item.country_team_color ? item.country_team_color : '#F9F9F9'});
+        }
+      });
+    } catch (error) {
+      throw new Error(
+        error.response
+          ? `${error.response.data.code}, ${error.response.data.message}`
+          : "나라 목록 조회 실패"
+      );
+    }
+  };
+
   /** Effect */
   useEffect(() => {
-    setTeamList(sampleMapData);
-    setSelectedTeam(sampleMapData[0]);
+    selectTeamList(false);
+    selectCountryList();
     // eslint-disable-next-line
   }, []);
 
@@ -227,6 +259,7 @@ const Map = ({ setIsLoading }) => {
           onCancel={handleTeamDeleteModalClose}
           setIsLoading={setIsLoading}
           selectedTeam={selectedTeam}
+          onDelete={onDelete}
         />
       </div>
     </>

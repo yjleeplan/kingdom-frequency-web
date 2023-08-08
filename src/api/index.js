@@ -125,3 +125,31 @@ export const createRankStack = ({ data }) => {
     headers(),
   );
 };
+
+export const listTeam = ({ query }) => {
+  return request.get(`/team`, {
+    params: query,
+    ...headers(),
+  });
+};
+
+export const listCountry = ({ query }) => {
+  return request.get(`/country`, {
+    params: query,
+    ...headers(),
+  });
+};
+
+export const addCountry = ({ data }) => {
+  return request.post("/country",
+    data,
+    headers(),
+  );
+};
+
+export const deleteCountry = ({ query }) => {
+  return request.delete(`/country`, {
+    params: query,
+    ...headers(),
+  });
+};

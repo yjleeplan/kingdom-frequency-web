@@ -1875,12 +1875,17 @@ svg {
   font-size: 24px;
   font-family: "GmarketSansTTFBold";
   /* color: #9E9FA5; */
-  max-height: 460px;
+  max-height: 490px;
+  min-height: 220px;
   overflow: auto;
 }
 
 #map-layout #content #teamDeleteModal .ant-modal .ant-modal-body .team-delete-row {
   padding-bottom: 4px;
+}
+
+#map-layout #content #teamDeleteModal .ant-modal .ant-modal-body .team-delete-col-1 .ant-image {
+  margin-right: 10px;
 }
 
 #map-layout #content #teamDeleteModal .ant-modal .ant-modal-body .team-delete-row button {
@@ -1911,6 +1916,11 @@ svg {
   border-color: #A1A2A4;
 }
 
+#map-layout #content #teamDeleteModal .ant-modal .ant-modal-body .team-delete-row-nodata {
+  font-size: 20px;
+  font-family: "GmarketSansTTFMideum";
+}
+
 .confirm-search-result .ant-modal-content .ant-modal-confirm-body .ant-modal-confirm-title {
   font-size: 26px !important;
   font-family: "GmarketSansTTFBold";
@@ -1920,6 +1930,9 @@ svg {
   font-family: "GmarketSansTTFBold";
   /* color: #9E9FA5; */
   margin: 20px 0px;
+}
+.confirm-search-result .ant-modal-content .ant-modal-confirm-body .ant-modal-confirm-content .ant-image {
+  margin-right: 10px;
 }
 .confirm-search-result .ant-modal-content .ant-modal-confirm-btns .ant-btn.ant-btn-default {
   width: 70px;

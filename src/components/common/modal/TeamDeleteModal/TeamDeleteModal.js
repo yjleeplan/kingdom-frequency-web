@@ -1,18 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Form, Input, message, Modal, Button, Col, Row, Card } from "antd";
+import { Modal, Button, Col, Row, message, Image } from "antd";
 import { DeleteOutlined } from '@ant-design/icons';
 import _ from "lodash";
 import * as api from "../../../../api";
+import FlagImage from "../../FlagImage";
 
-const sampleData = [
-  { country_name: '대한민국' },
-  { country_name: '동티모르' },
-  { country_name: '남아프리카 공화국' },
-  { country_name: '사우디아라비아' },
-  { country_name: '인도네시아' },
-];
-
-const TeamDeleteModal = ({ visible, onCancel, setIsLoading, selectedTeam }) => {
+const TeamDeleteModal = ({ visible, onCancel, setIsLoading, selectedTeam, onDelete }) => {
   /** State */
   const [resultList, setResultList] = useState([]);
 
@@ -32,25 +25,52 @@ const TeamDeleteModal = ({ visible, onCancel, setIsLoading, selectedTeam }) => {
       okType: 'danger',
       onOk: async () => {
         try {
-          // 
+          await api.deleteCountry({
+            query: {
+              team_no: selectedTeam.team_no,
+              country_name: countryName
+            },
+          });
+
+          selectTeamCountryList();
+          onDelete();
+
+          message.success("정상적으로 삭제되었습니다.");
         } catch (error) {
-          message.error(
+          throw new Error(
             error.response
               ? `${error.response.data.code}, ${error.response.data.message}`
-              : "등록 실패"
+              : "삭제 실패"
           );
-        } finally {
-          // 
         }
       },
     });
   };
 
+  // 팀별 나라 목록 조회
+  const selectTeamCountryList = async () => {
+    try {
+      const { data } = await api.listCountry({
+        query: {
+          team_no: selectedTeam.team_no
+        },
+      });
+
+      setResultList(data);
+    } catch (error) {
+      throw new Error(
+        error.response
+          ? `${error.response.data.code}, ${error.response.data.message}`
+          : "팀별 나라 목록 조회 실패"
+      );
+    }
+  };
+
   /** Effect */
   useEffect(() => {
-    setResultList(sampleData);
+    visible && selectTeamCountryList();
     // eslint-disable-next-line
-  }, []);
+  }, [visible]);
 
   return (
     <Modal
@@ -67,10 +87,15 @@ const TeamDeleteModal = ({ visible, onCancel, setIsLoading, selectedTeam }) => {
       getContainer={document.getElementById("teamDeleteModal")}
       destroyOnClose
     >
-      {_.map(resultList, (item, index) => {
+      {resultList?.length > 0
+      ? _.map(resultList, (item, index) => {
         return (
           <Row key={index} className="team-delete-row">
-            <Col span={20} className="">
+            <Col span={20} className="team-delete-col-1">
+              <FlagImage
+                size={32}
+                name={item.country_name}
+              />
               {item.country_name}
             </Col>
             <Col span={4} className="">
@@ -80,7 +105,14 @@ const TeamDeleteModal = ({ visible, onCancel, setIsLoading, selectedTeam }) => {
             </Col>
           </Row>
         )
-      })}
+      })
+      : (
+        <Row className="team-delete-row-nodata">
+          <Col span={24}>
+            아직 복음화된 나라가 없습니다.
+          </Col>
+        </Row>
+      )}
     </Modal>
   );
 };
