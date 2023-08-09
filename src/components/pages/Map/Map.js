@@ -126,6 +126,26 @@ const Map = ({ setIsLoading }) => {
             );
           }
         },
+        onCancel: async () => {
+          try {
+            await api.updateCurrent({
+              data: {
+                team_no: selectedTeam.team_no,
+                country_name: value
+              },
+            });
+
+            selectTeamList();
+
+            message.success("현재위치가 변경되었습니다.");
+          } catch (error) {
+            throw new Error(
+              error.response
+                ? `${error.response.data.code}, ${error.response.data.message}`
+                : "현재위치 이동 실패"
+            );
+          }
+        },
       });
     } else {
       message.error("검색 결과가 없습니다.");

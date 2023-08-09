@@ -147,6 +147,13 @@ export const addCountry = ({ data }) => {
   );
 };
 
+export const updateCurrent = ({ data }) => {
+  return request.put("/team/current",
+    data,
+    headers(),
+  );
+};
+
 export const deleteCountry = ({ query }) => {
   return request.delete(`/country`, {
     params: query,
