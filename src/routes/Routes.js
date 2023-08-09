@@ -13,6 +13,7 @@ import RankGameLayout from "../components/layouts/RankGameLayout/RankGameLayout"
 import RankLayout from "../components/layouts/RankLayout/RankLayout";
 import ChildhoodLayout from "../components/layouts/ChildhoodLayout/ChildhoodLayout";
 import MapLayout from "../components/layouts/MapLayout/MapLayout";
+import MapStatusLayout from "../components/layouts/MapStatusLayout/MapStatusLayout";
 import PagePC from "../components/common/PagePC";
 import Page404 from "../components/common/Page404";
 import Welcome from "../components/pages/Welcome/Welcome";
@@ -26,6 +27,7 @@ import RankGame4 from "../components/pages/Rank/RankGame4";
 import Rank from "../components/pages/Rank/Rank";
 import Childhood from "../components/pages/Childhood/Childhood";
 import Map from "../components/pages/Map/Map";
+import MapStatus from "../components/pages/MapStatus/MapStatus";
 import { userInfoAction } from '../stores/actions';
 
 const Routes = () => {
@@ -224,6 +226,15 @@ const Routes = () => {
                 <RankGameLayout isLoading={isLoading} type={4}>
                   <RankGame4 {...props} setIsLoading={setIsLoading} />
                 </RankGameLayout>
+              )}
+            />
+            <Route
+              exact
+              path="/map/status"
+              render={(props) => (
+                <MapStatusLayout isLoading={isLoading}>
+                  <MapStatus {...props} setIsLoading={setIsLoading} />
+                </MapStatusLayout>
               )}
             />
             <Route

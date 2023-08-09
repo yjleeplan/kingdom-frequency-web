@@ -1973,6 +1973,86 @@ svg {
 /* Map */
 
 
+/* Map Status*/
+#map-status-layout {
+  background: #fafafa;
+}
+
+#map-status-layout .map-status-title {
+  font-size: 20px;
+  padding: 40px 20px;
+  font-family: "NanumSquareEB";
+  background: #FFF;
+}
+
+#map-status-layout .map-status-title .ant-col {
+  text-align: center;
+}
+
+#map-status-layout .ant-tabs-nav-list {
+  width: 100%;
+  font-family: "GmarketSansTTFMedium";
+}
+#map-status-layout .ant-tabs-nav-list .ant-tabs-tab {
+  text-align: center;
+  flex: none;
+  display: block;
+  margin-left: 0;
+  border: 0;
+  background: #FFF;
+}
+#map-status-layout .ant-tabs-nav-list .ant-tabs-tab.ant-tabs-tab-active {
+  background: #fafafa;
+}
+#map-status-layout .ant-tabs-nav-list .ant-tabs-tab:nth-child(1) {
+  width: 50%;
+  font-size: 14px;
+}
+#map-status-layout .ant-tabs-nav-list .ant-tabs-tab:nth-child(2) {
+  width: 50%;
+  font-size: 14px;
+}
+
+#map-status-layout .ant-tabs-content.ant-tabs-content-top {
+  padding: 10px 20px;
+}
+
+#map-status-layout .team-color-input {
+  width: 30px;
+  height: 30px;
+  border: 0;
+  background: unset;
+}
+
+#map-status-layout .team-info-row {
+  margin-bottom: 20px;
+}
+
+#map-status-layout .team-info-row .ant-col {
+  display: flex;
+  align-items: center;
+}
+
+#map-status-layout .team-info-row span {
+  font-size: 18px;
+  margin-left: 8px;
+  font-family: "GmarketSansTTFBold";
+  padding-top: 4px;
+}
+
+#map-status-layout .country-info-row {
+  margin-bottom: 14px;
+}
+
+#map-status-layout .country-info-row span {
+  font-size: 18px;
+  margin-left: 8px;
+  font-family: "GmarketSansTTFBold";
+  padding-top: 4px;
+}
+/* Map Status*/
+
+
 /* pc page */
 .on-pc-icon {
   text-align: center;

@@ -119,11 +119,7 @@ const Map = ({ setIsLoading }) => {
 
             message.success("복음화되었습니다.");
           } catch (error) {
-            throw new Error(
-              error.response
-                ? `${error.response.data.code}, ${error.response.data.message}`
-                : "복음화 실패"
-            );
+            message.error(error.response.data.message);
           }
         },
         onCancel: async () => {
@@ -139,11 +135,7 @@ const Map = ({ setIsLoading }) => {
 
             message.success("현재위치가 변경되었습니다.");
           } catch (error) {
-            throw new Error(
-              error.response
-                ? `${error.response.data.code}, ${error.response.data.message}`
-                : "현재위치 이동 실패"
-            );
+            message.error(error.response.data.message);
           }
         },
       });
