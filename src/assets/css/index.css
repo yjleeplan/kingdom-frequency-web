@@ -1976,11 +1976,31 @@ svg {
 /* Map Status*/
 #map-status-layout {
   background: #fafafa;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+}
+
+#map-status-layout .map-status-refresh {
+  text-align: right;
+  background: #FFF;
+  padding: 10px 10px;
+}
+
+#map-status-layout .map-status-refresh button {
+  font-size: 16px;
+  border: 0;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 30%);
+}
+#map-status-layout .map-status-refresh button:hover,
+#map-status-layout .map-status-refresh button:focus {
+  color: #000 !important;
 }
 
 #map-status-layout .map-status-title {
   font-size: 20px;
-  padding: 40px 20px;
+  padding-top: 20px;
+  padding-bottom: 40px;
   font-family: "NanumSquareEB";
   background: #FFF;
 }
@@ -2011,6 +2031,11 @@ svg {
 #map-status-layout .ant-tabs-nav-list .ant-tabs-tab:nth-child(2) {
   width: 50%;
   font-size: 14px;
+}
+
+#map-status-layout .ant-tabs-content-holder .ant-tabs-tabpane {
+  height: calc(100vh - 360px);
+  overflow-y: auto;
 }
 
 #map-status-layout .ant-tabs-content.ant-tabs-content-top {

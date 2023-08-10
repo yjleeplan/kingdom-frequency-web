@@ -1,9 +1,10 @@
-import { Col, Row, Image, Tabs, message } from "antd";
+import { Col, Row, Image, Tabs, message, Button } from "antd";
 import _ from "lodash";
 import React, { useState, useEffect } from "react";
 import * as api from "../../../api";
 import title from "../../../assets/images/title_mapstatus.png";
 import FlagImage from "../../common/FlagImage";
+import { SyncOutlined } from '@ant-design/icons';
 
 const MapStatus = ({ setIsLoading, userData }) => {
   // Tab Items
@@ -116,6 +117,12 @@ const MapStatus = ({ setIsLoading, userData }) => {
     }
   };
 
+  // 새로고침
+  const onRefresh = () => {
+    selectTeamList();
+    selectCountryList();
+  };
+
   /** Effect */
   useEffect(() => {
     selectTeamList();
@@ -125,11 +132,16 @@ const MapStatus = ({ setIsLoading, userData }) => {
 
   return (
     <>
+      <div className="map-status-refresh">
+        <Button>
+          <SyncOutlined onClick={onRefresh}/>
+        </Button>
+      </div>
       <Row className="map-status-title">
         <Col span={24}>
           <Image
             width={120}
-            height={60}
+            height={70}
             src={title}
             preview={false}
           />

@@ -5,7 +5,7 @@ import countries from "./data/countries.json";
 import "leaflet/dist/leaflet.css";
 import { Icon } from "leaflet";
 import { Col, Row, Input, Modal, message } from "antd";
-import { FullscreenOutlined, SwapRightOutlined, DeleteOutlined, SettingOutlined } from '@ant-design/icons';
+import { FullscreenOutlined, SettingOutlined } from '@ant-design/icons';
 import TeamDeleteModal from "../../common/modal/TeamDeleteModal/TeamDeleteModal";
 import * as api from "../../../api";
 import FlagImage from "../../common/FlagImage";

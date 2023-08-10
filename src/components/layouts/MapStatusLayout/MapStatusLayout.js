@@ -4,6 +4,7 @@ import Content from "./Content";
 
 const MapStatusLayout = ({ children, isLoading }) => {
   return (
+    <div style={{height: '100%', background: '#fafafa'}}>
     <Spin spinning={isLoading} tip="잠시만 기다려주세요..">
       <div id="map-status-layout">
         <Content>
@@ -11,6 +12,7 @@ const MapStatusLayout = ({ children, isLoading }) => {
         </Content>
       </div>
     </Spin>
+    </div>
   );
 };
 
