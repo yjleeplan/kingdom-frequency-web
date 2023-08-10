@@ -156,7 +156,7 @@ const MapStatus = ({ setIsLoading, userData }) => {
         <Col span={24}>
           <Image
             width={120}
-            height={70}
+            height={100}
             src={title}
             preview={false}
           />

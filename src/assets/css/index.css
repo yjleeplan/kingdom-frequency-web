@@ -2001,7 +2001,6 @@ svg {
 
 #map-status-layout .map-status-title {
   font-size: 20px;
-  padding-top: 20px;
   padding-bottom: 40px;
   font-family: "NanumSquareEB";
   background: #FFF;
@@ -2079,26 +2078,6 @@ svg {
   font-family: "GmarketSansTTFBold";
   padding-top: 4px;
 }
-/* iPhone 5/SE */
-@media (max-width: 320px) and (orientation: portrait) {
-  #map-status-layout .team-info-row span {
-    font-size: 14px;
-    margin-left: 6px;
-    font-family: "GmarketSansTTFBold";
-    padding-top: 4px;
-  }
-  
-  #map-status-layout .country-info-row {
-    margin-bottom: 6px;
-  }
-  
-  #map-status-layout .country-info-row span {
-    font-size: 14px;
-    margin-left: 6px;
-    font-family: "GmarketSansTTFBold";
-    padding-top: 4px;
-  }
-}
 /* iPhone SE, 6/7/8, X, Galaxy S8 */
 @media (max-width: 375px) and (orientation: portrait) {
   #map-status-layout .team-info-row span {
@@ -2115,6 +2094,26 @@ svg {
   #map-status-layout .country-info-row span {
     font-size: 16px;
     margin-left: 8px;
+    font-family: "GmarketSansTTFBold";
+    padding-top: 4px;
+  }
+}
+/* iPhone 5/SE */
+@media (max-width: 320px) and (orientation: portrait) {
+  #map-status-layout .team-info-row span {
+    font-size: 14px;
+    margin-left: 6px;
+    font-family: "GmarketSansTTFBold";
+    padding-top: 4px;
+  }
+  
+  #map-status-layout .country-info-row {
+    margin-bottom: 6px;
+  }
+  
+  #map-status-layout .country-info-row span {
+    font-size: 14px;
+    margin-left: 6px;
     font-family: "GmarketSansTTFBold";
     padding-top: 4px;
   }
