@@ -119,8 +119,7 @@ const MapStatus = ({ setIsLoading, userData }) => {
 
   // 새로고침
   const onRefresh = () => {
-    selectTeamList();
-    selectCountryList();
+    window.location.reload();
   };
 
   /** Effect */
@@ -134,6 +133,12 @@ const MapStatus = ({ setIsLoading, userData }) => {
       let vh = window.innerHeight;
       document.documentElement.style.setProperty("--vh", `${vh}px`);
     });
+
+    setIsLoading(true);
+    timer = setTimeout(() => {
+      clearTimeout(timer);
+      setIsLoading(false);
+    }, 2000);
 
     selectTeamList();
     selectCountryList();
