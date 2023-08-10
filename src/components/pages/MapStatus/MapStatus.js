@@ -125,8 +125,15 @@ const MapStatus = ({ setIsLoading, userData }) => {
 
   /** Effect */
   useEffect(() => {
+    // Ios 에서는 vh 적용이 되지 않는 문제
     let vh = window.innerHeight;
     document.documentElement.style.setProperty("--vh", `${vh}px`);
+    
+    // 화면 리사이징 때마다 계산
+    window.addEventListener("resize", () => {
+      let vh = window.innerHeight;
+      document.documentElement.style.setProperty("--vh", `${vh}px`);
+    });
 
     selectTeamList();
     selectCountryList();
