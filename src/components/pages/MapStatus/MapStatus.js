@@ -125,6 +125,9 @@ const MapStatus = ({ setIsLoading, userData }) => {
 
   /** Effect */
   useEffect(() => {
+    let vh = window.innerHeight;
+    document.documentElement.style.setProperty("--vh", `${vh}px`);
+
     selectTeamList();
     selectCountryList();
     // eslint-disable-next-line

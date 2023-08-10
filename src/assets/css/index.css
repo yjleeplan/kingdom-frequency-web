@@ -11,6 +11,7 @@ body,
   font-weight: 500;
   margin: 0;
   height: 100%;
+  height: var(--vh);
 }
 
 :root {
@@ -22,6 +23,7 @@ body,
   --color-3-2: #987BD0;
   --color-4-1: #1677ff;
   --color-0: #A9A9A9;
+  --vh: 100%;
 }
 
 /* html tag */
@@ -2033,8 +2035,10 @@ svg {
   font-size: 14px;
 }
 
-#map-status-layout .ant-tabs-content-holder .ant-tabs-tabpane {
-  height: calc(100vh - 360px);
+#map-status-layout .ant-tabs-content-holder {
+  height: calc(var(--vh) - 260px);
+  /* height: -webkit-fill-available; */
+  /* height: fill-available; */
   overflow-y: auto;
 }
 
