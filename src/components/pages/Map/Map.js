@@ -84,10 +84,10 @@ const Map = ({ setIsLoading }) => {
 
     // 검색 결과가 존재하는 경우
     if (searchedLayer) {
-      console.log(searchedLayer.getCenter());
+      //console.log(searchedLayer.getCenter());
 
       // 좌표로 이동
-      mapRef.current.flyTo(searchedLayer.getCenter(), 4);
+      mapRef.current.flyTo(searchedLayer.feature.properties.CENTER, searchedLayer.feature.properties.ZOOM);
 
       // Confirm 창 오픈
       Modal.confirm({
