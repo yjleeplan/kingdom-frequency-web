@@ -1790,6 +1790,101 @@ p {
 /* Rank Game*/
 
 
+/* Rank Detail */
+#rank-detail-layout {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+}
+
+#rank-detail-layout.type-1 {
+  background-color: var(--color-1-1);
+}
+#rank-detail-layout.type-2 {
+  background-color: var(--color-6-1);
+}
+#rank-detail-layout.type-3 {
+  background-color: var(--color-3-1);
+}
+#rank-detail-layout.type-4 {
+  background-color: var(--color-5-1);
+}
+#rank-detail-layout.type-5 {
+  background-color: var(--color-7-1);
+}
+#rank-detail-layout.type-6 {
+  background-color: var(--color-2-1);
+}
+
+#rank-detail-header {
+  font-family: "ChangwonDangamAsac-Bold";
+  font-size: 60px;
+  text-align: center;
+  color: #FFF;
+  padding: 20px 0;
+  text-shadow: 
+        -2px 0 #000, 0 2px #000, 2px 0 #000, 0 -2px #000,
+        1px 1px #000, 2px 2px #000,
+        3px 3px #000, 4px 4px #000,
+        5px 5px #000, 6px 6px #000,
+        7px 7px #000, 8px 8px #000;
+}
+
+#rank-detail-layout .rank-detail-card {
+  padding: 10px;
+}
+
+#rank-detail-layout .ant-card {
+  border-radius: 20px;
+  border-left: 4px solid;
+  border-right: 10px solid;
+  border-top: 4px solid;
+  border-bottom: 10px solid;
+  min-height: 390px;
+  max-height: 550px;
+}
+
+#rank-detail-layout .ant-card-body {
+  font-family: "GmarketSansTTFLight";
+  font-size: 30px;
+}
+
+#rank-detail-layout .ant-card-body .rank-list-data-row .rank-list-data-col-1 {
+  font-family: "ChangwonDangamAsac-Bold";
+}
+#rank-detail-layout .ant-card-body .rank-list-data-row .rank-list-data-col-2 {
+  font-family: "GmarketSansTTFLight";
+}
+#rank-detail-layout .ant-card-body .rank-list-data-row .rank-list-data-col-3 {
+  font-family: "GmarketSansTTFBold";
+  text-align: right;
+}
+
+#rank-detail-layout .ant-card-body .rank-list-data-row.rank .rank-list-data-col-2{
+  font-family: "GmarketSansTTFBold";
+}
+
+#rank-detail-layout.type-1 .ant-card-body .rank-list-data-row.rank.rank1 {
+  color: var(--color-1-1);
+}
+#rank-detail-layout.type-2 .ant-card-body .rank-list-data-row.rank.rank1 {
+  color: var(--color-6-1);
+}
+#rank-detail-layout.type-3 .ant-card-body .rank-list-data-row.rank.rank1 {
+  color: var(--color-3-1);
+}
+#rank-detail-layout.type-4 .ant-card-body .rank-list-data-row.rank.rank1 {
+  color: var(--color-5-1);
+}
+#rank-detail-layout.type-5 .ant-card-body .rank-list-data-row.rank.rank1 {
+  color: var(--color-7-1);
+}
+#rank-detail-layout.type-6 .ant-card-body .rank-list-data-row.rank.rank1 {
+  color: var(--color-2-1);
+}
+/* Rank Detail */
+
+
 /* Childhodd */
 #childhood-layout {
   height: 100%;
