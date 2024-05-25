@@ -106,8 +106,9 @@ export const selectMissionHistoryCount = ({ query }) => {
   });
 };
 
-export const listRank = () => {
+export const listRank = ({ query }) => {
   return request.get("/rank", {
+    params: query,
     ...headers(),
   });
 };

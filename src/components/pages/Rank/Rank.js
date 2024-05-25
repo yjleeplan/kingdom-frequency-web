@@ -25,7 +25,7 @@ const Rank = ({ setIsLoading }) => {
   // 랭킹 조회
   const handleGetRankList = async () => {
     try {
-      const { data } = await api.listRank();
+      const { data } = await api.listRank({});
 
       setResultData(data);
     } catch (error) {

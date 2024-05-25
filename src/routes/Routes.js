@@ -9,6 +9,7 @@ import WelcomeLayout from "../components/layouts/WelcomeLayout/WelcomeLayout";
 import MainLayout from "../components/layouts/MainLayout/MainLayout";
 import CategoryLayout from "../components/layouts/CategoryLayout/CategoryLayout";
 import MyPageLayout from "../components/layouts/MyPageLayout/MyPageLayout";
+import RankDetailLayout from "../components/layouts/RankDetailLayout/RankDetailLayout";
 import RankGameLayout from "../components/layouts/RankGameLayout/RankGameLayout";
 import RankLayout from "../components/layouts/RankLayout/RankLayout";
 import ChildhoodLayout from "../components/layouts/ChildhoodLayout/ChildhoodLayout";
@@ -26,6 +27,7 @@ import RankGame3 from "../components/pages/Rank/RankGame3";
 import RankGame4 from "../components/pages/Rank/RankGame4";
 import RankGame5 from "../components/pages/Rank/RankGame5";
 import RankGame6 from "../components/pages/Rank/RankGame6";
+import RankDetail from "../components/pages/Rank/RankDetail";
 import Rank from "../components/pages/Rank/Rank";
 import Childhood from "../components/pages/Childhood/Childhood";
 import Map from "../components/pages/Map/Map";
@@ -118,6 +120,24 @@ const Routes = () => {
   // PC로 접속 시 예외처리
   const isPcException = () => {
     if (window.location.pathname === "/rank") {
+      return true;
+    }
+    if (window.location.pathname === "/rank/1") {
+      return true;
+    }
+    if (window.location.pathname === "/rank/2") {
+      return true;
+    }
+    if (window.location.pathname === "/rank/3") {
+      return true;
+    }
+    if (window.location.pathname === "/rank/4") {
+      return true;
+    }
+    if (window.location.pathname === "/rank/5") {
+      return true;
+    }
+    if (window.location.pathname === "/rank/6") {
       return true;
     }
     else if (window.location.pathname === "/childhood") {
@@ -277,6 +297,60 @@ const Routes = () => {
                   <RankLayout isLoading={isLoading}>
                     <Rank {...props} setIsLoading={setIsLoading} />
                   </RankLayout>
+                )}
+              />
+              <Route
+                exact
+                path="/rank/1"
+                render={(props) => (
+                  <RankDetailLayout isLoading={isLoading} type={1} title="높이 더 높이">
+                    <RankDetail {...props} setIsLoading={setIsLoading} type={1} />
+                  </RankDetailLayout>
+                )}
+              />
+              <Route
+                exact
+                path="/rank/2"
+                render={(props) => (
+                  <RankDetailLayout isLoading={isLoading} type={2} title="복음투수">
+                    <RankDetail {...props} setIsLoading={setIsLoading} type={2} />
+                  </RankDetailLayout>
+                )}
+              />
+              <Route
+                exact
+                path="/rank/3"
+                render={(props) => (
+                  <RankDetailLayout isLoading={isLoading} type={3} title="사랑이 POP! 풍선이 POP!">
+                    <RankDetail {...props} setIsLoading={setIsLoading} type={3} />
+                  </RankDetailLayout>
+                )}
+              />
+              <Route
+                exact
+                path="/rank/4"
+                render={(props) => (
+                  <RankDetailLayout isLoading={isLoading} type={4} title="적그리스도를 저격">
+                    <RankDetail {...props} setIsLoading={setIsLoading} type={4} />
+                  </RankDetailLayout>
+                )}
+              />
+              <Route
+                exact
+                path="/rank/5"
+                render={(props) => (
+                  <RankDetailLayout isLoading={isLoading} type={5} title="나는야 사람을 낚는 어부">
+                    <RankDetail {...props} setIsLoading={setIsLoading} type={5} />
+                  </RankDetailLayout>
+                )}
+              />
+              <Route
+                exact
+                path="/rank/6"
+                render={(props) => (
+                  <RankDetailLayout isLoading={isLoading} type={6} title="내가 품은 선교지를 향해서">
+                    <RankDetail {...props} setIsLoading={setIsLoading} type={6} />
+                  </RankDetailLayout>
                 )}
               />
               <Route
