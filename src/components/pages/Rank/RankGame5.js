@@ -6,7 +6,7 @@ const RankGame5 = ({ setIsLoading }) => {
   // Form Init
   const initialValues = {
     name: "",
-    age: "",
+    // age: "",
     point: "",
   };
 
@@ -92,7 +92,7 @@ const RankGame5 = ({ setIsLoading }) => {
                 <Input placeholder="이름을 입력해주세요" size="large" />
               </Form.Item>
             </Form.Item>
-            <Form.Item label="나이" required className="form-item-wrap">
+            {/* <Form.Item label="나이" required className="form-item-wrap">
               <Form.Item
                 name="age"
                 rules={[
@@ -104,7 +104,7 @@ const RankGame5 = ({ setIsLoading }) => {
               >
                 <Input placeholder="나이를 입력해주세요" size="large" inputmode="numeric" pattern="[0-9]*" disabled/>
               </Form.Item>
-            </Form.Item>
+            </Form.Item> */}
             <Form.Item label="점수" required className="form-item-wrap">
               <Form.Item
                 name="point"
