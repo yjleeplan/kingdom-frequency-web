@@ -118,3 +118,45 @@ export const createRank = ({ data }) => {
     headers(),
   );
 };
+
+export const createRankStack = ({ data }) => {
+  return request.post("/rank/stack",
+    data,
+    headers(),
+  );
+};
+
+export const listTeam = ({ query }) => {
+  return request.get(`/team`, {
+    params: query,
+    ...headers(),
+  });
+};
+
+export const listCountry = ({ query }) => {
+  return request.get(`/country`, {
+    params: query,
+    ...headers(),
+  });
+};
+
+export const addCountry = ({ data }) => {
+  return request.post("/country",
+    data,
+    headers(),
+  );
+};
+
+export const updateCurrent = ({ data }) => {
+  return request.put("/team/current",
+    data,
+    headers(),
+  );
+};
+
+export const deleteCountry = ({ query }) => {
+  return request.delete(`/country`, {
+    params: query,
+    ...headers(),
+  });
+};

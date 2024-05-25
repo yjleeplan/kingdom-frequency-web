@@ -30,7 +30,7 @@ const RankGame2 = ({ setIsLoading }) => {
     const params = {
       type: "2",
       name: values.name,
-      age: values.age,
+      age: 0,
       point: values.point,
     };
 
@@ -67,7 +67,7 @@ const RankGame2 = ({ setIsLoading }) => {
   return (
     <>
       <Row className="rank-game-head">
-        <Col span={24}>선교를 향하여 ~ 골링!!</Col>
+        <Col span={24}>복음투수</Col>
       </Row>
       <Row className="rank-game-body">
         <Col span={24}>
@@ -97,12 +97,12 @@ const RankGame2 = ({ setIsLoading }) => {
                 name="age"
                 rules={[
                 {
-                    required: true,
+                    required: false,
                     message: "나이를 입력해주세요",
                 },
                 ]}
               >
-                <Input placeholder="나이를 입력해주세요" size="large" inputmode="numeric" pattern="[0-9]*"/>
+                <Input placeholder="나이를 입력해주세요" size="large" inputmode="numeric" pattern="[0-9]*" disabled/>
               </Form.Item>
             </Form.Item>
             <Form.Item label="점수" required className="form-item-wrap">
