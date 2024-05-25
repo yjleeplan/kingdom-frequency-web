@@ -7,9 +7,7 @@ const RankGame1 = ({ setIsLoading }) => {
   const initialValues = {
     name: "",
     age: "",
-    point1: "",
-    point2: "",
-    point3: ""
+    point: ""
   };
 
   let timer;
@@ -32,8 +30,8 @@ const RankGame1 = ({ setIsLoading }) => {
     const params = {
       type: "1",
       name: values.name,
-      age: values.age,
-      point: Number(values.point1) + Number(values.point2) + Number(values.point3),
+      age: 0,
+      point: values.point,
     };
 
     Modal.confirm({
@@ -69,7 +67,7 @@ const RankGame1 = ({ setIsLoading }) => {
   return (
     <>
       <Row className="rank-game-head">
-        <Col span={24}>미니게임 3종</Col>
+        <Col span={24}>높이 더 높이</Col>
       </Row>
       <Row className="rank-game-body">
         <Col span={24}>
@@ -99,61 +97,25 @@ const RankGame1 = ({ setIsLoading }) => {
                 name="age"
                 rules={[
                 {
-                    required: true,
+                    required: false,
                     message: "나이를 입력해주세요",
                 },
                 ]}
               >
-                <Input placeholder="나이를 입력해주세요" size="large" inputmode="numeric" pattern="[0-9]*"/>
+                <Input placeholder="나이를 입력해주세요" size="large" inputmode="numeric" pattern="[0-9]*" disabled/>
               </Form.Item>
             </Form.Item>
             <Form.Item label="점수" required className="form-item-wrap">
               <Form.Item
-                name="point1"
+                name="point"
                 rules={[
                 {
                     required: true,
                     message: "점수를 입력해주세요",
                 },
                 ]}
-                style={{
-                  display: 'inline-block',
-                  width: '32%',
-                }}
               >
-                <Input placeholder="게임1" size="large" inputmode="numeric" pattern="[0-9]*"/>
-              </Form.Item>
-              <Form.Item
-                name="point2"
-                rules={[
-                {
-                    required: true,
-                    message: "점수를 입력해주세요",
-                },
-                ]}
-                style={{
-                  display: 'inline-block',
-                  width: '32%',
-                  marginLeft: '2%'
-                }}
-              >
-                <Input placeholder="게임2" size="large" inputmode="numeric" pattern="[0-9]*"/>
-              </Form.Item>
-              <Form.Item
-                name="point3"
-                rules={[
-                {
-                    required: true,
-                    message: "점수를 입력해주세요",
-                },
-                ]}
-                style={{
-                  display: 'inline-block',
-                  width: '32%',
-                  marginLeft: '2%'
-                }}
-              >
-                <Input placeholder="게임3" size="large" inputmode="numeric" pattern="[0-9]*"/>
+                <Input placeholder="점수를 입력해주세요" size="large" inputmode="numeric" pattern="[0-9]*"/>
               </Form.Item>
             </Form.Item>
           </Form>

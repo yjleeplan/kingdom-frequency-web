@@ -1,23 +1,12 @@
-import { Form, Input, message, Modal, Row, Col, Button, Select } from "antd";
+import { Form, Input, message, Modal, Row, Col, Button } from "antd";
 import React from "react";
 import * as api from "../../../api";
-
-// Select Options
-const options = [
-  { label: "믿사조", value: "믿사조" },
-  { label: "짱2조", value: "짱2조" },
-  { label: "나사로", value: "나사로" },
-  { label: "믿음의 방패조", value: "믿음의 방패조" },
-  { label: "믿음", value: "믿음" },
-  { label: "행복", value: "행복" },
-  { label: "럭키", value: "럭키" },
-  { label: "믿음8조", value: "믿음8조" },
-];
 
 const RankGame4 = ({ setIsLoading }) => {
   // Form Init
   const initialValues = {
-    name: null,
+    name: "",
+    age: "",
     point: "",
   };
 
@@ -39,9 +28,10 @@ const RankGame4 = ({ setIsLoading }) => {
   // Form Submit
   const onFinish = (values) => {
     const params = {
-      type: "1",
+      type: "4",
       name: values.name,
-      point: Number(values.point),
+      age: 0,
+      point: values.point,
     };
 
     Modal.confirm({
@@ -54,7 +44,7 @@ const RankGame4 = ({ setIsLoading }) => {
           timer = setTimeout(() => {
             setIsLoading(true);
           }, 800);
-          await api.createRankStack({
+          await api.createRank({
             data: params,
           });
 
@@ -77,7 +67,7 @@ const RankGame4 = ({ setIsLoading }) => {
   return (
     <>
       <Row className="rank-game-head">
-        <Col span={24}>나는 믿음의 사람!</Col>
+        <Col span={24}>적그리스도를 저격</Col>
       </Row>
       <Row className="rank-game-body">
         <Col span={24}>
@@ -88,22 +78,31 @@ const RankGame4 = ({ setIsLoading }) => {
             onFinish={onFinish}
             labelCol={{ span: 4 }}
           >
-            <Form.Item label="조 선택" required className="form-item-wrap">
+            <Form.Item label="이름" required className="form-item-wrap">
               <Form.Item
                 className="form-item-inner-wrap"
                 name="name"
                 rules={[
                 {
                     required: true,
-                    message: "조를 입력해주세요",
+                    message: "이름을 입력해주세요",
                 },
                 ]}
               >
-                <Select
-                  placeholder="조를 선택해주세요"
-                  options={options}
-                  size="large"
-                />
+                <Input placeholder="이름을 입력해주세요" size="large" />
+              </Form.Item>
+            </Form.Item>
+            <Form.Item label="나이" required className="form-item-wrap">
+              <Form.Item
+                name="age"
+                rules={[
+                {
+                    required: false,
+                    message: "나이를 입력해주세요",
+                },
+                ]}
+              >
+                <Input placeholder="나이를 입력해주세요" size="large" inputmode="numeric" pattern="[0-9]*" disabled/>
               </Form.Item>
             </Form.Item>
             <Form.Item label="점수" required className="form-item-wrap">

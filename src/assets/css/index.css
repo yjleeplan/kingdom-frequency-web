@@ -22,6 +22,9 @@ body,
   --color-3-1: #7935FE;
   --color-3-2: #987BD0;
   --color-4-1: #1677ff;
+  --color-5-1: #ff7212;
+  --color-6-1: #ffbd48;
+  --color-7-1: #6cd848;
   --color-0: #A9A9A9;
   --vh: 100%;
 }
@@ -75,6 +78,9 @@ p {
 }
 .mt-20 {
   margin-top: 20px;
+}
+.mt-30 {
+  margin-top: 30px;
 }
 .mb-20 {
   margin-bottom: 20px;
@@ -1103,11 +1109,48 @@ p {
   top: 35px;
 }
 
+#rank-layout .icon-game-basketball {
+  position: absolute;
+  top: 62px;
+  left: 430px;
+  z-index: 100;
+}
+#rank-layout .icon-game-baseball {
+  position: absolute;
+  top: 220px;
+  left: 925px;
+  z-index: 100;
+}
+#rank-layout .icon-game-dart {
+  position: absolute;
+  top: 120px;
+  left: 1400px;
+  z-index: 100;
+}
+#rank-layout .icon-game-shoot {
+  position: absolute;
+  top: 645px;
+  right: 490px;
+  z-index: 100;
+}
+#rank-layout .icon-game-paper {
+  position: absolute;
+  top: 595px;
+  left: 410px;
+  z-index: 100;
+}
+#rank-layout .icon-game-golf {
+  position: absolute;
+  top: 635px;
+  left: 440px;
+  z-index: 100;
+}
+
 #rank-layout .rank-header {
   font-family: "ChangwonDangamAsac-Bold";
   font-size: 60px;
   text-align: center;
-  padding: 60px 0;
+  padding: 20px 0 22px 0;
 }
 
 #rank-layout .rank-header span {
@@ -1115,7 +1158,7 @@ p {
   top: 20px;
   display: inline-block;
   animation: bounce .4s ease infinite alternate;
-  font-size: 80px;
+  font-size: 110px;
   color: #FFF;
   text-shadow: 
         -2px 0 #000, 0 2px #000, 2px 0 #000, 0 -2px #000,
@@ -1156,19 +1199,20 @@ p {
   border-right: 10px solid;
   border-top: 4px solid;
   border-bottom: 10px solid;
-  min-height: 760px;
+  min-height: 390px;
+  max-height: 390px;
 }
 
 #rank-layout .ant-card-head {
   font-family: "ChangwonDangamAsac-Bold";
-  font-size: 44px;
+  font-size: 60px;
   text-align: center;
-  border-bottom: 0;
-  padding: 20px 10px;
+  padding: 20px 10px 10px 10px;
 }
-
-#rank-layout .rank-card-3 .ant-card-head {
-  padding-bottom: 0;
+#rank-layout .rank-card-2 .ant-card-head,
+#rank-layout .rank-card-3 .ant-card-head,
+#rank-layout .rank-card-6 .ant-card-head {
+  padding: 10px 10px 0px 10px;
 }
 
 #rank-layout .rank-card-1 .ant-card-head .ant-card-head-title {
@@ -1176,16 +1220,46 @@ p {
 }
 #rank-layout .rank-card-2 .ant-card-head .ant-card-head-title {
   color: var(--color-2-1);
+  padding: 0;
+  font-size: 50px;
 }
 #rank-layout .rank-card-3 .ant-card-head .ant-card-head-title {
   color: var(--color-3-1);
   padding: 0;
-  font-size: 39px;
+  font-size: 50px;
+}
+#rank-layout .rank-card-4 .ant-card-head .ant-card-head-title {
+  color: var(--color-5-1);
+  font-size: 55px;
+}
+#rank-layout .rank-card-5 .ant-card-head .ant-card-head-title {
+  color: var(--color-6-1);
+}
+#rank-layout .rank-card-6 .ant-card-head .ant-card-head-title {
+  color: var(--color-7-1);
+  padding: 0;
+  font-size: 50px;
+}
+#rank-layout .rank-card-2 .ant-card-head .ant-card-head-title .ant-row:nth-child(2),
+#rank-layout .rank-card-3 .ant-card-head .ant-card-head-title .ant-row:nth-child(2),
+#rank-layout .rank-card-6 .ant-card-head .ant-card-head-title .ant-row:nth-child(2) {
+  position: relative;
+  top: -20px;
+}
+#rank-layout .rank-card-2 .ant-card-body,
+#rank-layout .rank-card-6 .ant-card-body {
+  position: relative;
+  top: -20px;
+}
+#rank-layout .rank-card-3 .ant-card-body {
+  position: relative;
+  top: -10px;
 }
 
 #rank-layout .ant-card-body {
   font-family: "GmarketSansTTFLight";
   font-size: 28px;
+  padding-top: 0;
 }
 
 #rank-layout .ant-card-body .rank-list-data-row {
@@ -1200,7 +1274,7 @@ p {
   border: 2px solid var(--color-1-1);
 }
 #rank-layout .rank-card-1 .ant-card-body .rank-list-data-row.rank2 {
-  border: 2px solid var(--color-1-2);
+  border: 2px solid var(--color-0);
 }
 #rank-layout .rank-card-1 .ant-card-body .rank-list-data-row.rank3 {
   border: 2px solid var(--color-0);
@@ -1209,7 +1283,7 @@ p {
   border: 2px solid var(--color-2-1);
 }
 #rank-layout .rank-card-2 .ant-card-body .rank-list-data-row.rank2 {
-  border: 2px solid var(--color-2-2);
+  border: 2px solid var(--color-0);
 }
 #rank-layout .rank-card-2 .ant-card-body .rank-list-data-row.rank3 {
   border: 2px solid var(--color-0);
@@ -1218,9 +1292,36 @@ p {
   border: 2px solid var(--color-3-1);
 }
 #rank-layout .rank-card-3 .ant-card-body .rank-list-data-row.rank2 {
-  border: 2px solid var(--color-3-2);
+  border: 2px solid var(--color-0);
 }
 #rank-layout .rank-card-3 .ant-card-body .rank-list-data-row.rank3 {
+  border: 2px solid var(--color-0);
+}
+#rank-layout .rank-card-4 .ant-card-body .rank-list-data-row.rank1 {
+  border: 2px solid var(--color-5-1);
+}
+#rank-layout .rank-card-4 .ant-card-body .rank-list-data-row.rank2 {
+  border: 2px solid var(--color-0);
+}
+#rank-layout .rank-card-4 .ant-card-body .rank-list-data-row.rank3 {
+  border: 2px solid var(--color-0);
+}
+#rank-layout .rank-card-5 .ant-card-body .rank-list-data-row.rank1 {
+  border: 2px solid var(--color-6-1);
+}
+#rank-layout .rank-card-5 .ant-card-body .rank-list-data-row.rank2 {
+  border: 2px solid var(--color-0);
+}
+#rank-layout .rank-card-5 .ant-card-body .rank-list-data-row.rank3 {
+  border: 2px solid var(--color-0);
+}
+#rank-layout .rank-card-6 .ant-card-body .rank-list-data-row.rank1 {
+  border: 2px solid var(--color-7-1);
+}
+#rank-layout .rank-card-6 .ant-card-body .rank-list-data-row.rank2 {
+  border: 2px solid var(--color-0);
+}
+#rank-layout .rank-card-6 .ant-card-body .rank-list-data-row.rank3 {
   border: 2px solid var(--color-0);
 }
 
@@ -1239,7 +1340,7 @@ p {
   background: var(--color-1-1);
 }
 #rank-layout .rank-card-1 .ant-card-body .rank-list-data-row.rank2 .rank-list-data-col-1 {
-  background: var(--color-1-2);
+  background: var(--color-0);
 }
 #rank-layout .rank-card-1 .ant-card-body .rank-list-data-row.rank3 .rank-list-data-col-1 {
   background: var(--color-0);
@@ -1248,7 +1349,7 @@ p {
   background: var(--color-2-1);
 }
 #rank-layout .rank-card-2 .ant-card-body .rank-list-data-row.rank2 .rank-list-data-col-1 {
-  background: var(--color-2-2);
+  background: var(--color-0);
 }
 #rank-layout .rank-card-2 .ant-card-body .rank-list-data-row.rank3 .rank-list-data-col-1 {
   background: var(--color-0);
@@ -1257,9 +1358,36 @@ p {
   background: var(--color-3-1);
 }
 #rank-layout .rank-card-3 .ant-card-body .rank-list-data-row.rank2 .rank-list-data-col-1 {
-  background: var(--color-3-2);
+  background: var(--color-0);
 }
 #rank-layout .rank-card-3 .ant-card-body .rank-list-data-row.rank3 .rank-list-data-col-1 {
+  background: var(--color-0);
+}
+#rank-layout .rank-card-4 .ant-card-body .rank-list-data-row.rank1 .rank-list-data-col-1 {
+  background: var(--color-5-1);
+}
+#rank-layout .rank-card-4 .ant-card-body .rank-list-data-row.rank2 .rank-list-data-col-1 {
+  background: var(--color-0);
+}
+#rank-layout .rank-card-4 .ant-card-body .rank-list-data-row.rank3 .rank-list-data-col-1 {
+  background: var(--color-0);
+}
+#rank-layout .rank-card-5 .ant-card-body .rank-list-data-row.rank1 .rank-list-data-col-1 {
+  background: var(--color-6-1);
+}
+#rank-layout .rank-card-5 .ant-card-body .rank-list-data-row.rank2 .rank-list-data-col-1 {
+  background: var(--color-0);
+}
+#rank-layout .rank-card-5 .ant-card-body .rank-list-data-row.rank3 .rank-list-data-col-1 {
+  background: var(--color-0);
+}
+#rank-layout .rank-card-6 .ant-card-body .rank-list-data-row.rank1 .rank-list-data-col-1 {
+  background: var(--color-7-1);
+}
+#rank-layout .rank-card-6 .ant-card-body .rank-list-data-row.rank2 .rank-list-data-col-1 {
+  background: var(--color-0);
+}
+#rank-layout .rank-card-6 .ant-card-body .rank-list-data-row.rank3 .rank-list-data-col-1 {
   background: var(--color-0);
 }
 
@@ -1314,9 +1442,9 @@ p {
 @keyframes color-change-5x-1-2 {
   0% { background: #FFF; color: #000; }
   25% { background: #FFF; color: #000; }
-  50% { background: var(--color-1-2); color: #FFF; }
-  75% { background: var(--color-1-2); color: #FFF; }
-  100% { background: var(--color-1-2); color: #FFF; }
+  50% { background: var(--color-0); color: #FFF; }
+  75% { background: var(--color-0); color: #FFF; }
+  100% { background: var(--color-0); color: #FFF; }
 }
 @keyframes color-change-5x-1-3 {
   0% { background: #FFF; color: #000; }
@@ -1345,9 +1473,9 @@ p {
 @keyframes color-change-5x-2-2 {
   0% { background: #FFF; color: #000; }
   25% { background: #FFF; color: #000; }
-  50% { background: var(--color-2-2); color: #FFF; }
-  75% { background: var(--color-2-2); color: #FFF; }
-  100% { background: var(--color-2-2); color: #FFF; }
+  50% { background: var(--color-0); color: #FFF; }
+  75% { background: var(--color-0); color: #FFF; }
+  100% { background: var(--color-0); color: #FFF; }
 }
 @keyframes color-change-5x-2-3 {
   0% { background: #FFF; color: #000; }
@@ -1376,11 +1504,104 @@ p {
 @keyframes color-change-5x-3-2 {
   0% { background: #FFF; color: #000; }
   25% { background: #FFF; color: #000; }
-  50% { background: var(--color-3-2); color: #FFF; }
-  75% { background: var(--color-3-2); color: #FFF; }
-  100% { background: var(--color-3-2); color: #FFF; }
+  50% { background: var(--color-0); color: #FFF; }
+  75% { background: var(--color-0); color: #FFF; }
+  100% { background: var(--color-0); color: #FFF; }
 }
 @keyframes color-change-5x-3-3 {
+  0% { background: #FFF; color: #000; }
+  25% { background: #FFF; color: #000; }
+  50% { background: var(--color-0); color: #FFF; }
+  75% { background: var(--color-0); color: #FFF; }
+  100% { background: var(--color-0); color: #FFF; }
+}
+
+#rank-layout .rank-card-4 .ant-card-body .rank-list-data-row.rank1 {
+	animation: color-change-5x-4-1 5s linear infinite alternate both;
+}
+#rank-layout .rank-card-4 .ant-card-body .rank-list-data-row.rank2 {
+	animation: color-change-5x-4-2 5s linear infinite alternate both;
+}
+#rank-layout .rank-card-4 .ant-card-body .rank-list-data-row.rank3 {
+	animation: color-change-5x-4-3 5s linear infinite alternate both;
+}
+@keyframes color-change-5x-4-1 {
+  0% { background: #FFF; color: #000; }
+  25% { background: #FFF; color: #000; }
+  50% { background: var(--color-5-1); color: #FFF; }
+  75% { background: var(--color-5-1); color: #FFF; }
+  100% { background: var(--color-5-1); color: #FFF; }
+}
+@keyframes color-change-5x-4-2 {
+  0% { background: #FFF; color: #000; }
+  25% { background: #FFF; color: #000; }
+  50% { background: var(--color-0); color: #FFF; }
+  75% { background: var(--color-0); color: #FFF; }
+  100% { background: var(--color-0); color: #FFF; }
+}
+@keyframes color-change-5x-4-3 {
+  0% { background: #FFF; color: #000; }
+  25% { background: #FFF; color: #000; }
+  50% { background: var(--color-0); color: #FFF; }
+  75% { background: var(--color-0); color: #FFF; }
+  100% { background: var(--color-0); color: #FFF; }
+}
+
+#rank-layout .rank-card-5 .ant-card-body .rank-list-data-row.rank1 {
+	animation: color-change-5x-5-1 5s linear infinite alternate both;
+}
+#rank-layout .rank-card-5 .ant-card-body .rank-list-data-row.rank2 {
+	animation: color-change-5x-5-2 5s linear infinite alternate both;
+}
+#rank-layout .rank-card-5 .ant-card-body .rank-list-data-row.rank3 {
+	animation: color-change-5x-5-3 5s linear infinite alternate both;
+}
+@keyframes color-change-5x-5-1 {
+  0% { background: #FFF; color: #000; }
+  25% { background: #FFF; color: #000; }
+  50% { background: var(--color-6-1); color: #FFF; }
+  75% { background: var(--color-6-1); color: #FFF; }
+  100% { background: var(--color-6-1); color: #FFF; }
+}
+@keyframes color-change-5x-5-2 {
+  0% { background: #FFF; color: #000; }
+  25% { background: #FFF; color: #000; }
+  50% { background: var(--color-0); color: #FFF; }
+  75% { background: var(--color-0); color: #FFF; }
+  100% { background: var(--color-0); color: #FFF; }
+}
+@keyframes color-change-5x-5-3 {
+  0% { background: #FFF; color: #000; }
+  25% { background: #FFF; color: #000; }
+  50% { background: var(--color-0); color: #FFF; }
+  75% { background: var(--color-0); color: #FFF; }
+  100% { background: var(--color-0); color: #FFF; }
+}
+
+#rank-layout .rank-card-6 .ant-card-body .rank-list-data-row.rank1 {
+	animation: color-change-5x-6-1 5s linear infinite alternate both;
+}
+#rank-layout .rank-card-6 .ant-card-body .rank-list-data-row.rank2 {
+	animation: color-change-5x-6-2 5s linear infinite alternate both;
+}
+#rank-layout .rank-card-6 .ant-card-body .rank-list-data-row.rank3 {
+	animation: color-change-5x-6-3 5s linear infinite alternate both;
+}
+@keyframes color-change-5x-6-1 {
+  0% { background: #FFF; color: #000; }
+  25% { background: #FFF; color: #000; }
+  50% { background: var(--color-7-1); color: #FFF; }
+  75% { background: var(--color-7-1); color: #FFF; }
+  100% { background: var(--color-7-1); color: #FFF; }
+}
+@keyframes color-change-5x-6-2 {
+  0% { background: #FFF; color: #000; }
+  25% { background: #FFF; color: #000; }
+  50% { background: var(--color-0); color: #FFF; }
+  75% { background: var(--color-0); color: #FFF; }
+  100% { background: var(--color-0); color: #FFF; }
+}
+@keyframes color-change-5x-6-3 {
   0% { background: #FFF; color: #000; }
   25% { background: #FFF; color: #000; }
   50% { background: var(--color-0); color: #FFF; }
@@ -1415,7 +1636,7 @@ p {
   background-position: center;
 }
 #rank-game-layout.type-2 {
-  background-image: url(/src/assets/images/bg_golf.jpg);
+  background-image: url(/src/assets/images/bg_baseball.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -1427,7 +1648,19 @@ p {
   background-position: center;
 }
 #rank-game-layout.type-4 {
-  background-image: url(/src/assets/images/bg_childhood.jpg);
+  background-image: url(/src/assets/images/bg_shoot.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+#rank-game-layout.type-5 {
+  background-image: url(/src/assets/images/bg_paper.webp);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+#rank-game-layout.type-6 {
+  background-image: url(/src/assets/images/bg_golf.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -1440,6 +1673,12 @@ p {
   padding: 40px 0;
 }
 #rank-game-layout.type-3 .rank-game-head {
+  font-size: 28px;
+}
+#rank-game-layout.type-5 .rank-game-head {
+  font-size: 28px;
+}
+#rank-game-layout.type-6 .rank-game-head {
   font-size: 28px;
 }
 
@@ -1455,8 +1694,8 @@ p {
   text-shadow: 
         -2px 0 #000, 0 2px #000, 2px 0 #000, 0 -2px #000,
         1px 1px #000, 2px 2px #000,
-        3px 3px var(--color-2-1), 4px 4px var(--color-2-1),
-        5px 5px var(--color-2-1), 6px 6px var(--color-2-1),
+        3px 3px var(--color-6-1), 4px 4px var(--color-6-1),
+        5px 5px var(--color-6-1), 6px 6px var(--color-6-1),
         7px 7px #000, 8px 8px #000;
 }
 #rank-game-layout.type-3 .rank-game-head {
@@ -1471,8 +1710,24 @@ p {
   text-shadow: 
         -2px 0 #000, 0 2px #000, 2px 0 #000, 0 -2px #000,
         1px 1px #000, 2px 2px #000,
-        3px 3px var(--color-4-1), 4px 4px var(--color-4-1),
-        5px 5px var(--color-4-1), 6px 6px var(--color-4-1),
+        3px 3px var(--color-5-1), 4px 4px var(--color-5-1),
+        5px 5px var(--color-5-1), 6px 6px var(--color-5-1),
+        7px 7px #000, 8px 8px #000;
+}
+#rank-game-layout.type-5 .rank-game-head {
+  text-shadow: 
+        -2px 0 #000, 0 2px #000, 2px 0 #000, 0 -2px #000,
+        1px 1px #000, 2px 2px #000,
+        3px 3px var(--color-7-1), 4px 4px var(--color-7-1),
+        5px 5px var(--color-7-1), 6px 6px var(--color-7-1),
+        7px 7px #000, 8px 8px #000;
+}
+#rank-game-layout.type-6 .rank-game-head {
+  text-shadow: 
+        -2px 0 #000, 0 2px #000, 2px 0 #000, 0 -2px #000,
+        1px 1px #000, 2px 2px #000,
+        3px 3px var(--color-2-1), 4px 4px var(--color-2-1),
+        5px 5px var(--color-2-1), 6px 6px var(--color-2-1),
         7px 7px #000, 8px 8px #000;
 }
 
@@ -1513,16 +1768,24 @@ p {
   border: 1px solid var(--color-1-1);
 }
 #rank-game-layout.type-2 .rank-game-foot button {
-  background: var(--color-2-1);
-  border: 1px solid var(--color-2-1);
+  background: var(--color-6-1);
+  border: 1px solid var(--color-6-1);
 }
 #rank-game-layout.type-3 .rank-game-foot button {
   background: var(--color-3-1);
   border: 1px solid var(--color-3-1);
 }
 #rank-game-layout.type-4 .rank-game-foot button {
-  background: var(--color-4-1);
-  border: 1px solid var(--color-4-1);
+  background: var(--color-5-1);
+  border: 1px solid var(--color-5-1);
+}
+#rank-game-layout.type-5 .rank-game-foot button {
+  background: var(--color-7-1);
+  border: 1px solid var(--color-7-1);
+}
+#rank-game-layout.type-6 .rank-game-foot button {
+  background: var(--color-2-1);
+  border: 1px solid var(--color-2-1);
 }
 /* Rank Game*/
 
