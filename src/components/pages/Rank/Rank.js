@@ -45,7 +45,7 @@ const Rank = ({ setIsLoading }) => {
       <Image className="icon-game-baseball" width={150} src={iconBaseball} preview={false}/>
       <Image className="icon-game-dart" width={160} src={iconDart} preview={false}/>
       <Image className="icon-game-shoot" width={170} src={iconShoot} preview={false}/>
-      <Image className="icon-game-paper" width={170} src={iconPaper} preview={false}/>
+      <Image className="icon-game-paper" width={200} src={iconPaper} preview={false}/>
       <Image className="icon-game-golf" width={170} src={iconGolf} preview={false}/>
       <Row className="rank-header">
         <Col span={24}>

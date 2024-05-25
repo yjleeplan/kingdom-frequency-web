@@ -1136,13 +1136,13 @@ p {
 #rank-layout .icon-game-paper {
   position: absolute;
   top: 595px;
-  left: 410px;
+  left: 420px;
   z-index: 100;
 }
 #rank-layout .icon-game-golf {
   position: absolute;
   top: 635px;
-  left: 440px;
+  left: 410px;
   z-index: 100;
 }
 
