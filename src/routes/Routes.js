@@ -27,6 +27,8 @@ import RankGame3 from "../components/pages/Rank/RankGame3";
 import RankGame4 from "../components/pages/Rank/RankGame4";
 import RankGame5 from "../components/pages/Rank/RankGame5";
 import RankGame6 from "../components/pages/Rank/RankGame6";
+import RankGame7 from "../components/pages/Rank/RankGame7";
+import RankGame8 from "../components/pages/Rank/RankGame8";
 import RankDetail from "../components/pages/Rank/RankDetail";
 import Rank from "../components/pages/Rank/Rank";
 import Childhood from "../components/pages/Childhood/Childhood";
@@ -265,6 +267,24 @@ const Routes = () => {
               render={(props) => (
                 <RankGameLayout isLoading={isLoading} type={6}>
                   <RankGame6 {...props} setIsLoading={setIsLoading} />
+                </RankGameLayout>
+              )}
+            />
+            <Route
+              exact
+              path="/rank/game7"
+              render={(props) => (
+                <RankGameLayout isLoading={isLoading} type={7}>
+                  <RankGame7 {...props} setIsLoading={setIsLoading} />
+                </RankGameLayout>
+              )}
+            />
+            <Route
+              exact
+              path="/rank/game8"
+              render={(props) => (
+                <RankGameLayout isLoading={isLoading} type={8}>
+                  <RankGame8 {...props} setIsLoading={setIsLoading} />
                 </RankGameLayout>
               )}
             />
