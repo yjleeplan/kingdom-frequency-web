@@ -1093,8 +1093,8 @@ p {
   height: 100%;
   width: 100%;
   position: fixed;
-  background-color: #FFD600;
-  background-image: linear-gradient(#FFBB00 1px, transparent 1px), linear-gradient(to right, #FFBB00 1px, #FFD600 1px);
+  background-color: #2660FF;
+  background-image: linear-gradient(#2660AF 1px, transparent 1px), linear-gradient(to right, #2660AF 1px, #2660FF 1px);
   background-size: 80px 80px;
 }
 
@@ -1112,7 +1112,7 @@ p {
 #rank-layout .icon-game-basketball {
   position: absolute;
   top: 62px;
-  left: 430px;
+  left: 370px;
   z-index: 100;
 }
 #rank-layout .icon-game-baseball {
@@ -1145,6 +1145,18 @@ p {
   left: 410px;
   z-index: 100;
 }
+#rank-layout .icon-game-punch {
+  position: absolute;
+  top: 200px;
+  left: 900px;
+  z-index: 100;
+}
+#rank-layout .icon-game-mole {
+  position: absolute;
+  top: 72px;
+  left: 1378px;
+  z-index: 100;
+}
 
 #rank-layout .rank-header {
   font-family: "ChangwonDangamAsac-Bold";
@@ -1163,8 +1175,8 @@ p {
   text-shadow: 
         -2px 0 #000, 0 2px #000, 2px 0 #000, 0 -2px #000,
         1px 1px #000, 2px 2px #000,
-        3px 3px #ED4C00, 4px 4px #ED4C00,
-        5px 5px #ED4C00, 6px 6px #ED4C00,
+        3px 3px #FFBD48, 4px 4px #FFBD48,
+        5px 5px #FFBD48, 6px 6px #FFBD48,
         7px 7px #000, 8px 8px #000;
 }
 
@@ -1187,8 +1199,8 @@ p {
     text-shadow: 
         -2px 0 #000, 0 2px #000, 2px 0 #000, 0 -2px #000,
         1px 1px #000, 2px 2px #000,
-        3px 3px #ED4C00, 4px 4px #ED4C00,
-        5px 5px #ED4C00, 6px 6px #ED4C00,
+        3px 3px #FFBD48, 4px 4px #FFBD48,
+        5px 5px #FFBD48, 6px 6px #FFBD48,
         7px 7px #000, 8px 8px #000;
   }
 }
@@ -1199,8 +1211,7 @@ p {
   border-right: 10px solid;
   border-top: 4px solid;
   border-bottom: 10px solid;
-  min-height: 390px;
-  max-height: 390px;
+  min-height: 760px;
 }
 
 #rank-layout .ant-card-head {
@@ -1208,10 +1219,9 @@ p {
   font-size: 60px;
   text-align: center;
   padding: 20px 10px 10px 10px;
+  border-bottom: none;
 }
-#rank-layout .rank-card-2 .ant-card-head,
-#rank-layout .rank-card-3 .ant-card-head,
-#rank-layout .rank-card-6 .ant-card-head {
+#rank-layout .rank-card-2 .ant-card-head {
   padding: 10px 10px 0px 10px;
 }
 
@@ -1225,8 +1235,6 @@ p {
 }
 #rank-layout .rank-card-3 .ant-card-head .ant-card-head-title {
   color: var(--color-3-1);
-  padding: 0;
-  font-size: 50px;
 }
 #rank-layout .rank-card-4 .ant-card-head .ant-card-head-title {
   color: var(--color-5-1);
@@ -1237,24 +1245,12 @@ p {
 }
 #rank-layout .rank-card-6 .ant-card-head .ant-card-head-title {
   color: var(--color-7-1);
-  padding: 0;
-  font-size: 50px;
 }
-#rank-layout .rank-card-2 .ant-card-head .ant-card-head-title .ant-row:nth-child(2),
-#rank-layout .rank-card-3 .ant-card-head .ant-card-head-title .ant-row:nth-child(2),
-#rank-layout .rank-card-6 .ant-card-head .ant-card-head-title .ant-row:nth-child(2) {
+#rank-layout .rank-card-2 .ant-card-head .ant-card-head-title .ant-row:nth-child(2){
   position: relative;
   top: -20px;
 }
 #rank-layout .rank-card-2 .ant-card-body,
-#rank-layout .rank-card-6 .ant-card-body {
-  position: relative;
-  top: -20px;
-}
-#rank-layout .rank-card-3 .ant-card-body {
-  position: relative;
-  top: -10px;
-}
 
 #rank-layout .ant-card-body {
   font-family: "GmarketSansTTFLight";
@@ -1665,6 +1661,18 @@ p {
   background-size: cover;
   background-position: center;
 }
+#rank-game-layout.type-7 {
+  background-image: url(/src/assets/images/bg_punch.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+#rank-game-layout.type-8 {
+  background-image: url(/src/assets/images/bg_mole.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
 
 #rank-game-layout .rank-game-head {
   font-size: 32px;
@@ -1730,6 +1738,22 @@ p {
         5px 5px var(--color-2-1), 6px 6px var(--color-2-1),
         7px 7px #000, 8px 8px #000;
 }
+#rank-game-layout.type-7 .rank-game-head {
+  text-shadow: 
+        -2px 0 #000, 0 2px #000, 2px 0 #000, 0 -2px #000,
+        1px 1px #000, 2px 2px #000,
+        3px 3px var(--color-7-1), 4px 4px var(--color-7-1),
+        5px 5px var(--color-7-1), 6px 6px var(--color-7-1),
+        7px 7px #000, 8px 8px #000;
+}
+#rank-game-layout.type-8 .rank-game-head {
+  text-shadow: 
+        -2px 0 #000, 0 2px #000, 2px 0 #000, 0 -2px #000,
+        1px 1px #000, 2px 2px #000,
+        3px 3px var(--color-3-1), 4px 4px var(--color-3-1),
+        5px 5px var(--color-3-1), 6px 6px var(--color-3-1),
+        7px 7px #000, 8px 8px #000;
+}
 
 #rank-game-layout .rank-game-body {
   width: 80%;
@@ -1786,6 +1810,14 @@ p {
 #rank-game-layout.type-6 .rank-game-foot button {
   background: var(--color-2-1);
   border: 1px solid var(--color-2-1);
+}
+#rank-game-layout.type-7 .rank-game-foot button {
+  background: var(--color-7-1);
+  border: 1px solid var(--color-7-1);
+}
+#rank-game-layout.type-8 .rank-game-foot button {
+  background: var(--color-3-1);
+  border: 1px solid var(--color-3-1);
 }
 /* Rank Game*/
 

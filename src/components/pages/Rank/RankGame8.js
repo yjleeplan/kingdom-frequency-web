@@ -2,12 +2,12 @@ import { Form, Input, message, Modal, Row, Col, Button } from "antd";
 import React from "react";
 import * as api from "../../../api";
 
-const RankGame1 = ({ setIsLoading }) => {
+const RankGame8 = ({ setIsLoading }) => {
   // Form Init
   const initialValues = {
     name: "",
     // age: "",
-    point: ""
+    point: "",
   };
 
   let timer;
@@ -28,7 +28,7 @@ const RankGame1 = ({ setIsLoading }) => {
   // Form Submit
   const onFinish = (values) => {
     const params = {
-      type: "1",
+      type: "3",
       name: values.name,
       age: 0,
       point: values.point,
@@ -67,7 +67,7 @@ const RankGame1 = ({ setIsLoading }) => {
   return (
     <>
       <Row className="rank-game-head">
-        <Col span={24}>농구</Col>
+        <Col span={24}>두더지 잡기</Col>
       </Row>
       <Row className="rank-game-body">
         <Col span={24}>
@@ -137,4 +137,4 @@ const RankGame1 = ({ setIsLoading }) => {
   );
 };
   
-export default RankGame1;
+export default RankGame8;
